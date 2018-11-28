@@ -5,9 +5,12 @@
 
 
 		<select id="getAllUserCount" resultType="int">
-			select count(u_id) from sys_user
+			select count(u_id) from user
 		</select>
 		
+		<select id="hasAdmin" resultType="boolean">
+			select name from sys_admin where name=#{param1} and pass=#{param2}
+		</select>
 		
 </mapper>
 <!-- <update id="updatePassWordByName" >

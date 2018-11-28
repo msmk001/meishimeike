@@ -18,6 +18,12 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.getAllUserCount();
 	}
+
+	@Override
+	public boolean hasAdmin(String name, String pass) {
+		// TODO Auto-generated method stub
+		return userDao.hasAdmin(name, pass);
+	}
 	
 	
 }
