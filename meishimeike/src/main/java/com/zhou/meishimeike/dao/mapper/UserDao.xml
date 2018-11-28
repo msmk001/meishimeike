@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.meishimeike.dao.UserDao">
+
+
+		<select id="getAllUserCount" resultType="int">
+			select count(u_id) from sys_user
+		</select>
+		
+		
+</mapper>
+<!-- <update id="updatePassWordByName" >
+		update 
+			sys_user 
+		set 
+			u_pass=#{param2} 
+		where
+			u_name=#{param1}
+	</update>
+	
+	<select id="getAllUser" resultType="com.zhou.entity.UserEntity">
+		select 
+			u_id as id,
+			u_name as name,
+			u_pass as pass,
+			u_sex as sex,
+			u_portrait as portrait,
+			u_email as email
+		from sys_user
+	</select>
+	
+	<insert id="addUser">
+		insert into sys_user
+		values(default,#{name},#{pass},#{sex},#{portrait},#{email})
+	</insert> -->
