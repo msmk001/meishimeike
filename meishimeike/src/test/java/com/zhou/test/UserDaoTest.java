@@ -5,11 +5,14 @@ import com.zhou.meishimeike.entity.User;
 
 public class UserDaoTest {
 	public static void main(String[] args) {
+		test02() ;
+	}
+	public static void test01() {
+		
+	}
+	public static void test02() {
 		UserDao testMapper = SqlSessionFactoryUtil.getTestMapper(UserDao.class);
-		User userEntity = new User();
-		userEntity.setName("小红");
-		userEntity.setPass("122");
-		int allUserCount = testMapper.getAllUserCount();
-		System.out.println(allUserCount);
+		boolean hasAdmin = testMapper.hasAdmin("admin","123456");
+		System.out.println(hasAdmin);
 	}
 }

@@ -12,7 +12,7 @@
 
 
 	<context:component-scan
-		base-package="com.zhou.**">
+		base-package="com.zhou.meishimeike.**">
 	</context:component-scan>
 
 	<context:annotation-config />

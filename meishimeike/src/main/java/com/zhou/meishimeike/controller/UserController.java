@@ -1,5 +1,8 @@
 package com.zhou.meishimeike.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,10 +25,29 @@ public class UserController {
 	
 	@RequestMapping("/admin_login")
 	@ResponseBody
-	public String test01(@Param("name")String name,@Param("pass")String pass) {
-		String result=null;
-		userService.hasAdmin(name, pass);
-		return result;
+	public Map test01(@Param("name")String name,@Param("pass")String pass) {
+		Map <String, Integer> map=new HashMap<>();
+		boolean hasAdmin = userService.hasAdmin(name, pass);
+		if(hasAdmin) {
+			map.put("data", 2);
+		}else {
+			map.put("data", 3);
+		}
+		return map;
 	}
+	
+	@RequestMapping("/user_login")
+	@ResponseBody
+	public Map user_login(@Param("phone")String phone,@Param("pass")String pass) {
+		Map <String, Integer> map=new HashMap<>();
+		boolean hasAdmin = userService.hasUser(phone, pass);
+		if(hasAdmin) {
+			map.put("data", 2);
+		}else {
+			map.put("data", 3);
+		}
+		return map;
+	}
+	
 	
 }
