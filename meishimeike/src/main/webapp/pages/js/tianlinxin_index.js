@@ -3,25 +3,15 @@ $(function(){
 		$("#example-navbar-collapse").toggleClass('in');
 	})
 	
-   $("#section-input").focus(function(){
-   	   $(this).css({"width":"260px"});
-   })
-    $("#section-input").blur(function(){
-   	   $(this).css({"width":"200px"});
-   })
-   
-   $("#section-input").mousemove(function(){
-   	 $(this).css({"width":"260px"});
-   })
-   $("#section-input").mouseout(function(){
-   	 $(this).css({"width":"200px"});
-   })
-   $(".nav2-a").click(function(){
-   	$(".nav2-a").siblings().css({"color":"blick"});
-   	 $(this).css({"color":"red"});
-   	 $(".nav2-a").css({"background-color":"#ffffff"});
-      $(this).css({"background-color":"#E6E6E6"}); 
-   	  
-   	  
-   })
+	setInterval(function(){
+		var imgSrc = $('#img01')[0].src;
+		var str=imgSrc.substring((imgSrc.length-6),(imgSrc.length-5))
+				
+		if(str==1){
+			$('#img01')[0].src="/meishimeike/pages/img/bg2.jpeg";
+		}else{
+			$('#img01')[0].src="/meishimeike/pages/img/bg1.jpeg";
+		}
+		
+	},3000)
 })

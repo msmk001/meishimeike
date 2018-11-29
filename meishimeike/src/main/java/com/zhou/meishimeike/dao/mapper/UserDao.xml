@@ -11,8 +11,9 @@
 		<select id="hasAdmin" resultType="boolean">
 			select count(name) from sys_admin where name=#{param1} and pass=#{param2}
 		</select>
+		
 		<select id="hasUser" resultType="boolean">
-			select count(u_id) from user where u_phone=#{param1} and u_pass=#{param2}
+			select count(u_id) from user where u_phone=#{param1} or u_eamil={param1} and u_pass=#{param2}
 		</select>
 		
 </mapper>
