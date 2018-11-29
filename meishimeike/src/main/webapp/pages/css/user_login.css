@@ -5,10 +5,7 @@
 				font-family: "微软雅黑";
 				width: 100%;
 				height: 100%;
-				background: linear-gradient(-40deg, #44ddff4a, #90cde4,#ddade8); /* 标准的语法（必须放在最后） */
-				background: -webkit-linear-gradient(-40deg, #44ddff4a, #90cde4,#ddade8); /* Safari 5.1 - 6.0 */
-    			background: -o-linear-gradient(-40deg, #44ddff4a, #90cde4,#ddade8); /* Opera 11.1 - 12.0 */
-    			background: -moz-linear-gradient(-40deg, #44ddff4a, #90cde4,#ddade8); /* Firefox 3.6 - 15 */
+				background-image:linear-gradient(-90deg, #a71c5c 0%, rgba(39, 206, 167, 0.66) 100%);
     			
     			background-repeat: no-repeat;
 			}
@@ -146,7 +143,7 @@
 					display: none;
 				}
 				#log_a1 {
-				width: 400px;
+				width:300px;
 				height: 400px;
 				padding-top: 10%;
 				}
