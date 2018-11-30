@@ -13,7 +13,20 @@
 		</select>
 		
 		<select id="hasUser" resultType="boolean">
-			select count(u_id) from user where u_phone=#{param1} or u_eamil={param1} and u_pass=#{param2}
+			select count(u_id) from user where (u_phone=#{param1} or u_email=#{param1}) and u_pass=#{param2}
+		</select>
+		
+		<select id="getUserByPhone" resultType="com.zhou.meishimeike.entity.User" >
+			select 
+				u_id as id,
+				u_name as name,
+				u_pass as pass,
+				u_email as email,
+				u_phone as phone
+			from
+				user
+			where 
+				u_phone=#{param1}
 		</select>
 		
 </mapper>

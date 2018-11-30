@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.zhou.meishimeike.dao.UserDao;
+import com.zhou.meishimeike.entity.User;
 import com.zhou.meishimeike.service.UserService;
 
 
@@ -29,5 +30,11 @@ public class UserServiceImp implements UserService {
 	public boolean hasUser(String phone, String pass) {
 		// TODO Auto-generated method stub
 		return userDao.hasUser(phone, pass);
+	}
+
+	@Override
+	public User getUserByPhone(String Phone) {
+		// TODO Auto-generated method stub
+		return userDao.getUserByPhone(Phone);
 	}
 }

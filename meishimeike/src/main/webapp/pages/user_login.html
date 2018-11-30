@@ -3,7 +3,7 @@
 
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=0.9">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>用户登录</title>
 
 <script type="text/javascript"
@@ -15,7 +15,8 @@ html, body {
 	font-family: "微软雅黑";
 	width: 100%;
 	height: 100%;
-	background: url(/meishimeike/pages/img/bc.jpg);
+	
+	background-image:linear-gradient(-90deg, #dfddde  -20%, #73baf0 100%); 
 }
 
 * {
@@ -98,7 +99,11 @@ input::-webkit-input-placeholder {
 	height: 40px;
 	width: 300px;
 }
-
+#img01{
+	outline: none;
+	border: 0;
+	height: 44px;
+}
 .deal::-webkit-inner-spin-button {
 	-webkit-appearance: none;
 }
@@ -112,6 +117,17 @@ input::-webkit-input-placeholder {
 	text-align: center;
 	padding-top: 50px;
 	width: 100%;
+}
+@media screen and (max-width:480px){
+	#log_a1 {
+    width: 100%;
+    height: 82%;
+    padding-top: 20px;
+	}
+	
+	#my_bottom {
+    	display: none;
+	}
 }
 </style>
 </head>
@@ -145,7 +161,7 @@ input::-webkit-input-placeholder {
 					<input type="text" class="inp" name="ck"
 						style="width: 48%; float: left; margin-top: 0px;" /> <img
 						style="float: left; width: 48%; margin-left: 2%;" width="80"
-						height="40px" onclick="ck1(this)" src="/meishimeike/DrawImage" />
+						height="40px" onclick="ck1(this)" id="img01" src="/meishimeike/DrawImage" />
 				</div>
 				<p style="clear: both;">
 				<div>
@@ -241,15 +257,16 @@ input::-webkit-input-placeholder {
 				success : function(d) {
 
 					var jso = JSON.parse(d);
+					
 					if (jso.data == 2) {
-						showMsg("登陆完成")
+						window.location.href="/meishimeike/pages/indexs.jsp";
 					} else {
-						showMsg("登陆失败,账号或者密码")
+						showMsg("登陆失败,账号或者密码错误")
 					}
 
 				},
 				error : function(a, b) {
-					alert(b)
+					showMsg("错误")
 				}
 			});
 

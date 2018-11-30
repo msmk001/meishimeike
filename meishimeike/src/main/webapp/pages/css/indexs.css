@@ -10,44 +10,66 @@ body {
 	padding: 0;
 }
 
-.nav2-a:nth-child(1){
-	background-color: rgba(179, 29, 167, 0.73);
-    color: #f5f5f5;
+#fen {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	color: #333;
+	font-size: 18px;
 }
-.nav2-a:nth-child(2){
+.nav2-a:hover{
+	color: #19e4c0 !important;
+	cursor: pointer;
+	transition: color 1s;
+}
+
+.nav2-a:nth-child(2) {
 	background-color: #818a34;
-    color: #f7f7f7;
+	color: #f7f7f7;
 }
-.nav2-a:nth-child(3){
-	    background-color: #bf1111;
-    color: #f7f7f7;
+
+.nav2-a:nth-child(3) {
+	background-color: #bf1111;
+	color: #f7f7f7;
 }
-.nav2-a:nth-child(4){
+
+.nav2-a:nth-child(4) {
 	background-color: #a06206;
-    color: #f2dede;
+	color: #f2dede;
 }
-.nav2-a:nth-child(5){
-	    background-color: #85af06;
-     color: #f5f5f5;
+
+.nav2-a:nth-child(5) {
+	background-color: #85af06;
+	color: #f5f5f5;
 }
-.nav2-a:nth-child(6){
+
+.nav2-a:nth-child(6) {
 	background-color: #51a020;
-    color: #f7f7f7;
+	color: #f7f7f7;
 }
-.nav2-a:nth-child(7){
+
+.nav2-a:nth-child(7) {
 	background-color: #38968d;
-    color: #f7f7f7;
+	color: #f7f7f7;
 }
-.nav2-a:nth-child(8){
-	    background-color: #14329e;
-    color: #f5f5f5;
+
+.nav2-a:nth-child(8) {
+	background-color: #14329e;
+	color: #f5f5f5;
+}
+
+.nav2-a:nth-child(9) {
+	background-color: rgba(179, 29, 167, 0.73);
+	color: #f5f5f5;
 }
 
 .caipinBoxp1 {
-	width:100%;
+	width: 100%;
 	font-size: 16px;
 	font-weight: 650;
-	white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .caipinBoxp2 {
@@ -60,13 +82,11 @@ body {
 	font-size: 13px;
 	height: 13px;
 	color: darkgray;
-	
 }
 
 .caipinBox {
-	width:50%;
-	
-	box-sizing:border-box;
+	width: 50%;
+	box-sizing: border-box;
 	padding-left: 20px;
 }
 
@@ -118,8 +138,8 @@ input::-webkit-input-placeholder {
 }
 
 #imgBox {
-	height: 180px;
-	border: 1px solid;
+	height: 277px;
+	border: 1px solid Gainsboro;
 	width: 70%;
 	margin: 10px auto;
 }
@@ -139,30 +159,25 @@ input::-webkit-input-placeholder {
 	padding: 20px;
 	width: 70%;
 	box-shadow: 0px 0px 5px 1px darkgrey;
-	    height: 94px;
-    line-height: 65px;
+	height: 94px;
+	line-height: 65px;
 	margin-top: 5px;
 }
 
-.nav2-a:hover {
-	cursor: pointer;
-}
 
-
-   
 
 .nav2-a {
-	 font-family: "微软雅黑";
-    margin: 5px;
-    border-radius: 23px;
-    text-align: center;
-    width: 9%;
-    line-height: 25px;
-    border: 1px solid #E6E6E6;
-    height: 39px;
-    color: black;
-    padding: 8px;
-    display: inline-block;
+	font-family: "微软雅黑";
+	margin: 5px;
+	border-radius: 23px;
+	text-align: center;
+	width: 9%;
+	line-height: 25px;
+	border: 1px solid #E6E6E6;
+	height: 39px;
+	color: black;
+	padding: 8px;
+	display: inline-block;
 }
 
 #nav_2>a {
@@ -236,7 +251,8 @@ input::-webkit-input-placeholder {
 }
 
 #nav_3 {
-	min-height: 600px; box-sizing : border-box;
+	min-height: 600px;
+	box-sizing: border-box;
 	background-color: #fff;
 	margin-top: 20px;
 	box-shadow: 0px 0px 5px 1px darkgrey;
@@ -252,7 +268,8 @@ input::-webkit-input-placeholder {
 }
 
 #footer1>div {
-	text-align: center; width : 70%;
+	text-align: center;
+	width: 70%;
 	height: 200px;
 	width: 70%;
 }
@@ -293,7 +310,7 @@ input::-webkit-input-placeholder {
 }
 
 .main_box:hover {
-	background-color: #f7f7f7;
+	background-color: #ddd;
 }
 
 #navs {
@@ -310,6 +327,9 @@ input::-webkit-input-placeholder {
 }
 
 @media screen and (max-width:480px) {
+	#fen {
+		display: none;
+	}
 	#imgBox {
 		height: 180px;
 		border: 0;
@@ -317,9 +337,7 @@ input::-webkit-input-placeholder {
 		margin: 23px auto;
 		margin-bottom: 0px;
 	}
-	
 	.main_box {
-		
 		width: 100%;
 	}
 	.collapse.navbar-collapse {
@@ -340,7 +358,7 @@ input::-webkit-input-placeholder {
 	}
 	#nav_2 {
 		padding: 0px;
-		margin-top:10px;
+		margin-top: 10px;
 		width: 99%;
 		line-height: 0;
 		height: 100px;
@@ -349,12 +367,19 @@ input::-webkit-input-placeholder {
 		border-bottom: 1px solid Gainsboro;
 		border-top: 1px solid Gainsboro;
 	}
+	#logo4j {
+		width: 95%;
+		height: 100%;
+		
+	}
 	#nav_2>p {
 		margin: 10px;
 	}
 	#nav_2>a {
 		text-decoration: none;
 	}
+	
+
 	.nav2-a {
 		margin: 5px;
 		border-radius: 15px;
@@ -362,7 +387,7 @@ input::-webkit-input-placeholder {
 		width: 21%;
 		border: 1px solid #E6E6E6;
 		height: 30px;
-		line-height:12px;
+		line-height: 12px;
 		color: black;
 		padding: 8px;
 		display: inline-block;
@@ -386,7 +411,7 @@ input::-webkit-input-placeholder {
 		border: 0px;
 		box-sizing: border-box;
 		width: 100%;
-		box-shadow:none;
+		box-shadow: none;
 		margin-top: 10px;
 	}
 	#footer1 {
