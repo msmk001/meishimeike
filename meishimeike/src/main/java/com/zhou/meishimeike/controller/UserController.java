@@ -1,9 +1,11 @@
 package com.zhou.meishimeike.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,16 @@ public class UserController {
 	@ResponseBody
 	public String test() {
 		return "ok"+userService.getAllUserCount();
+	}
+	
+	
+	@RequestMapping("/zhuxiao")
+	public void zhuxiao(HttpServletResponse response,HttpServletRequest request) throws IOException {
+		
+		request.getSession().invalidate();
+		request.getSession().setAttribute("user", null);
+		request.getSession().setAttribute("userName", null);
+		response.sendRedirect(request.getContextPath()+"/pages/user_login.html");
 	}
 	
 	@RequestMapping("/admin_login")

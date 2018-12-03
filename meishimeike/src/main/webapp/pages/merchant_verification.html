@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<title></title>
+<script type="text/javascript"
+	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+
+<script src="/meishimeike/pages/js/upload_roduct.js"
+	type="text/javascript" charset="utf-8"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="/meishimeike/pages/css/context.css" />
+	
+<link rel="stylesheet" type="text/css"
+	href="/meishimeike/pages/css/uploadp_roduct.css" />
+	
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
+<style type="text/css">
+#merchant {
+	font-size: 23px;
+	color: #e15a26;
+}
+
+#nav {
+	position: absolute;
+	width: 100%;
+	height: 55px;
+	top: 0;
+	box-sizing: border-box;
+	background-color: rgba(170, 234, 15, 0.62);
+	box-sizing: border-box;
+}
+
+#logo4j {
+	vertical-align: middle;
+	padding-left: 30px;
+}
+
+#mainBox {
+	min-height: 500px;
+	margin-top: 170px;
+}
+
+.myBox {
+	padding-left: 27px;
+	padding-top: 20px;
+}
+#r-result{
+	padding-bottom: 10px;
+	height: 30px;
+	line-height: 30px;
+}
+#r-result input{
+	height: 22px;
+	border-radius: 11px;
+	border: 1px solid #c0c0c0;
+	text-indent: 5px;
+}
+#suggestId::-webkit-input-placeholder{
+	text-align: center;
+}
+@media screen and (max-width:480px) {
+
+	#baiduMap {
+	    width: 100% !important;
+	    height: 300px !important;
+	}
+	.myBox {
+    padding-left: 0px;
+    padding-top: 20px;
+}
+	.current ,.error_data,.drafts{
+		display: none  !important;
+	}
+	#r_box {
+		width: 100% !important;
+	}
+	.con_wrap {
+		width: 100%;
+	}
+	
+	#main .right .worktext_box {
+		width:300px;
+
+	}
+	.content {
+    	width: 100%;
+	}
+	#main .right .img_list {
+    width: 100%;
+	}
+	#main .right .addimg_box{
+		width: 180px !important;
+	}
+	#main .right .addimg_ti{
+		width: 180px !important;
+	}
+	.text_wrap{
+		width: 180px !important;
+	}.add_button{
+		width: 180px !important;
+	}
+	.text_wrap img{
+		margin-left: 20px;
+	}
+}#baiduMap{
+	width: 400px;
+	height: 400px;
+}
+</style>
+</head>
+
+<body>
+
+	<nav>
+		<div id="nav">
+			<a class="navbar-brand" href="/meishimeike/pages/indexs.jsp"><img
+				id="logo4j" src="/meishimeike/pages/img/logo2.png" /></a> <span
+				id="merchant">商家中心</span>
+		</div>
+	</nav>
+
+	<div id="main" class="content clear">
+		<ul class="left">
+			<li class="current"><i></i> <a href="#">上传资料</a></li>
+			<li class="" style="display: none;"><i></i> <a href="#">写文章</a>
+			</li>
+		</ul>
+		<div class="right" id="r_box">
+			<form action="UploadTest" id="upload_form" method="post"
+				enctype="multipart/form-data">
+				<div class="title_wrap">
+					<h2 class="title">上传资料</h2>
+				</div>
+				<!--
+                    	作者：fuxiaomiao.h@qq.com
+                    	时间：2018-11-27
+                    	描述：以下为表单详情元素
+                   -->
+				<div class="con_wrap">
+					<div class="mu_title">基本信息</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="worktext_box">
+								<input type="text" id="form-data-title" name="imgName"
+									placeholder="请输店名" class="text_style" value="" /> <span
+									class="count" id="form-data-title-count">30</span>
+							</div>
+							<span class="error_data" style="display: inline;"> <i
+								class="error_icon"></i>重要项
+							</span>
+						</div>
+						<!--<div class="text_wrap uptek">
+								<i class="redwarn"></i>
+								<div class="worktext_box">
+									<input type="text" id="form-data-explain" name="imgExplain" placeholder="作品说明" class="text_style" value="" />
+									<span class="count" id="form-data-explain-count">2000</span>
+								</div>
+							</div>-->
+
+						<div class="text_wrap uptek">
+							<div class="worktext_box">
+								<input type="text" id="form-data-explain" placeholder="联系人手机号"
+									class="text_style" value="" /> <span class="count"
+									id="form-data-explain-count">11</span>
+							</div>
+						</div>
+						<div class="text_wrap uptek">
+							<div class="worktext_box">
+								<input type="text" id="form-data-explain" placeholder="联系人姓名"
+									class="text_style" value="" /> <span class="count"
+									id="form-data-explain-count">11</span>
+							</div>
+						</div>
+
+						<div class="myBox">
+							商家类型 : <select><option>美食</option>
+								<option>早餐</option>
+								<option>午餐</option></select>
+						</div>
+						<div class="myBox">
+								
+							<div id="r-result">店铺地址    <input type="text" id="suggestId" size="20" placeholder="搜索地址" style="width:230px;" /></div>
+	<div id="searchResultPanel" style="border:1px solid #C0C0C0;width:230px;height:auto; display:none;"></div>
+							<div id="baiduMap"></div>
+							
+						</div>
+					</div>
+				</div>
+			
+				
+				
+			
+				<!--
+                    	作者：fuxiaomiao.h@qq.com
+                    	时间：2018-11-28
+                    	描述：图片上传模块完成
+                    -->
+				<div class="con_wrap">
+					<div class="mu_title">上传手持身份证照</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="workimg_box">
+								<div class="addimg_box"
+									style="background-position: center 60px;">
+									<img id="top_image" style="display: none;" />
+									<div class="addimg_ti"
+										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
+									<input type="file" class="hide" id="topimg_file" /> <label
+										for="topimg_file" class="add_button"></label>
+								</div>
+							</div>
+							<img src="/meishimeike/pages/img/img01.jpg"  width="105" height="103"/> 示例图
+						</div>
+					</div>
+				</div>
+				<div class="con_wrap">
+					<div class="mu_title">上传营业执照</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="workimg_box">
+								<div class="addimg_box"
+									style="background-position: center 60px;">
+									<img id="top_image" style="display: none;" />
+									<div class="addimg_ti"
+										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
+									<input type="file" class="hide" id="topimg_file" /> <label
+										for="topimg_file" class="add_button"></label>
+								</div>
+							</div>
+							<img src="/meishimeike/pages/img/img02.jpg"  width="105" height="103"/> 示例图
+						</div>
+					</div>
+				</div>
+				<div class="con_wrap">
+					<div class="mu_title">上传商家logo</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="workimg_box">
+								<div class="addimg_box"
+									style="background-position: center 60px;">
+									<img id="top_image" style="display: none;" />
+									<div class="addimg_ti"
+										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
+									<input type="file" class="hide" id="topimg_file" /> <label
+										for="topimg_file" class="add_button"></label>
+								</div>
+							</div>
+							<img src="/meishimeike/pages/img/img03.jpg"  width="105" height="103"/> 示例图
+						</div>
+					</div>
+				</div>
+				<div class="con_wrap">
+					<div class="mu_title">上传餐饮许可证</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="workimg_box">
+								<div class="addimg_box"
+									style="background-position: center 60px;">
+									<img id="top_image" style="display: none;" />
+									<div class="addimg_ti"
+										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
+									<input type="file" class="hide" id="topimg_file" /> <label
+										for="topimg_file" class="add_button"></label>
+								</div>
+							</div>
+							<img src="/meishimeike/pages/img/img04.jpg"  width="105" height="103"/> 示例图
+						</div>
+					</div>
+				</div>
+				<div class="con_wrap">
+					<div class="mu_title">上传商家门面图</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="workimg_box">
+								<div class="addimg_box"
+									style="background-position: center 60px;">
+									<img id="top_image" style="display: none;" />
+									<div class="addimg_ti"
+										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
+									<input type="file" class="hide" id="topimg_file" /> <label
+										for="topimg_file" class="add_button"></label>
+								</div>
+							</div>
+							<img src="/meishimeike/pages/img/img05.jpg"  width="105" height="103"/> 示例图
+						</div>
+					</div>
+				</div>
+				<div class="con_wrap">
+					<div class="mu_title">上传室内图</div>
+					<div class="form_wrap">
+						<div class="text_wrap">
+							<i class="redwarn"></i>
+							<div class="workimg_box">
+								<div class="addimg_box"
+									style="background-position: center 60px;">
+									<img id="top_image" style="display: none;" />
+									<div class="addimg_ti"
+										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
+									<input type="file" class="hide" id="topimg_file" /> <label
+										for="topimg_file" class="add_button"></label>
+								</div>
+							</div>
+							<img src="/meishimeike/pages/img/img06.jpg"  width="105" height="103"/> 示例图
+						</div>
+					</div>
+				</div>
+				<!--
+                    	作者：fuxiaomiao.h@qq.com
+                    	时间：2018-11-28
+                    	描述：图片上传模块完成
+                    -->
+				<div class="articlefoot">
+					<input type="button" class="send_imgs" value="发布"> <input
+						type="button" class="save_imgs" value="预览"> 
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+	/* 106.53279,29.59129), 19 */
+	
+	// 百度地图API功能
+	function G(id) {
+		return document.getElementById(id);
+	}
+	
+	
+	var map = new BMap.Map("baiduMap");
+	var Point1=null;
+	
+	Point1=new BMap.Point(106.53279,29.59129);
+	
+	map.centerAndZoom(Point1, 18);
+	
+	
+	/* var marker = new BMap.Marker(Point1);  // 创建标注
+	map.addOverlay(marker);               // 将标注添加到地图中
+	marker.setAnimation(BMAP_ANIMATION_BOUNCE);  */
+	
+	
+	map.addEventListener("click", showInfo);
+	map.enableScrollWheelZoom(true); 
+	
+	
+	
+	//定位
+	var geolocation = new BMap.Geolocation();
+	geolocation.getCurrentPosition(function(r){
+		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			var mk = new BMap.Marker(r.point);
+			mk.setAnimation(BMAP_ANIMATION_BOUNCE);
+			map.addOverlay(mk);
+			map.panTo(r.point);
+			map.setZoom(18);  //设置地图方大级别
+		}
+		else {
+			alert('failed'+this.getStatus());
+		}        
+	},{enableHighAccuracy: true})
+	
+	
+	
+	//下面都是函数
+	var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+		{"input" : "suggestId"
+		,"location" : map
+	});
+
+	ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+	var str = "";
+		var _value = e.fromitem.value;
+		var value = "";
+		if (e.fromitem.index > -1) {
+			value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}    
+		str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+		
+		value = "";
+		if (e.toitem.index > -1) {
+			_value = e.toitem.value;
+			value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		}    
+		str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+		G("searchResultPanel").innerHTML = str;
+	});
+
+	var myValue;
+	ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+	var _value = e.item.value;
+		myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+		G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+		
+		setPlace();
+	});
+
+	function setPlace(){
+		map.clearOverlays();    //清除地图上所有覆盖物
+		function myFun(){
+			var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+			map.centerAndZoom(pp, 18);
+			map.addOverlay(new BMap.Marker(pp));    //添加标注
+		}
+		var local = new BMap.LocalSearch(map, { //智能搜索
+		  onSearchComplete: myFun
+		});
+		local.search(myValue);
+	}
+	
+	function showInfo(e){
+		var mPoint= new BMap.Point(e.point.lng ,e.point.lat)
+		
+		
+		var marker = new BMap.Marker(mPoint);  // 创建标注
+		map.clearOverlays();
+		
+		map.addOverlay(marker);               // 将标注添加到地图中
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
+	}
+	
+	
+</script>
+	
+</body>
+</html>

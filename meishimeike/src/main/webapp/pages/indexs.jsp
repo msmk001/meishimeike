@@ -17,19 +17,25 @@
 	padding: 0;
 }
 .navbar-default {
-    background-color: #fff;
+	box-sizing:border-box;
+    background-color: rgba(170, 234, 15, 0.62);
 }
+::-webkit-scrollbar {display:none}
  .navbar-default .navbar-nav > li > a:hover {
     background-color: #0f698a;
     color: #19e4c0 !important;
 	cursor: pointer;
 	
 }
-#logo4j{
-	width: 65%;
-	height: 100%;
-	margin-left: 0;
+.navbar-default .navbar-nav > li > a {
+    color: #555;
 }
+#logo4j{
+	width: 100%;
+	height: 100%;
+	padding-right: 20px;
+}
+
 </style>
 </head>
 <body>
@@ -43,14 +49,14 @@
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="#"><img id="logo4j"
-						src="/meishimeike/pages/img/logo4j.jpg" /></a>
+						src="/meishimeike/pages/img/logo2.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">首页</a></li>
 						<li><a href="#">我的客服</a></li>
 						<li><a href="#">我的订单</a></li>
-						<li><a href="#">入住加盟</a></li>
+						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 						<li >
 							<c:if test="${user==null}">
 								<a href="/meishimeike/pages/user_login.html">登录|注册</a>
@@ -80,7 +86,7 @@
 		</nav>
 	</header>
 
-
+	<div class="cursor h_red ui_hide" id="on_top" title="返回顶部">△</div>
 
 	<section>
 		<nav>

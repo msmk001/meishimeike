@@ -54,5 +54,23 @@ $(function(){
 		       },false)  
 
 		}
+	
+	//---------------------滚动条事件---------------------------------
+	$(window).on("scroll",function()
+	{
+		var top_margin=$(this).scrollTop();
+		if(top_margin>200)
+		{
+			$('#on_top').slideDown();
+		}else{
+			$('#on_top').slideUp();
+		}
+	})
+	$('#on_top').on('click',function()
+	{
+		$('body,html').animate({
+			scrollTop:"0px"
+		},300);
+	})
 
 })

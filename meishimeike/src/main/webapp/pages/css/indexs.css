@@ -326,7 +326,26 @@ input::-webkit-input-placeholder {
 	
 }
 
+#on_top{
+	position: fixed;
+	font-size:25px;
+	width:40px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	color:#fff;
+	display:none;
+	background-color:#666;
+	right: 10%;
+	bottom: 10%;
+}
+#on_top:hover{
+	background-color:rgb(215,57,55);
+}
 @media screen and (max-width:480px) {
+	#on_top:hover {
+		background-color: #666 !important;
+	}
 	#fen {
 		display: none;
 	}

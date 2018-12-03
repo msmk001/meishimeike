@@ -6,7 +6,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
 
-<title>用户登录</title>
+<title>商家注册登录</title>
 
 <script type="text/javascript"
 	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
@@ -17,7 +17,7 @@ html, body {
 	font-family: "微软雅黑";
 	width: 100%;
 	height: 100%;
-	background-image: linear-gradient(-90deg, #b5a116 -20%, #73f0b1 100%);
+	background: #f7f7f7;
 }
 
 * {
@@ -28,17 +28,22 @@ html, body {
 body {
 	box-sizing: border-box;
 	padding-top: 8%;
+	background-color: #f7f7f7;
 }
 
 #log_a1 {
 	width: 400px;
-	height: 400px;
+	min-height: 400px;
 	padding-top: 30px;
+	box-shadow: 0px 0px 5px 1px darkgrey;
+	background-color: #fff;
 }
 
 #log_a2 {
-	text-align: center; width : 300px;
+	text-align: left;
+	font-size: 25px;
 	height: 100px;
+	line-height: 100px;
 	width: 300px;
 }
 
@@ -122,45 +127,70 @@ input::-webkit-input-placeholder {
 	padding-top: 50px;
 	width: 100%;
 }
+
+#nav {
+	position: absolute;
+	width: 100%;
+	height: 55px;
+	top: 0; box-sizing : border-box;
+	background-color: rgba(170, 234, 15, 0.62);
+	box-sizing: border-box;
+}
+
+#logo4j {
+	vertical-align: middle;
+	padding-left: 30px;
+}
+
+#merchant {
+	font-size: 23px;
+	color: #e15a26;
+}
+
 input, input:focus, input:active {
 	user-select: text;
 }
+
 @media screen and (max-width:480px) {
 	#log_a1 {
-		width: 100%;
-		height: 82%;
-		padding-top: 20px;
+		height: 100%;
+		margin: 0 auto;
+		box-shadow: none;
 	}
 	#my_bottom {
 		display: none;
+	}
+	#logo4j {
+		padding-left: 0px;
 	}
 }
 </style>
 </head>
 
 <body onload="init()">
+	<nav>
+		<div id="nav">
+			<a class="navbar-brand" href="/meishimeike/pages/indexs.jsp"><img
+				id="logo4j" src="/meishimeike/pages/img/logo2.png" /></a> <span
+				id="merchant">商家中心</span>
+		</div>
+	</nav>
 
 	<div id="log_a1">
-		<div id="log_a2">
-			<img src="/meishimeike/pages/img/logo1.png" width="250px"
-				height="110px" />
-		</div>
+		<div id="log_a2">注册开店</div>
 		<div id="log_a3">
-			<a href="#" id="a1"
-				style="border-bottom: 2px solid blue; color: blue;">登录</a> |
-			&nbsp;&nbsp; <a href="#" id="a2" style="color: #000;">注册</a>
+			<a href="#" id="a1" style="color: #000;">登录</a> | &nbsp;&nbsp; <a
+				href="#" id="a2" style="border-bottom: 2px solid blue; color: blue;">注册</a>
 
 		</div>
 		<form action="${basePath}/pc/user_login.jsp" method="post" id="form2">
-			<div
-				style="width: 300px; height: 320px; display: none; text-align: center;"
-				id="a3">
+			<div style="width: 300px; height: 320px; text-align: center;" id="a3">
 				<div>
 					<input type="number" name="phone" class="inp deal"
 						placeholder="手机号" />
 				</div>
 				<div>
-					<input type="password" name="pwd" class="inp" placeholder="密码" />
+					<input type="password" name="pass" class="inp" placeholder="密码" />
 				</div>
 				<div
 					style="text-align: left; margin-top: 0px; box-sizing: border-box; padding-top: 20px; width: 100%;">
@@ -186,7 +216,8 @@ input, input:focus, input:active {
 		</form>
 
 		<form action="" method="post" id="form1">
-			<div style="width: 300px; height: 320px; text-align: center;"
+			<div
+				style="width: 300px; height: 320px; text-align: center; display: none;"
 				; id="a4">
 				<div>
 					<input type="text" class="inp" name="phone" required="required"
@@ -226,7 +257,9 @@ input, input:focus, input:active {
 		var a2 = document.getElementById("a2")
 		var a3 = document.getElementById("a3")
 		var a4 = document.getElementById("a4")
+		var log_a2 = document.getElementById("log_a2")
 		a1.onclick = function() {
+			log_a2.innerText = "商家登录"
 			a3.style.display = "none";
 			a4.style.display = "block";
 			a1.style.borderBottom = "2px solid blue";
@@ -235,6 +268,7 @@ input, input:focus, input:active {
 			a2.style.color = "#000";
 		}
 		a2.onclick = function() {
+			log_a2.innerText = "注册开店"
 			a2.style.borderBottom = "2px solid blue";
 			a1.style.borderBottom = "0px";
 			a3.style.display = "block";
@@ -259,7 +293,7 @@ input, input:focus, input:active {
 			$.ajax({
 				type : "POST",
 				data : $('#form1').serialize(),
-				url : "/meishimeike/user/user_login",
+				url : "/meishimeike/user/merchant_login",
 				async : false,
 				success : function(d) {
 
@@ -318,14 +352,14 @@ input, input:focus, input:active {
 			$.ajax({
 				type : "POST",
 				data : $('#form2').serialize(),
-				url : "",
+				url : "/meishimeike/merchant/merchant_register",
 				async : false,
 				success : function(d) {
-					alert(d)
+					
 					var jso = JSON.parse(d);
 					if (jso.data == true) {
 
-						showMsg01("OK")
+						window.location.href = "/meishimeike/pages/merchant_verification.html";
 					} else {
 						showMsg01(jso.data)
 					}
@@ -353,7 +387,6 @@ input, input:focus, input:active {
 			}, 4000)
 		}
 		//--
-
 	</script>
 </body>
 
