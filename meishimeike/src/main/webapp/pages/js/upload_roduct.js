@@ -1,4 +1,5 @@
-var UpFile = function (file, imgList) {
+var UpFile = function (file, imgList, node) {
+	imgList = $(node).siblings().find("img");
 	var xhr = $.ajaxSettings.xhr();
 	var formFileData = new FormData();
 	var showImage = $("<img />");
@@ -55,7 +56,6 @@ $(function() {
 	var imglistFile = $("#imglist_file");// 上传文件的表单元素
 	var imgList = $("#img_list");// 显示图片列表的列表
 	
-	var topimgForm = $("#topimg_file");// 显示图片封面的表单元素
 	
 	if(window.FileReader) {
 //		alert("支持图片显示");
@@ -66,7 +66,7 @@ $(function() {
 	var upFileArr = new Array ();
 	
 	var imgSelectFiles = new Array();
-	function addImgSelectFile (file) {
+	function addImgSelectFile (file, nodes) {
 //		var fileReader = new FileReader();
 //		fileReader.addEventListener("load", function (evt) {
 //			var showImage = $("<img />");
@@ -76,7 +76,7 @@ $(function() {
 //			imgList.append(imageList);
 //		}, false);
 //		fileReader.readAsDataURL(file);
-		upFileArr[upFileArr.length] = new UpFile(file, imgList);
+		upFileArr[upFileArr.length] = new UpFile(file, imgList, node);
 		upFileArr[upFileArr.length - 1].uploadFile();
 	}
 	imglistFile.change(function () {
@@ -86,74 +86,38 @@ $(function() {
 				alert("文件必须为图片！"); 
 				continue;
 			}
-			addImgSelectFile(thatFile);
+			addImgSelectFile(thatFile, this);
 		}
 //		this.value = "";
 		//if(type!=".jpg"&&type!=".gif"&&type!=".jpeg"&& type!=".png"){
 	});
 	
-	var topImgFile = null;
-	var topImageView = $("#top_image");
+	var topimgForm = $("input[type=file]");// 显示图片封面的表单元素
+	console.log(topimgForm);
+//	var topImageView = $(".top_image");
 	topimgForm.change(function () {
-		topImageView.css("display", "block");
-		topImgFile = this.files[0];
+		var topImageNode = $(this).prev().prev();
+		console.log(topImageNode);
+		topImageNode.css("display", "block");
+		var topImgFile = this.files[0];
 		var fileReader = new FileReader();
 		fileReader.addEventListener("load", function (evt) {
-			topImageView.attr("src", evt.target.result)
+//			topImageNode.css({
+//				backgroundImage : evt.target.result,
+//				backgroundSize : '240 180'
+//			});
+			topImageNode.attr("src", evt.target.result)
 		}, false);
 		fileReader.readAsDataURL(topImgFile);
 	});
 	
-	
-	$(".send_imgs").click(function() {
-		var uploadFormData = new FormData(uploadForm);
-		uploadFormData.append("test", "值1");
-		uploadFormData.append("test", "值2");
-		uploadFormData.append("test", "值3");
-		uploadFormData.append("test", "值4");
-		uploadFormData.append("tr", [1,2,3,4,5,6,7,8,9,90]);
-		console.log(uploadFormData);
-//		Object.keys(uploadFormData).forEach(function (key, value) {
-//			console.log(key);
-//			console.log(" = " + value);
-//		});
-		uploadFormData.forEach(function(value, key) {
-			console.log(key + " = " + value);
-		});
-		$.ajax({
-			type: "post",
-			url: "UploadTest",
-			async: true,
-			data: uploadFormData,
-			scriptCharset : "UTF-8",
-			cache : false,
-			processData : false,  //必须false才会避开jQuery对 formdata 的默认处理
-			contentType : false,  //必须false才会自动加上正确的Content-Type
-			success: function(result, status, xhr) {
-				console.log("result= " + result);
-				console.log("status= " + status);
-			},
-			error: function(xhr, status, error) {
-				console.log("error= " + error);
-				console.log("status= " + status);
-			},
-			beforeSend: function(xhr) {
-				console.log(xhr);
-			},
-			xhr: function () {
-				var xhr = new window.XMLHttpRequest();
-				xhr.upload.addEventListener("progress", function (evt) {
-					if (evt.lengthComputable) {
-						var percentComplete = evt.loaded / evt.total;
-						console.log(evt.loaded + " / " + evt.total);
-						console.log(percentComplete * 100 + "%");
-					}
-				}, false);
-				console.log(xhr);
-				return xhr;
-			},
-		});
+	$(".add_button").click(function () {
+		var btn = $(this).prev();//.find(".topimg_file");
+		console.log(btn)
+		btn.click();
 	});
+	
+	
 	$(".save_imgs").click(function() {
 		uploadFormData = new FormData(uploadForm);
 		console.log(uploadFormData);

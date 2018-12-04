@@ -46,7 +46,10 @@ img {
 	width: 1100px;
 	margin: 0 auto;
 }
-
+.top_image{
+	width:240px !important;
+	height: 180px;
+}
 .clear:after {
 	content: "";
 	display: block;

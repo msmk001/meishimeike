@@ -29,4 +29,13 @@
 				u_phone=#{param1}
 		</select>
 		
+		<insert id="addUser">
+			insert into user values(default,#{name},#{pass},#{email},#{phone})
+		</insert>
+		
+		
+		<select id="hasUserByPhone" resultType="boolean">
+			select count(u_id) from user where u_phone=#{param1}
+		</select>
+		
 </mapper>

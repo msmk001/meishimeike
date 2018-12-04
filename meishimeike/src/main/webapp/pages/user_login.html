@@ -160,7 +160,7 @@ input, input:focus, input:active {
 						placeholder="手机号" />
 				</div>
 				<div>
-					<input type="password" name="pwd" class="inp" placeholder="密码" />
+					<input type="password" name="pass" class="inp" placeholder="密码" />
 				</div>
 				<div
 					style="text-align: left; margin-top: 0px; box-sizing: border-box; padding-top: 20px; width: 100%;">
@@ -293,6 +293,7 @@ input, input:focus, input:active {
 
 		}
 
+		//注册
 		function checks1() {
 			var t1 = $("#t2");
 			var b = false;
@@ -318,14 +319,12 @@ input, input:focus, input:active {
 			$.ajax({
 				type : "POST",
 				data : $('#form2').serialize(),
-				url : "",
-				async : false,
+				url : "/meishimeike/user/user_register",
+				async : true,
 				success : function(d) {
-					alert(d)
 					var jso = JSON.parse(d);
 					if (jso.data == true) {
-
-						showMsg01("OK")
+						window.location.href = "/meishimeike/pages/indexs.jsp";
 					} else {
 						showMsg01(jso.data)
 					}

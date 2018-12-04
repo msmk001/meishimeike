@@ -34,7 +34,7 @@
 						</div></li>
 				</ul>
 				<ul class="list-inline menu-left mb-0">
-					<li class="float-left"><a href="<%=request.getContextPath() %>/indexs.jsp" class="logo">
+					<li class="float-left"><a href="/meishimeike/pages/indexs.jsp" class="logo">
 							<span class="logo-lg"> <img
 								src="img/logo2.png" alt=""
 								height="65">

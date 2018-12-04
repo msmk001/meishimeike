@@ -20,6 +20,8 @@ import com.zhou.meishimeike.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	//注入依赖
 	@Autowired
 	UserService userService;
 	
@@ -70,5 +72,41 @@ public class UserController {
 		return map;
 	}
 	
-	
+	//merchant_register
+	@RequestMapping("/user_register")
+	@ResponseBody
+	public Map userRegister(@Param("phone")String phone,@Param("pass")String pass,@Param("ck")String ck,HttpServletRequest request) {
+		Map <String, Object> map=new HashMap<>();
+		if("".equals(phone)||"".equals(pass)||"".equals(ck)) {
+			map.put("data", "请检查表单是否填写完毕");
+			return map;
+		}
+		String ckimg=(String)request.getSession().getAttribute("ckimg");
+		if(ckimg==null||!(ck.equalsIgnoreCase(ckimg))) {
+			map.put("data", "验证码错误");
+			return map;
+		}
+		boolean hasUserByPhone = userService.hasUserByPhone(phone);
+		if(hasUserByPhone) {
+			map.put("data", "手机号已经被注册");
+			return map;
+		}
+		
+		User user = new User();
+		user.setName(phone);
+		user.setPhone(phone);
+		user.setPass(pass);
+		boolean addUser = userService.addUser(user);
+		if(addUser) {
+			map.put("data", true);
+		}else {
+			map.put("data", "服务器繁忙");
+		}
+		User userByPhone = userService.getUserByPhone(phone);
+		String name = userByPhone.getPhone();
+		name=name.substring(0, 5)+"...";
+		request.getSession().setAttribute("user", userByPhone);
+		request.getSession().setAttribute("userName", name);
+		return map;
+	}
 }

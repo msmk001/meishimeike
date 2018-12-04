@@ -37,4 +37,16 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.getUserByPhone(Phone);
 	}
+
+	@Override
+	public boolean addUser(User u) {
+		// TODO Auto-generated method stub
+		return userDao.addUser(u);
+	}
+
+	@Override
+	public boolean hasUserByPhone(String phone) {
+		// TODO Auto-generated method stub
+		return userDao.hasUserByPhone(phone);
+	}
 }

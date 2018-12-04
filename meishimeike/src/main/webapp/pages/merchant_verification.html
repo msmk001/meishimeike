@@ -64,7 +64,16 @@
 	text-align: center;
 }
 @media screen and (max-width:480px) {
-
+	
+	#main .right .articlefoot>.send_imgs{
+		width: 80%;
+		display:block;
+		height:50px;
+		line-height:50px;
+		border-radius:25px;
+		margin: 0 auto;
+	}
+	
 	#baiduMap {
 	    width: 100% !important;
 	    height: 300px !important;
@@ -108,7 +117,7 @@
 		margin-left: 20px;
 	}
 }#baiduMap{
-	width: 400px;
+	width: 700px;
 	height: 400px;
 }
 </style>
@@ -131,7 +140,7 @@
 			</li>
 		</ul>
 		<div class="right" id="r_box">
-			<form action="UploadTest" id="upload_form" method="post"
+			<form id="upload_form" onsubmit="return false" method="post"
 				enctype="multipart/form-data">
 				<div class="title_wrap">
 					<h2 class="title">上传资料</h2>
@@ -147,7 +156,8 @@
 						<div class="text_wrap">
 							<i class="redwarn"></i>
 							<div class="worktext_box">
-								<input type="text" id="form-data-title" name="imgName"
+								<input type="text" id="form-data-title" name="mName"
+								required="required"
 									placeholder="请输店名" class="text_style" value="" /> <span
 									class="count" id="form-data-title-count">30</span>
 							</div>
@@ -166,22 +176,26 @@
 						<div class="text_wrap uptek">
 							<div class="worktext_box">
 								<input type="text" id="form-data-explain" placeholder="联系人手机号"
+									name="phone"  required="required"
 									class="text_style" value="" /> <span class="count"
 									id="form-data-explain-count">11</span>
 							</div>
 						</div>
 						<div class="text_wrap uptek">
 							<div class="worktext_box">
-								<input type="text" id="form-data-explain" placeholder="联系人姓名"
-									class="text_style" value="" /> <span class="count"
+								<input type="text" name="name" id="form-data-explain" placeholder="联系人姓名"
+									class="text_style" required="required" /> <span class="count"
+									
 									id="form-data-explain-count">11</span>
 							</div>
 						</div>
 
 						<div class="myBox">
-							商家类型 : <select><option>美食</option>
-								<option>早餐</option>
-								<option>午餐</option></select>
+							商家类型 : <select name="mType">
+								<option value="美食">美食</option>
+								<option value="早餐">早餐</option>
+								<option value="午餐">午餐</option>
+								</select>
 						</div>
 						<div class="myBox">
 								
@@ -209,10 +223,10 @@
 							<div class="workimg_box">
 								<div class="addimg_box"
 									style="background-position: center 60px;">
-									<img id="top_image" style="display: none;" />
+									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" class="hide" id="topimg_file" /> <label
+									<input type="file" required="required" name="imgIdCar" class="hide topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -228,10 +242,10 @@
 							<div class="workimg_box">
 								<div class="addimg_box"
 									style="background-position: center 60px;">
-									<img id="top_image" style="display: none;" />
+									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" class="hide" id="topimg_file" /> <label
+									<input type="file"  required="required" name="imgLicense" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -247,10 +261,10 @@
 							<div class="workimg_box">
 								<div class="addimg_box"
 									style="background-position: center 60px;">
-									<img id="top_image" style="display: none;" />
+									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" class="hide" id="topimg_file" /> <label
+									<input type="file" required="required" name="logo" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -266,10 +280,10 @@
 							<div class="workimg_box">
 								<div class="addimg_box"
 									style="background-position: center 60px;">
-									<img id="top_image" style="display: none;" />
+									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" class="hide" id="topimg_file" /> <label
+									<input type="file" required="required" name="permission" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -285,10 +299,10 @@
 							<div class="workimg_box">
 								<div class="addimg_box"
 									style="background-position: center 60px;">
-									<img id="top_image" style="display: none;" />
+									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" class="hide" id="topimg_file" /> <label
+									<input type="file" required="required" name="appearance" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -304,10 +318,10 @@
 							<div class="workimg_box">
 								<div class="addimg_box"
 									style="background-position: center 60px;">
-									<img id="top_image" style="display: none;" />
+									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" class="hide" id="topimg_file" /> <label
+									<input type="file" required="required" name="imgIndoor" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -321,8 +335,7 @@
                     	描述：图片上传模块完成
                     -->
 				<div class="articlefoot">
-					<input type="button" class="send_imgs" value="发布"> <input
-						type="button" class="save_imgs" value="预览"> 
+					<input type="submit" id="update_btn" class="send_imgs" value="上传">  <span id="msgBox" style="color: red;display: none;">请检查表单是否填写完</span>
 				</div>
 			</form>
 		</div>
@@ -339,7 +352,9 @@
 	var map = new BMap.Map("baiduMap");
 	var Point1=null;
 	
-	Point1=new BMap.Point(106.53279,29.59129);
+	var mlng=106.53279,mlat=29.59129;
+	
+	Point1=new BMap.Point(mlng,mlat);
 	
 	map.centerAndZoom(Point1, 18);
 	
@@ -358,6 +373,8 @@
 	var geolocation = new BMap.Geolocation();
 	geolocation.getCurrentPosition(function(r){
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
+			mlng=r.point.lng;
+			mlat=r.point.lat;
 			var mk = new BMap.Marker(r.point);
 			mk.setAnimation(BMAP_ANIMATION_BOUNCE);
 			map.addOverlay(mk);
@@ -427,7 +444,43 @@
 		map.addOverlay(marker);               // 将标注添加到地图中
 		marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
 	}
+	//------------------"-------
+	$('#update_btn').on("click",function(){
+		var formData = new FormData($("#upload_form")[0]);
+		formData.append("mlng",mlng);
+		formData.append("mlat",mlat);
+		
+		$.ajax({
+			type:"post",
+			url:"/meishimeike/merchant/merchant_update",
+			async:true,
+            data : formData,
+            cache: false,		//设置为 false 将不缓存此页面。
+            processData : false,  //必须false才会避开jQuery对 formdata 的默认处理
+            contentType : false,  //必须false才会自动加上正确的Content-Type
+			success:function(data01){
+				
+				var jso = JSON.parse(data01);
+				if(jso.data==true){
+					window.location.href = "/meishimeike/pages/indexs.jsp";
+				}else{
+					showMsg(jso.data)
+				}
+				
+				
+			},error:function(a,b,c){
+				
+			}
+		});
+	})
 	
+		function showMsg(str) {
+			$("#msgBox").text(str);
+			$("#msgBox").show()
+			setTimeout(function() {
+				$("#msgBox").hide()
+			}, 4000)
+		}
 	
 </script>
 	

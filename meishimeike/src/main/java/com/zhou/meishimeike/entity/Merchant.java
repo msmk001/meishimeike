@@ -1,16 +1,26 @@
 package com.zhou.meishimeike.entity;
 
-import java.util.List;
-
 public class Merchant {
 	
 	public Merchant() {
 	}
+	
+	
+	
+	
+	
 	private Integer id;
 	private String phone;
 	private String pass;
 	private String name;
-	private List  <MerchantInfoImg> imgList;
+	private int code;
+	private MerchantInfo info ;
+	
+	
+	
+	
+	
+	
 	
 	public Integer getId() {
 		return id;
@@ -36,12 +46,18 @@ public class Merchant {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public List  <MerchantInfoImg> getImgList() {
-		return imgList;
+	public MerchantInfo getInfo() {
+		return info;
 	}
-	
-	public void setImgList(List  <MerchantInfoImg> imgList) {
-		this.imgList = imgList;
+	public void setInfo(MerchantInfo info) {
+		this.info = info;
 	}
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
+
 	
 }

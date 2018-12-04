@@ -2,10 +2,22 @@ package com.zhou.meishimeike.entity;
 
 public class User {
 	
+	
+	
+	
+	
 	private Integer id;
 	private String name;
 	private String pass;
 	private String email;
+	private String phone;
+	
+	
+	
+	
+	
+	
+	
 	public String getEmail() {
 		return email;
 	}
@@ -18,7 +30,7 @@ public class User {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	private String phone;
+	
 	public Integer getId() {
 		return id;
 	}
