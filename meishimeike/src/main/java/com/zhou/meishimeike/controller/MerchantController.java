@@ -32,6 +32,14 @@ public class MerchantController {
 	@Autowired
 	MerchantService merchantService;
 	
+	@RequestMapping("/zhuxiao")
+	public void zhuxiao(HttpServletResponse response,HttpServletRequest request) throws IOException {
+		
+		request.getSession().invalidate();
+		response.sendRedirect(request.getContextPath()+"/pages/merchant_login.html");
+	}
+	
+	
 	@RequestMapping("/merchant_login")
 	@ResponseBody
 	public Map merchantLogin(String phone,String pass,HttpServletRequest request,HttpServletResponse res) throws IOException {

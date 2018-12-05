@@ -3,7 +3,7 @@ package com.zhou.meishimeike.entity;
 public class Commodity {
 	
 	private Integer cyId;
-	private Integer cId;
+	private int cId;
 	private double cPrice;
 	private String cyName;
 	private String cyImg;

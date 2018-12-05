@@ -151,13 +151,13 @@
 
 
 		<!-- 一对多的关系 -->
-		<collection property="classifyList"
+		<!-- <collection property="classifyList"
 			ofType="com.zhou.meishimeike.entity.ClassifyList">
 			<id column="c_id" property="cId" />
 			<result column="m_id" property="mId" />
 			<result column="c_name" property="cName" />
 			<result column="c_createtime" property="cCreateTime" />
-		</collection>
+		</collection> -->
 
 	</resultMap>
 

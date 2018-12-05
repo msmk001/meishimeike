@@ -1,12 +1,16 @@
 package com.zhou.meishimeike.service.imp;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.zhou.meishimeike.dao.CommodityDao;
 import com.zhou.meishimeike.dao.MerchantDao;
 import com.zhou.meishimeike.entity.ClassifyList;
+import com.zhou.meishimeike.entity.Commodity;
 import com.zhou.meishimeike.entity.Merchant;
 import com.zhou.meishimeike.entity.MerchantInfo;
 import com.zhou.meishimeike.service.MerchantService;
@@ -19,6 +23,8 @@ public class MerchantServiceImp implements MerchantService {
 	@Autowired
 	MerchantDao merchantDao;
 	
+	@Autowired
+	CommodityDao commodityDao;
 	
 	@Override
 	public boolean hasUser(String phone, String pass) {
@@ -92,12 +98,27 @@ public class MerchantServiceImp implements MerchantService {
 
 	@Override
 	public Merchant getMerchantById(int id) {
-		// TODO Auto-generated method stub
+		
+		
 		Merchant merchantById = merchantDao.getMerchantById(id);
+		
 		
 		List<ClassifyList> classifyListById = merchantDao.getClassifyListById(id);
 		
+		
+		ArrayList<Integer> arrayList = new ArrayList<>();
+		
+		for (ClassifyList classifyList : classifyListById) {
+			arrayList.add(classifyList.getcId());
+		}
+		List<Commodity> list=null;
+		if(arrayList.size()>0) {
+			list=commodityDao.getCommodityBycIdList(arrayList);
+		}
+		
 		merchantById.setClassifyList(classifyListById);
+		
+		merchantById.setCommodity(list);
 		
 		return merchantById;
 	}

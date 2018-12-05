@@ -31,7 +31,7 @@ public class Merchant {
 	private List<ClassifyList> classifyList;
 	
 	
-	
+	private List<Commodity> commodity;
 	
 	
 	
@@ -87,6 +87,12 @@ public class Merchant {
 	}
 	public void setClassifyList(List<ClassifyList> classifyList) {
 		this.classifyList = classifyList;
+	}
+	public List<Commodity> getCommodity() {
+		return commodity;
+	}
+	public void setCommodity(List<Commodity> commodity) {
+		this.commodity = commodity;
 	}
 
 	

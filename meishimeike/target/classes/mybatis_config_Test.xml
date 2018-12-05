@@ -20,10 +20,11 @@
 			</dataSource>
 		</environment>
 	</environments>
-
+		<!-- 测试专用配置文件 -->
 	<mappers>								
 		<mapper resource="com/zhou/meishimeike/dao/mapper/UserDao.xml" />
 		<mapper resource="com/zhou/meishimeike/dao/mapper/MerchantDao.xml" />
+		<mapper resource="com/zhou/meishimeike/dao/mapper/CommodityDao.xml" />
 	</mappers>
 
 </configuration>

@@ -189,7 +189,7 @@ a:link {
 }
 
 #bodys {
-	width: 65%;
+	width: 60%;
 }
 
 #logo4j {
@@ -300,7 +300,7 @@ a:link {
 						<li><a href="#">我的客服</a></li>
 						<li><a href="#">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
-						<li><a href="">注销</a></li>
+						<li><a href="/meishimeike/merchant/zhuxiao">注销</a></li>
 
 						<li class="dropdown">
 							<ul class="dropdown-menu">
@@ -333,9 +333,10 @@ a:link {
 			</c:forEach>
 			<input class="btnsty_1" type="button" id="btn6" class="btnsty"
 				value="+">
-			<c:if test="${merchantData.classifyList==null}">
+			<c:if test="${merchantData.classifyList==null||merchantData.classifyList=='[]'}">
 				你还没有商品目录,请添加目录,例:米饭,饮品
 			</c:if>
+			
 		</div>
 
 		<c:forEach var="i" items="${merchantData.classifyList}">
@@ -344,29 +345,29 @@ a:link {
 				<div style="margin-top: 30px;">
 					<h3 style="padding-left: 20px;">
 						<span style="font-size: 20px; font-weight: 500;">${i.cName}</span>
-						<input type="button" onclick="ck(this)" class="btn1 btnsty"
+						<input type="button" onclick="ck(this,${i.cId})" class="btn1 btnsty"
 							value="添加商品"> <input type="button"
 							onclick="drop_classify(${i.cId},this)" class="btn1 btnsty"
 							value="删除目录">
 					</h3>
 					<div class="mu_lu_box">
 						<div class="mu_lu_box_c">
-							<c:forEach var="j" items="${ls1}">
-								<c:if test="${i.t_id==j.s_id}">
+							<c:forEach var="j" items="${merchantData.commodity}" varStatus="">
+								<c:if test="${i.cId==j.cId}">
 									<div id="float_left_boxss" class="float_left boxs">
-										<img class="float_left" src="../img/${j.m_img}" align="top" />
+										<img class="float_left" src="img/${j.cyImg}" align="top" />
 										<div class="float_left"
 											style="width: 60%; padding-left: 15px;">
-											<span style="font-weight: bold;">${j.t_name }</span> <br />
+											<span style="font-weight: bold;">${j.cyName }</span> <br />
 											<span><input type="button"
 												class="float_r btnsty delete"
-												onclick="delete_m(${j.t_id},this)" style="margin-top: 9px;"
+												onclick="delete_m(${j.cyId},this)" style="margin-top: 9px;"
 												value="删除" /> </span>
 											<div style="height: 0px;"></div>
 											<p
-												style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13px; color: darkgray;">${j.t_info }</p>
+												style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13px; color: darkgray;">${j.cyRemark}</p>
 											<span><p style="margin-top: 3px; color: #cccc33;">★★★★★</span><br />
-											<span style="color: red">￥ ${j.t_price }</span>
+											<span style="color: red">￥ ${j.cPrice }</span>
 										</div>
 									</div>
 								</c:if>
@@ -379,27 +380,28 @@ a:link {
 
 		<!-- ------------------隐藏层------------------------- -->
 		<div id="box1" class="box1_s">
-			<form id="form5" method="post" onsubmit="return false"
+			<form id="form5" method="post" action="/meishimeike/commodity/addCommodity"
 				enctype="multipart/form-data">
-				<input id="s_id" type="hidden" name="id" value="${merchantData.id}" />
+				<input id="s_id" type="hidden" name="id" value="" />
 				<input id="s_name" type="hidden" name="s_name" value="" />
 				<table style="width: 100%; text-align: left;">
 					<tr>
 						<td>图片</td>
-						<td><input name="fileupload" type="file"
+						<td><input name="cyImg" type="file" required="required"
 							accept="image/gif, image/jpeg, image/png, image/jpg, image/bmp" /></td>
 					</tr>
 					<tr>
 						<td>商品名字</td>
-						<td><input name="name" required="required" type="text" /></td>
+						<td><input name="cyName" required="required" type="text" /></td>
 					</tr>
+					
 					<tr>
 						<td>单价</td>
-						<td><input name="danjia"  required="required" type="number" min="0.01" step="0.1"></td>
+						<td><input name="cPrice"  required="required" type="number" min="1" step="0.1"></td>
 					</tr>
 					<tr>
 						<td>商品描述</td>
-						<td><input type="text" required="required"  name="t_info" /></td>
+						<td><input type="text" required="required"  name="cyRemark" /></td>
 					</tr>
 					<tr align="center">
 						<td><input type="submit" id="btn5" class="btnsty" value="提交" />
@@ -415,11 +417,11 @@ a:link {
 				<table style="width: 100%; text-align: center;">
 					<tr>
 						<td style="color: white;">商品目录名</td>
-						<td><input name="name" id="inp1" type="text" /></td>
+						<td><input name="name" required="required" id="inp1" type="text" /></td>
 					<tr />
 
 					<tr>
-						<td><input type="button" class="btnsty" id="btn5x" value="提交" />
+						<td><input type="button"  class="btnsty" id="btn5x" value="提交" />
 						</td>
 						<td><input type="button" class="btnsty" id="btn2x" value="关闭" /></td>
 					</tr>
@@ -513,8 +515,9 @@ a:link {
 			var btn2x = document.getElementById("btn2x");
 			var btn5x = document.getElementById("btn5x");
 
-			function ck(obj1)
+			function ck(obj1,obj2)
 			{
+				$('#s_id').val(obj2)
 				var obj2 = $(obj1).prev();
 				$('#s_name').val(obj2.text());
 				box1.style.display = "block";

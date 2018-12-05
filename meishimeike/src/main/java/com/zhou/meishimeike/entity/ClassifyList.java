@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ClassifyList {
 	
-	private Integer cId;
+	private int cId;
 	private Integer mId;
 	private String cName;
 	private Date cCreateTime;

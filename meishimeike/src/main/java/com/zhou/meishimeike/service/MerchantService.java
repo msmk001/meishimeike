@@ -33,4 +33,5 @@ public interface MerchantService {
 	Merchant getDataMerchantById(String id);
 
 	boolean deleteClassifyById(int id); 
+	
 }
