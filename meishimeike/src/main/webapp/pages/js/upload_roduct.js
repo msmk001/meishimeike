@@ -100,6 +100,10 @@ $(function() {
 		console.log(topImageNode);
 		topImageNode.css("display", "block");
 		var topImgFile = this.files[0];
+		if(!/image\/\w+/.test(topImgFile.type)){ 
+			alert("文件必须为图片！"); 
+			return;
+		}
 		var fileReader = new FileReader();
 		fileReader.addEventListener("load", function (evt) {
 //			topImageNode.css({

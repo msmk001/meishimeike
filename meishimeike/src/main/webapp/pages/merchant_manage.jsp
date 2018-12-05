@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -8,7 +7,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=0.5">
 
-<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+<script type="text/javascript"
+	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
 <link rel="stylesheet" href="/meishimeike/pages/css/bootstrap.css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,18 +32,18 @@
 	margin-right: auto;
 }
 
-
-#box1x{
-      left: 40%;
-     width: 340px;
-    height: 120px;
-    display: none;
-    border: 1px solid;
-    border-radius:10px;
-    position: fixed;
-    top: 35%;
-    background: gray;
-    text-align: center;
+#box1x {
+	left: 40%;
+	width: 340px;
+	height: 150px;
+	display: none;
+	border: 1px solid;
+	border-radius: 10px;
+	position: fixed;
+	padding: 5px;
+	top: 35%;
+	background: gray;
+	text-align: center;
 }
 
 * {
@@ -57,6 +57,10 @@
 	box-shadow: 0px 0px 5px 0px darkgray;
 	min-height: 40px;
 	background: #fff;
+}
+
+#btn6 {
+	margin: 5px 5px;
 }
 
 .box_span {
@@ -115,6 +119,7 @@
 	border-radius: 15px;
 	background: #0089DC;
 	color: #fff;
+	font-size: 13px;
 	outline: none;
 	border-width: 0;
 }
@@ -168,110 +173,116 @@ html, body {
 a:link {
 	text-decoration: none;
 }
+
 .navbar-brand {
 	/* height: 65px; */
 	padding: 0;
 }
+
 .navbar-default {
-	box-sizing:border-box;
-    background-color: rgba(170, 234, 15, 0.62);
+	box-sizing: border-box;
+	background-color: rgba(170, 234, 15, 0.62);
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: #555;
+.navbar-default .navbar-nav>li>a {
+	color: #555;
 }
-#bodys{
-				width: 65%;
-			}
-#logo4j{
+
+#bodys {
+	width: 65%;
+}
+
+#logo4j {
 	width: 100%;
 	height: 100%;
 	padding-right: 20px;
 }
-#float_left_boxss{
-width: 49%; 
-margin-top: 8px;
- background: #ffffff;
- margin-right: 5px;
- box-shadow: 0px 0px 5px 0px darkgray;
+
+#float_left_boxss {
+	width: 49%;
+	margin-top: 8px;
+	background: #ffffff;
+	margin-right: 5px;
+	box-shadow: 0px 0px 5px 0px darkgray;
 }
-.btnsty_1{
-     font-size:18px;
-    text-algin:center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    background: #0089DC;
-    color: #fff;
-    outline: none;
-    border-width: 0;
+
+.btnsty_1 {
+	font-size: 18px;
+	text-algin: center;
+	width: 30px;
+	height: 30px;
+	border-radius: 50px;
+	background: #0089DC;
+	color: #fff;
+	outline: none;
+	border-width: 0;
 }
-#form5x tr{
+
+#form5x tr {
 	height: 30px;
 	line-height: 30px;
 }
 
-@media only screen and (max-width:400px)
-			 {
-		 #bodys{
-			  width:100%;
-			  }
-		#shangping_title{
-		   display:none;
-		    }
-		 #main{
-		  width:100%;
-		 }
-		#touxiang{
-		width:50px;
-		height:50px;
-		 margin-top:-15px
-		 }
-		 #box3 {
-    margin-top: 30px;
-    }
-    .box_span{
-	    width:80px;
-    }
-    .btnsty_1{
-    font-size:18px;
-   text-algin:center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50px;
-    background: #0089DC;
-    color: #fff;
-    outline: none;
-    border-width: 0;
+@media only screen and (max-width:400px) {
+	#bodys {
+		width: 100%;
+	}
+	#shangping_title {
+		display: none;
+	}
+	#main {
+		width: 100%;
+	}
+	#touxiang {
+		width: 50px;
+		height: 50px;
+		margin-top: -15px
+	}
+	#box3 {
+		margin-top: 30px;
+	}
+	.box_span {
+		width: 80px;
+	}
+	.btnsty_1 {
+		font-size: 18px;
+		text-algin: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50px;
+		background: #0089DC;
+		color: #fff;
+		outline: none;
+		border-width: 0;
+	}
+	#box1x {
+		left: 4%;
+		width: 340px;
+		height: 120px;
+		display: none;
+		border: 1px solid;
+		border-radius: 10px;
+		position: fixed;
+		top: 35%;
+		background: gray;
+		text-align: center;
+	}
+	#float_left_boxss {
+		width: 100%;
+	}
+	#box2 {
+		left: 19%;
+	}
+	.box1_s {
+		left: 18%;
+	}
 }
-#box1x{
-    left:4%;
-     width: 340px;
-    height: 120px;
-    display: none;
-    border: 1px solid;
-    border-radius:10px;
-    position: fixed;
-    top: 35%;
-    background: gray;
-    text-align: center;
-}
-#float_left_boxss{
-width: 100%; 
-}
-#box2{
- left:19%;
-}
-.box1_s{
- left:18%;
-}
-			 }    
 </style>
 </head>
 
 
 <body>
-<header>
+	<header>
 		<nav class="navbar navbar-default" role="navigation">
 			<div id="bodys" class="container-fluid">
 				<div class="navbar-header">
@@ -280,8 +291,8 @@ width: 100%;
 						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/meishimeike/pages/indexs.jsp"><img id="logo4j"
-						src="img/logo2.png" /></a>
+					<a class="navbar-brand" href="/meishimeike/pages/indexs.jsp"><img
+						id="logo4j" src="img/logo2.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -289,6 +300,8 @@ width: 100%;
 						<li><a href="#">我的客服</a></li>
 						<li><a href="#">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
+						<li><a href="">注销</a></li>
+
 						<li class="dropdown">
 							<ul class="dropdown-menu">
 								<li><a href="#">jmeter</a></li>
@@ -308,27 +321,32 @@ width: 100%;
 	<div style="clear: both;"></div>
 	<div id="main">
 		<div>
-			欢迎商户 : ${merchant.name}<img id="touxiang" class="float_r" alt=""
-				src="../img/${merchant.brank}" width="130" height="90" />
+			欢迎商户 : ${merchantData.info.name}<img id="touxiang" class="float_r"
+				alt="" src="img/${merchantData.info.mLogo}" width="130" height="90" />
 		</div>
 
 		<h3 id="shangping_title" style="margin-top: 15px;">我的商品目录</h3>
 		<div id="box3">
-			<c:forEach var="i" items="${ls}">
-				<span class="box_span">${i.name}</span>
+
+			<c:forEach var="i" items="${merchantData.classifyList}">
+				<span class="box_span">${i.cName}</span>
 			</c:forEach>
-			<input class="btnsty_1" type="button" id="btn6" class="btnsty" value="+">
+			<input class="btnsty_1" type="button" id="btn6" class="btnsty"
+				value="+">
+			<c:if test="${merchantData.classifyList==null}">
+				你还没有商品目录,请添加目录,例:米饭,饮品
+			</c:if>
 		</div>
 
-		<c:forEach var="i" items="${ls}">
+		<c:forEach var="i" items="${merchantData.classifyList}">
 			<div class="boxs1">
 				<div style="clear: both;"></div>
 				<div style="margin-top: 30px;">
 					<h3 style="padding-left: 20px;">
-						<span style="font-size: 20px; font-weight: 500;">${i.name}</span>
+						<span style="font-size: 20px; font-weight: 500;">${i.cName}</span>
 						<input type="button" onclick="ck(this)" class="btn1 btnsty"
 							value="添加商品"> <input type="button"
-							onclick="drop_classify(${i.t_id},this)" class="btn1 btnsty"
+							onclick="drop_classify(${i.cId},this)" class="btn1 btnsty"
 							value="删除目录">
 					</h3>
 					<div class="mu_lu_box">
@@ -343,11 +361,12 @@ width: 100%;
 											<span><input type="button"
 												class="float_r btnsty delete"
 												onclick="delete_m(${j.t_id},this)" style="margin-top: 9px;"
-												value="删除" /> </span> 
-												<div style="height: 0px;"></div>
-												<p style="overflow: hidden;white-space: nowrap;text-overflow: ellipsis;font-size: 13px; color: darkgray;">${j.t_info }</p>
-											<span><p style="margin-top:3px;color:#cccc33;">★★★★★</span><br /> <span style="color: red">￥
-												${j.t_price }</span>
+												value="删除" /> </span>
+											<div style="height: 0px;"></div>
+											<p
+												style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 13px; color: darkgray;">${j.t_info }</p>
+											<span><p style="margin-top: 3px; color: #cccc33;">★★★★★</span><br />
+											<span style="color: red">￥ ${j.t_price }</span>
 										</div>
 									</div>
 								</c:if>
@@ -360,11 +379,11 @@ width: 100%;
 
 		<!-- ------------------隐藏层------------------------- -->
 		<div id="box1" class="box1_s">
-			<form id="form5" method="post" action="/Add_Merchant"
+			<form id="form5" method="post" onsubmit="return false"
 				enctype="multipart/form-data">
-				<input id="s_id" type="hidden" name="s_id" value="${merchant.id}" />
+				<input id="s_id" type="hidden" name="id" value="${merchantData.id}" />
 				<input id="s_name" type="hidden" name="s_name" value="" />
-				<table style="width:100%;text-align:left;">
+				<table style="width: 100%; text-align: left;">
 					<tr>
 						<td>图片</td>
 						<td><input name="fileupload" type="file"
@@ -372,15 +391,15 @@ width: 100%;
 					</tr>
 					<tr>
 						<td>商品名字</td>
-						<td><input name="name" type="text" /></td>
+						<td><input name="name" required="required" type="text" /></td>
 					</tr>
 					<tr>
 						<td>单价</td>
-						<td><input name="danjia" type="number" min="1.0" step="0.1"></td>
+						<td><input name="danjia"  required="required" type="number" min="0.01" step="0.1"></td>
 					</tr>
 					<tr>
 						<td>商品描述</td>
-						<td><input type="text" name="t_info" /></td>
+						<td><input type="text" required="required"  name="t_info" /></td>
 					</tr>
 					<tr align="center">
 						<td><input type="submit" id="btn5" class="btnsty" value="提交" />
@@ -391,18 +410,18 @@ width: 100%;
 			</form>
 		</div>
 		<div id="box1x">
-			<form id="form5x" method="post">
-				<input type="hidden" name="id" value="${merchant.id}" />
+			<form id="form5x" method="post"  onsubmit="return false">
+				<input type="hidden" name="id" value="${merchantData.id}" />
 				<table style="width: 100%; text-align: center;">
 					<tr>
-						<td style="color:white;">商品目录名</td>
+						<td style="color: white;">商品目录名</td>
 						<td><input name="name" id="inp1" type="text" /></td>
-					<tr/>
-					
+					<tr />
+
 					<tr>
-						<td><input  type="button" class="btnsty" id="btn5x" value="提交" />
+						<td><input type="button" class="btnsty" id="btn5x" value="提交" />
 						</td>
-						<td><input  type="button" class="btnsty" id="btn2x" value="关闭" /></td>
+						<td><input type="button" class="btnsty" id="btn2x" value="关闭" /></td>
 					</tr>
 				</table>
 			</form>
@@ -430,32 +449,26 @@ width: 100%;
 					$('#box2').hide();
 				});
 				$('#box2_b1').on("click", function() {
-					$('#box2').hide();
+					
 					$.ajax({
 						type:"post",
-						data:{data:t_id},
-						url:"<%=(String)request.getAttribute("basePath")%>/Drop_classify",
-						async:false,
+						data:{"id":t_id},
+						url:"/meishimeike/merchant/deleteClassifyList",
+						async:true,
 						success:function(data)
 						{
 							var jso=JSON.parse(data);
+							
 							if(jso.data==true)
 							{
-								$(obj1).parents(".boxs1").remove();
-								var spantext=$(obj1).prev().prev().text();
-								$('.box_span').each(function()
-								{
-									if($(this).text()==spantext)
-									{
-										$(this).remove();
-									}
-								})
+								history.go(0);
+								//$('#box2').hide();
 							}else{
 								
 							}
 						},error:function(a,b)
 						{
-							
+							alert(b)
 						}
 					});
 					
@@ -473,7 +486,7 @@ width: 100%;
 					$.ajax({
 						type:"post",
 						data:{data:id},
-						url:"<%=(String)request.getAttribute("basePath")%>/Drop_Merchar_info",
+						url:"<%=(String) request.getAttribute("basePath")%>/Drop_Merchar_info",
 						async:false,
 						success:function(data)
 						{
@@ -530,28 +543,17 @@ width: 100%;
 							{
 								type: "POST",
 								data: $('#form5x').serialize(),
-								url: "<%=(String)request.getAttribute("basePath")%>/Add_classify",
+								url: "/meishimeike/merchant/addClassifyList",
 								async: false,
 								success: function(d)
 								{
 									var jso = JSON.parse(d);
 									if(jso.data == true)
 									{
-										$('#box3').prepend(
-											"<span class='box_span'>" +
-											values1 +
-											"</span>");
-										$('#main')
-											.append(
-												'<div style="clear: both;"></div>' +
-												'<div style="margin-top: 30px;">' +
-												'<h3 style="padding-left: 20px;">' +
-												'<span style="font-size: 24px; font-weight: 500;">' + values1 + '</span> ' +
-												'<input type="button" onclick="ck(this)" class="btn1 btnsty" value="添加商品">' +
-												'</h3>' +
-												'<div class="mu_lu_box">' +
-												'</div></div>');
+										history.go(0);
 										box1x.style.display = "none";
+									}else{
+										alert(jso.data)
 									}
 
 								},

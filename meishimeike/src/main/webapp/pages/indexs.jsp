@@ -16,9 +16,11 @@
 	/* height: 65px; */
 	padding: 0;
 }
+
 .navbar-default {
-	box-sizing:border-box;
+	box-sizing:border-box;    
     background-color: rgba(170, 234, 15, 0.62);
+    
 }
 ::-webkit-scrollbar {display:none}
  .navbar-default .navbar-nav > li > a:hover {
@@ -36,6 +38,16 @@
 	padding-right: 20px;
 }
 
+
+
+.navbar {
+    position: fixed;
+  	width:100%;
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+    z-index: 2;
+    /* background-image: linear-gradient(-90deg, #FFF -20%, #FFF 100%); */
+}
 </style>
 </head>
 <body>
@@ -84,6 +96,7 @@
 				</div>
 			</div>
 		</nav>
+		<div id="bgBox"></div>
 	</header>
 
 	<div class="cursor h_red ui_hide" id="on_top" title="返回顶部">△</div>
@@ -117,15 +130,207 @@
 		<div id="nav_3">
 			<div class="main_box float_left">
 				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
+					<img src="/meishimeike/pages/img/江湖爆炒.jpeg" width="75" height="75">
 				</div>
 				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
+					<p class="caipinBoxp1">江湖爆炒</p>
 					<p class="caipinBoxp2">★★★★★</p>
 					<p class="caipinBoxp3">配送费￥5</p>
 				</div>
 				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="美食" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/愉快.png" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">愉筷（较场口店）</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5.5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="美食" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/乡村基.jpg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">乡村基（上清寺店）</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">35+分钟</div>
+				<input type="hidden" class="hide" value="快餐便当" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/阿妈.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">阿妈味道特色木桶饭</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
 				<input type="hidden" class="hide" value="早餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/jintangbao.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">金汤包</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="早餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/piaoxiang.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">飘香木桶饭</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="早餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/munanniu.png" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">牧男牛井咖喱焗饭</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="快餐便当" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/zuoyushousi.png" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">佐鱼寿司</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="快餐便当" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/御品贡茶.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">御品贡茶</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="下午茶" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/隆江猪脚饭.png" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">隆江猪脚饭</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="快餐便当" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/黄焖鸡米饭.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">黄焖鸡米饭</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="午餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/洪湖小碗菜.png" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">洪湖小碗菜</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="午餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/万州土碗菜.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">万州土碗菜</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="午餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/心德小笼包子.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">心德小笼包子</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="早餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/紫燕百味鸡.jpg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">紫燕百味鸡</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="早餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/毛大臣龙虾饭.png" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">毛大臣龙虾饭</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="午餐" />
+			</div>
+			<div class="main_box float_left">
+				<div class="float_left">
+					<img src="/meishimeike/pages/img/传奇.jpeg" width="75" height="75">
+				</div>
+				<div class="float_left caipinBox">
+					<p class="caipinBoxp1">传奇抄手</p>
+					<p class="caipinBoxp2">★★★★★
+					<p class="caipinBoxp3">配送费￥5
+				</div>
+				<div class="s_time">33+分钟</div>
+				<input type="hidden" class="hide" value="晚餐" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
@@ -137,223 +342,31 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
+				<input type="hidden" class="hide" value="晚餐" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
+					<img src="/meishimeike/pages/img/广东.png" width="75" height="75">
 				</div>
 				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
+					<p class="caipinBoxp1">广东旺蟹报贩</p>
 					<p class="caipinBoxp2">★★★★★
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
+				<input type="hidden" class="hide" value="晚餐" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
+					<img src="/meishimeike/pages/img/华莱士.jpeg" width="75" height="75">
 				</div>
 				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
+					<p class="caipinBoxp1">华莱士（上清寺店）</p>
 					<p class="caipinBoxp2">★★★★★
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
-			</div>
-			<div class="main_box float_left">
-				<div class="float_left">
-					<img src="/meishimeike/pages/img/加班狗.png" width="75" height="75">
-				</div>
-				<div class="float_left caipinBox">
-					<p class="caipinBoxp1">加班狗大坪店</p>
-					<p class="caipinBoxp2">★★★★★
-					<p class="caipinBoxp3">配送费￥5
-				</div>
-				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
+				<input type="hidden" class="hide" value="午餐" />
 			</div>
 			<p class="clearp">
 		</div>

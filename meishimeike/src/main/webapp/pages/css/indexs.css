@@ -9,7 +9,13 @@ body {
 	margin: 0;
 	padding: 0;
 }
-
+#bgBox{
+	width: 100%;
+	height:52px;
+	background-color:#FFFFFF;
+	
+	position: fixed;
+}
 #fen {
 	display: inline-block;
 	height: 30px;
@@ -117,6 +123,8 @@ input::-webkit-input-placeholder {
 
 #section-div {
 	height: 49px;
+	padding-top:70px;
+	
 	width: 70%;
 }
 
@@ -149,8 +157,8 @@ input::-webkit-input-placeholder {
 	border: 2px solid rgba(25, 204, 105, 0.82);
 	transition: all 0.5s linear;
 	width: 200px;
-	border-radius: 15px;
-	height: 30px;
+	border-radius: 20px;
+    height: 35px;
 	text-align: center;
 }
 
@@ -353,7 +361,7 @@ input::-webkit-input-placeholder {
 		height: 180px;
 		border: 0;
 		width: 100%;
-		margin: 23px auto;
+		margin: 77px auto;
 		margin-bottom: 0px;
 	}
 	.main_box {

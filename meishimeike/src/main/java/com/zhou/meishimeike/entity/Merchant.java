@@ -1,8 +1,12 @@
 package com.zhou.meishimeike.entity;
 
+import java.util.Date;
+import java.util.List;
+
 public class Merchant {
 	
 	public Merchant() {
+		date=new Date();
 	}
 	
 	
@@ -14,8 +18,17 @@ public class Merchant {
 	private String pass;
 	private String name;
 	private int code;
+	private Date date;
+	
+	/**
+	 * 商家详细信息对象(LOGO,联系人,手机号.....营业执照...) ------ 1对1关系
+	 */
 	private MerchantInfo info ;
 	
+	/**
+	 * 商家商品类别对象(例子:炒饭,饮料,甜品)------  1 对 多关系
+	 */
+	private List<ClassifyList> classifyList;
 	
 	
 	
@@ -57,6 +70,23 @@ public class Merchant {
 	}
 	public void setCode(int code) {
 		this.code = code;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	@Override
+	public String toString() {
+		return "Merchant [id=" + id + ", phone=" + phone + ", pass=" + pass + ", name=" + name + ", code=" + code
+				+ ", info=" + info + ", date=" + date + "]";
+	}
+	public List<ClassifyList> getClassifyList() {
+		return classifyList;
+	}
+	public void setClassifyList(List<ClassifyList> classifyList) {
+		this.classifyList = classifyList;
 	}
 
 	

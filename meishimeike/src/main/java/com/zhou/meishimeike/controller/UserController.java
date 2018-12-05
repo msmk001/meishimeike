@@ -41,22 +41,11 @@ public class UserController {
 		response.sendRedirect(request.getContextPath()+"/pages/user_login.html");
 	}
 	
-	@RequestMapping("/admin_login")
-	@ResponseBody
-	public Map test01(@Param("name")String name,@Param("pass")String pass) {
-		Map <String, Integer> map=new HashMap<>();
-		boolean hasAdmin = userService.hasAdmin(name, pass);
-		if(hasAdmin) {
-			map.put("data", 2);
-		}else {
-			map.put("data", 3);
-		}
-		return map;
-	}
+	
 	
 	@RequestMapping("/user_login")
 	@ResponseBody
-	public Map user_login(@Param("phone")String phone,@Param("pass")String pass,HttpServletRequest request) {
+	public Map user_login(String phone,String pass,HttpServletRequest request) {
 		Map <String, Integer> map=new HashMap<>();
 		boolean hasAdmin = userService.hasUser(phone, pass);
 		if(hasAdmin) {
@@ -75,7 +64,7 @@ public class UserController {
 	//merchant_register
 	@RequestMapping("/user_register")
 	@ResponseBody
-	public Map userRegister(@Param("phone")String phone,@Param("pass")String pass,@Param("ck")String ck,HttpServletRequest request) {
+	public Map userRegister(String phone,String pass,String ck,HttpServletRequest request) {
 		Map <String, Object> map=new HashMap<>();
 		if("".equals(phone)||"".equals(pass)||"".equals(ck)) {
 			map.put("data", "请检查表单是否填写完毕");

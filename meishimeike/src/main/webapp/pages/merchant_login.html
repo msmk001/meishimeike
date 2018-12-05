@@ -287,6 +287,7 @@ input, input:focus, input:active {
 			$("#t2").hide()
 		});
 		//***************************************************
+		//登录
 		function checks() {
 			var t1 = $("#t1");
 			var b = false;
@@ -302,7 +303,9 @@ input, input:focus, input:active {
 					if (jso.data == 1) {
 						window.location.href = "/meishimeike/pages/merchant_verification.html";
 					}else if(jso.data == 2){
-						window.location.href = "/meishimeike/pages/indexs.jsp";
+						window.location.href = "/meishimeike/pages/merchant_await.html";
+					}else if(jso.data == 3){
+						window.location.href = "/meishimeike/pages/merchant_manage.jsp";
 					} else {
 						showMsg(jso.data)
 					}

@@ -23,6 +23,7 @@
 
 	<mappers>								
 		<mapper resource="com/zhou/meishimeike/dao/mapper/UserDao.xml" />
+		<mapper resource="com/zhou/meishimeike/dao/mapper/MerchantDao.xml" />
 	</mappers>
 
 </configuration>

@@ -9,11 +9,13 @@ public class MerchantInfo{
 	private String mType;
 	
 	private String mImgIdCar;
+	
 	private String mImgIndoor;
+	
 	private String mLogo;
 	private String mAppearance;
 	private String mPermission;
-	private String mImgLicense;
+	private String mImgLicense; //营业执照 mImgLicense
 	
 	private double mLng;
 	private double mLat;
@@ -102,6 +104,13 @@ public class MerchantInfo{
 	
 	public void setmImgIdCar(String mImgIdCar) {
 		this.mImgIdCar = mImgIdCar;
+	}
+	@Override
+	public String toString() {
+		return "MerchantInfo [iId=" + iId + ", mId=" + mId + ", phone=" + phone + ", name=" + name + ", mName=" + mName
+				+ ", mType=" + mType + ", mImgIdCar=" + mImgIdCar + ", mImgIndoor=" + mImgIndoor + ", mLogo=" + mLogo
+				+ ", mAppearance=" + mAppearance + ", mPermission=" + mPermission + ", mImgLicense=" + mImgLicense
+				+ ", mLng=" + mLng + ", mLat=" + mLat + "]";
 	}
 	
 	

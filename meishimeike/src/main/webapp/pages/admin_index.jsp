@@ -1,16 +1,32 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
 <title>美食美客后台管理系统</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <link href="css/bootstrap.hupeng.css" rel="stylesheet" type="text/css" />
 <link href="css/icons.min.css" rel="stylesheet" type="text/css" />
 <link href="css/app.min.css" rel="stylesheet" type="text/css" />
 <script src="js/echarts.js"></script>
-
+<style type="text/css">
+	#mainBoxFooter {
+	text-align: center;
+	width: 97%;
+	line-height: 40px;
+	position: absolute;
+	height: 40px;
+	bottom: 0;
+}
+.card-body{
+	box-sizing: border-box;
+}
+</style>
 </head>
 <body>
 	<header id="topnav">
@@ -21,9 +37,8 @@
 						class="nav-link dropdown-toggle nav-user mr-0"
 						data-toggle="dropdown" href="#" role="button"
 						aria-haspopup="false" aria-expanded="false"> <img
-							src="img/users/admin.jpg"
-							alt="user-image" class="rounded-circle"> <small
-							class="pro-user-name ml-1"> Admin </small>
+							src="img/users/admin.jpg" alt="user-image" class="rounded-circle">
+							<small class="pro-user-name ml-1"> Admin </small>
 					</a>
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
@@ -34,18 +49,17 @@
 						</div></li>
 				</ul>
 				<ul class="list-inline menu-left mb-0">
-					<li class="float-left"><a href="/meishimeike/pages/indexs.jsp" class="logo">
-							<span class="logo-lg"> <img
-								src="img/logo2.png" alt=""
-								height="65">
-						</span> <span class="logo-sm"> <img
-								src="img/logo2.png"
-								alt="" height="55">
+					<li class="float-left"><a href="/meishimeike/pages/indexs.jsp"
+						class="logo"> <span class="logo-lg"> <img
+								src="img/logo2.png" alt="" height="65">
+						</span> <span class="logo-sm"> <img src="img/logo2.png" alt=""
+								height="55">
 						</span>
 					</a></li>
 				</ul>
 			</div>
 		</nav>
+		
 	</header>
 	<div class="wrapper">
 		<div class="container-fluid">
@@ -187,26 +201,30 @@
 										<tr>
 											<th>基本信息</th>
 											<th>手机号</th>
-											<th>地址</th>
+											<th>经度 | 维度</th>
 											<th>注册时间</th>
 											<th>操作</th>
 										</tr>
 									</thead>
-									<tbody>
+									
+									
+								
+									
+									<c:forEach var="i" items="${PageUtil.list}">
+									<tbody onclick="location.href='/meishimeike/admin/open_merchant?id=${i.id}'">
 										<tr>
-											<td><img
-												src="img/u=494529471,4145676902&fm=26&gp=0.jpg"
+											<td><img src="img/u=494529471,4145676902&fm=26&gp=0.jpg"
 												alt="contact-img" height="36" title="contact-img"
 												class="rounded-circle float-left mr-2" />
 												<p class="mb-0 font-weight-bold">
-													<a href="<%=request.getContextPath()%>/verify.jsp">哈狗</a>
-												</p> <span class="font-13">3494490@qq.com</span></td>
+													<a href="javascript:;">${i.info.name}</a>
+												</p> <span class="font-13">${i.info.mName}</span></td>
 
-											<td>110120119</td>
+											<td>${i.info.phone}</td>
 
-											<td>重庆</td>
-
-											<td>2018/11/29</td>
+											<td>${i.info.mLng} | ${i.info.mLat}</td>
+					
+											<td><fmt:formatDate value="${i.date}"  type="both" /></td>
 
 											<td>
 												<div class="btn-group dropdown">
@@ -226,8 +244,28 @@
 											</td>
 										</tr>
 									</tbody>
+									</c:forEach>
+									
+									
+									
 								</table>
 							</div>
+							
+			<div id="mainBoxFooter">
+
+			<a
+				href="<%=request.getContextPath()%>/admin/paging?pageNo=${PageUtil.homePage}">首页</a>
+			| <a
+				href="<%=request.getContextPath()%>/admin/paging?pageNo=${PageUtil.prvePage}">上一页</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			${PageUtil.pageNo}/${PageUtil.pageCount}
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="<%=request.getContextPath()%>/admin/paging?pageNo=${PageUtil.nextPage}">下一页</a>
+			| <a
+				href="<%=request.getContextPath()%>/admin/paging?pageNo=${PageUtil.endPage}">尾页</a>
+		</div>
+							
+							
 						</div>
 					</div>
 				</div>

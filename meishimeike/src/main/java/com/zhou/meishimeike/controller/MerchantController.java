@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.zhou.meishimeike.entity.ClassifyList;
 import com.zhou.meishimeike.entity.Merchant;
 import com.zhou.meishimeike.entity.MerchantInfo;
 import com.zhou.meishimeike.service.MerchantService;
@@ -33,20 +34,28 @@ public class MerchantController {
 	
 	@RequestMapping("/merchant_login")
 	@ResponseBody
-	public Map merchantLogin(@Param("phone")String phone,@Param("pass")String pass,HttpServletRequest request) {
+	public Map merchantLogin(String phone,String pass,HttpServletRequest request,HttpServletResponse res) throws IOException {
 		Map <String, Object> map=new HashMap<>();
 		boolean hasAdmin = merchantService.hasUser(phone, pass);
 		
 		if(hasAdmin) {
 			int selectCodeByPhone = merchantService.selectCodeByPhone(phone);
-			Integer idByPhone = merchantService.getIdByPhone(phone);
-			request.getSession().setAttribute("mId",idByPhone);
+			int mId = merchantService.getIdByPhone(phone);
+			request.getSession().setAttribute("mId",mId);
 			if(selectCodeByPhone==0) {
-				//提交资料
+				//进入提交资料
 				map.put("data", 1);
 			}else if(selectCodeByPhone==1) {
-				//进入后台
+				//进入等待页面
 				map.put("data", 2);
+			}else if(selectCodeByPhone==2) {
+				
+				Merchant m=merchantService.getMerchantById(mId);
+				
+				request.getSession().setAttribute("merchantData", m);
+				
+				//进入后台
+				map.put("data", 3);
 			}else {
 				map.put("data", "服务器繁忙");
 			}
@@ -56,11 +65,11 @@ public class MerchantController {
 		}
 		return map;
 	}
-	//register
+
 	
 	@RequestMapping("/merchant_register")
 	@ResponseBody
-	public Map merchantRegister(@Param("phone")String phone,@Param("pass")String pass,@Param("ck")String ck,HttpServletRequest request) {
+	public Map merchantRegister(String phone,String pass,String ck,HttpServletRequest request) {
 		Map <String, Object> map=new HashMap<>();
 		if("".equals(phone)||"".equals(pass)||"".equals(ck)) {
 			map.put("data", "请检查表单是否填写完毕");
@@ -89,15 +98,60 @@ public class MerchantController {
 		return map;
 	}
 	
+	@RequestMapping("/deleteClassifyList")
+	@ResponseBody 
+	public Map deleteClassifyList(int id,HttpServletRequest request,HttpServletResponse res) throws IOException {
+		Map <String, Object> map=new HashMap<>();
+		boolean b=merchantService.deleteClassifyById(id);
+		if(b) {
+			if(request.getSession().getAttribute("mId")==null) {
+				res.sendRedirect(request.getContextPath()+"/pages/merchant_login.html");
+			}
+			int mId = (int)request.getSession().getAttribute("mId");
+			Merchant m=merchantService.getMerchantById(mId);
+			request.getSession().setAttribute("merchantData", m);
+			map.put("data", true);
+		}else {
+			map.put("data", "服务器繁忙");
+		}
+		return map;
+	}
+	
+	//addClassifyList 
+	@RequestMapping("/addClassifyList")
+	@ResponseBody
+	public Map addClassifyList(int id,String name,HttpServletRequest request,HttpServletResponse res) throws IOException {
+		Map <String, Object> map=new HashMap<>();
+		ClassifyList classifyList = new ClassifyList();
+		classifyList.setmId(id);
+		classifyList.setcName(name);
+		boolean addClassifyList = merchantService.addClassifyList(classifyList);
+		if(addClassifyList) {
+			if(request.getSession().getAttribute("mId")==null) {
+				res.sendRedirect(request.getContextPath()+"/pages/merchant_login.html");
+			}
+			
+			int mId = (int)request.getSession().getAttribute("mId");
+			
+			Merchant m=merchantService.getMerchantById(mId);
+			request.getSession().setAttribute("merchantData", m);
+			map.put("data", true);
+			
+		}else {
+			map.put("data", "服务器繁忙");
+		}
+		return map;
+	}
 	
 	@RequestMapping("/merchant_update")
 	@ResponseBody
-	public Map merchant_update (@Param("phone")String phone,@Param("name")String name,@Param("mName")String mName,
-			@Param("mType")String mType,@RequestParam("imgIdCar") CommonsMultipartFile imgIdCar,
-			@RequestParam("imgIndoor") CommonsMultipartFile imgIndoor,@RequestParam("imgLicense") CommonsMultipartFile imgLicense,
-			@RequestParam("logo") CommonsMultipartFile logo,@RequestParam("permission") CommonsMultipartFile permission
-			,@RequestParam("appearance") CommonsMultipartFile appearance,
-			@Param("mlng")double mlng,@Param("mlat")double mlat,HttpServletRequest request) throws IOException {
+	public Map merchant_update (String phone,String name,String mName,
+			String mType,@RequestParam("imgIdCar")CommonsMultipartFile imgIdCar,
+			@RequestParam("imgIndoor")CommonsMultipartFile imgIndoor,@RequestParam("imgLicense")CommonsMultipartFile imgLicense,
+			@RequestParam("logo")CommonsMultipartFile logo,@RequestParam("permission")CommonsMultipartFile permission
+			,@RequestParam("appearance")CommonsMultipartFile appearance,
+			double mlng,double mlat,HttpServletRequest request) 
+					throws IOException {
 		Map <String, Object> map=new HashMap<>();
 		MerchantInfo merchantInfo = new MerchantInfo();
 		
@@ -117,6 +171,8 @@ public class MerchantController {
 			return map;
 		}
 		
+		System.out.println(imgIndoor.getOriginalFilename());
+		
 		merchantInfo.setmId(mid);
 		
 		merchantInfo.setPhone(phone);
@@ -135,9 +191,10 @@ public class MerchantController {
 		merchantInfo.setmLat(mlat);
 		
 		boolean addMerchantInfo = merchantService.addMerchantInfo(merchantInfo);
+		
 		if(addMerchantInfo) {
 			map.put("data", true);
-			merchantService.updateCodeById(mid);
+			merchantService.updateCodeById(mid, 1);
 		}else {
 			map.put("data", "服务器繁忙");
 		}

@@ -49,16 +49,15 @@
 				$.ajax(
 				{
 					type: "POST",
-					data: $('#form2').serialize(),
-					url: "/meishimeike/user/admin_login",
+					data: $('#from2').serialize(),
+					url: "/meishimeike/admin/admin_login",
 					async: false,
 					success: function(d)
 					{
 						var jso = JSON.parse(d);
 						if(jso.data == 2)
 						{
-							
-							
+							window.location.href = "/meishimeike/admin/paging?pageNo=1";
 						}
 						else
 						{

@@ -107,38 +107,39 @@ text-align: center;
 	<section class="content">
 		<div class="content_div">
 			<form action="" method="post">
-				<div><h5>联系人姓名:1564513</h5></div>
-				<div><h5>手机号码:545615</h5></div>
-				<div><h5>商店类型:餐饮</h5></div>
-				<div><h5>商家地址:红旗河沟</h5></div>
+				<div><h5>联系人姓名 : ${merchantData.info.name}</h5></div>
+				<div><h5>店名 : ${merchantData.info.mName}</h5></div>
+				<div><h5>手机号码 : ${merchantData.info.phone}</h5></div>
+				<div><h5>商店类型 : ${merchantData.info.mType}</h5></div>
+				<div><h5>商家地址 : ${merchantData.info.mLng} | ${merchantData.info.mLat}</h5></div>
 				<div class="box">
 					<div>
 						<span>商店门头</span>
-						<img src="img/u=4044305366,2427370788&fm=26&gp=0.jpg"/>
+						<img src="img/${merchantData.info.mAppearance}"/>
 					</div>
 					<div>
 						<span>店内照</span>
-						<img src="img/u=4044305366,2427370788&fm=26&gp=0.jpg"/>
+						<img src="img/${merchantData.info.mImgIndoor}"/>
 					</div>
 					<div>
 						<span>身份证正面</span>
-						<img src="img/u=4044305366,2427370788&fm=26&gp=0.jpg"/>
+						<img src="img/${merchantData.info.mImgIdCar}"/>
 					</div>
 					<div>
-						<span>身份证反面</span>
-						<img src="img/u=4044305366,2427370788&fm=26&gp=0.jpg"/>
+						<span>Logo</span>
+						<img src="img/${merchantData.info.mLogo}"/>
 					</div>
 					<div>
 						<span>营业执照</span>
-						<img src="img/u=4044305366,2427370788&fm=26&gp=0.jpg"/>
+						<img src="img/${merchantData.info.mImgLicense}"/>
 					</div>
 					<div>
 						<span>餐饮服务许可证</span>
-						<img src="img/u=4044305366,2427370788&fm=26&gp=0.jpg"/>
+						<img src="img/${merchantData.info.mPermission}"/>
 					</div>
 				</div>
 				<div class="btn">
-					<input type="submit" class="sub-btn" value="验证通过" />
+					<a class="sub-btn" href="/meishimeike/admin/pass_merchant?id=${merchantData.id}" >验证通过</a>
 					 <a class="verify-btn" href="">验证不通过,请返回！</a>
 				</div>
 			</form>
