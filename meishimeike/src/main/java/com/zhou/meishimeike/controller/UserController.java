@@ -8,14 +8,13 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zhou.meishimeike.entity.CommodityJson;
+import com.zhou.meishimeike.entity.USerInfo;
 import com.zhou.meishimeike.entity.User;
 import com.zhou.meishimeike.service.UserService;
 
@@ -44,7 +43,38 @@ public class UserController {
 	}
 	
 	
-	
+	@RequestMapping("/addSite")
+	@ResponseBody
+	public Map addSite(HttpServletResponse response,HttpServletRequest request,String name,String phone,String site) throws IOException {
+		Map <String, Object> map=new HashMap<>();
+		
+		if(request.getSession().getAttribute("user")==null) {
+			response.sendRedirect("/meishimeike");
+			return null;
+		}
+		User attribute = (User)request.getSession().getAttribute("user");
+		
+		USerInfo uSerInfo = new USerInfo();
+		
+		
+		uSerInfo.setuId(attribute.getId());
+		uSerInfo.setUfName(name);
+		uSerInfo.setUfPhone(phone);
+		uSerInfo.setUfSite(site);
+		
+		System.out.println(attribute);
+		System.out.println(uSerInfo);
+		
+		boolean b =userService.addSite(uSerInfo);
+		if(b) {
+			User userByPhone = userService.getUserByPhone(phone);
+			request.getSession().setAttribute("user", userByPhone);
+			map.put("data", true);
+		}else {
+			map.put("data", "服务器繁忙");
+		}
+		return map;
+	}
 	@RequestMapping("/user_login")
 	@ResponseBody
 	public Map user_login(String phone,String pass,HttpServletRequest request) {
@@ -55,7 +85,6 @@ public class UserController {
 			
 			List <CommodityJson> cList=(List<CommodityJson>) request.getSession().getAttribute("cList");
 			
-			System.out.println(cList);
 			
 			if(cList!=null) {
 				map.put("data", 4);
@@ -73,7 +102,6 @@ public class UserController {
 			map.put("data", 3);
 		}
 		
-		System.out.println("返回值"+map.get("data"));
 		return map;
 	}
 	

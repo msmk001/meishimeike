@@ -4,38 +4,61 @@
 <mapper namespace="com.zhou.meishimeike.dao.UserDao">
 
 
-		<select id="getAllUserCount" resultType="int">
-			select count(u_id) from user
-		</select>
-		
-		<select id="hasAdmin" resultType="boolean">
-			select count(name) from sys_admin where name=#{param1} and pass=#{param2}
-		</select>
-		
-		<select id="hasUser" resultType="boolean">
-			select count(u_id) from user where (u_phone=#{param1} or u_email=#{param1}) and u_pass=#{param2}
-		</select>
-		
-		<select id="getUserByPhone" resultType="com.zhou.meishimeike.entity.User" >
-			select 
-				u_id as id,
-				u_name as name,
-				u_pass as pass,
-				u_email as email,
-				u_phone as phone
-			from
-				user
-			where 
-				u_phone=#{param1}
-		</select>
-		
-		<insert id="addUser">
-			insert into user values(default,#{name},#{pass},#{email},#{phone})
-		</insert>
-		
-		
-		<select id="hasUserByPhone" resultType="boolean">
-			select count(u_id) from user where u_phone=#{param1}
-		</select>
-		
+	<select id="getAllUserCount" resultType="int">
+		select count(u_id) from
+		user
+	</select>
+
+	<select id="hasAdmin" resultType="boolean">
+		select count(name) from
+		sys_admin where name=#{param1} and pass=#{param2}
+	</select>
+
+	<select id="hasUser" resultType="boolean">
+		select count(u_id) from user
+		where (u_phone=#{param1} or u_email=#{param1})
+		and u_pass=#{param2}
+	</select>
+
+	<select id="getUserByPhone" resultMap="userMap">
+		select
+		*
+		from
+		user , user_info
+		where user_info.u_id=user.u_id and
+		u_phone=#{param1}
+	</select>
+
+	<insert id="addUser">
+		insert into user
+		values(default,#{name},#{pass},#{email},#{phone})
+	</insert>
+	
+	<insert id="addSite">
+		insert into user_info values(default,#{uId},#{ufName},#{ufSite},#{ufPhone})
+	</insert>
+
+	<select id="hasUserByPhone" resultType="boolean">
+		select count(u_id) from
+		user where u_phone=#{param1}
+	</select>
+	<resultMap type="com.zhou.meishimeike.entity.User"
+		id="userMap">
+		<id column="u_id" property="id" />
+		<result column="u_name" property="name" />
+		<result column="u_pass" property="pass" />
+		<result column="u_email" property="email" />
+		<result column="u_phone" property="phone" />
+
+		<collection property="userInfo"
+			ofType="com.zhou.meishimeike.entity.USerInfo">
+
+			<id column="uf_id" property="ufId" />
+			<result column="u_id" property="uId" />
+			<result column="uf_name" property="ufName" />
+			<result column="uf_site" property="ufSite" />
+			<result column="uf_phone" property="ufPhone" />
+
+		</collection>
+	</resultMap>
 </mapper>

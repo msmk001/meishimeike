@@ -296,7 +296,7 @@ a:link {
 						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/meishimeike/pages/indexs.jsp"><img
+					<a class="navbar-brand" href="/meishimeike"><img
 						id="logo4j" src="img/logo2.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">

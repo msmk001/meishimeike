@@ -1,5 +1,7 @@
 package com.zhou.meishimeike.entity;
 
+import java.util.List;
+
 public class User {
 	
 	
@@ -11,7 +13,7 @@ public class User {
 	private String pass;
 	private String email;
 	private String phone;
-	
+	private List<USerInfo> userInfo;
 	
 	
 	
@@ -52,6 +54,12 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", name=" + name + ", pass=" + pass + ", email=" + email + ", phone=" + phone + "]";
+	}
+	public List<USerInfo> getUserInfo() {
+		return userInfo;
+	}
+	public void setUserInfo(List<USerInfo> userInfo) {
+		this.userInfo = userInfo;
 	}
 	
 	

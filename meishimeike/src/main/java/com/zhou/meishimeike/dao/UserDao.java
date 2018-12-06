@@ -1,5 +1,6 @@
 package com.zhou.meishimeike.dao;
 
+import com.zhou.meishimeike.entity.USerInfo;
 import com.zhou.meishimeike.entity.User;
 
 public interface UserDao {
@@ -10,4 +11,5 @@ public interface UserDao {
 	User getUserByPhone(String Phone);
 	boolean addUser(User u);
 	boolean hasUserByPhone(String phone);
+	boolean addSite(USerInfo uSerInfo);
 }

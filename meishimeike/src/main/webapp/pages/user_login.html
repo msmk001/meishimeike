@@ -226,6 +226,8 @@ input, input:focus, input:active {
 		var a2 = document.getElementById("a2")
 		var a3 = document.getElementById("a3")
 		var a4 = document.getElementById("a4")
+		
+		a4.style.display = "block"
 		a1.onclick = function() {
 			a3.style.display = "none";
 			a4.style.display = "block";
@@ -268,7 +270,7 @@ input, input:focus, input:active {
 					
 					
 					if (jso.data == 2) {
-						window.location.href = "/meishimeike/pages/indexs.jsp";
+						window.location.href = "/meishimeike";
 					}else if (jso.data == 4) {
 						window.location.href = "/meishimeike/pages/user_in_zhifu.jsp";
 					} else {
@@ -290,7 +292,8 @@ input, input:focus, input:active {
 		}
 		function showKeyDown(evt) {
 			evt = (evt) ? evt : window.event;
-
+			
+			
 			if (evt.keyCode == 13 && a4.style.display == "block") {
 				checks();
 			}
@@ -328,7 +331,7 @@ input, input:focus, input:active {
 				success : function(d) {
 					var jso = JSON.parse(d);
 					if (jso.data == true) {
-						window.location.href = "/meishimeike/pages/indexs.jsp";
+						window.location.href = "/meishimeike/";
 					} else {
 						showMsg01(jso.data)
 					}

@@ -1,5 +1,6 @@
 package com.zhou.meishimeike.service;
 
+import com.zhou.meishimeike.entity.USerInfo;
 import com.zhou.meishimeike.entity.User;
 
 public interface UserService {
@@ -9,4 +10,5 @@ public interface UserService {
 	User getUserByPhone(String Phone);
 	boolean addUser(User u);
 	boolean hasUserByPhone(String phone);
+	boolean addSite(USerInfo uSerInfo);
 }

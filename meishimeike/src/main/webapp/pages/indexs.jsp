@@ -455,5 +455,5 @@
 
 </body>
 </html>
-<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
-<script type="text/javascript" src="js/tianlinxin_index.js"></script>
+<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="/meishimeike/pages/js/tianlinxin_index.js"></script>

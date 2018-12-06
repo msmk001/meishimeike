@@ -72,5 +72,45 @@ $(function(){
 			scrollTop:"0px"
 		},300);
 	})
+	
+	$('#section-input').on("keyup", function() {
+		var my_val=$(this).val();
+		if(my_val.trim()=="")
+		{
+			$('.hide').each(function() {
+				$(this).parents(".main_box").show(200);
+			});
+			return;
+		}
+		$('.hide').each(function() {
+			var p1_val=$(this).prev().prev().find("p").first().text().trim();
+			if(p1_val.search(my_val)==-1)
+			{
+				$(this).parents(".main_box").hide(200)
+			}else {
+				$(this).parents(".main_box").show(200);
+			}
+		});
+	});
+	
+	
+	$('.nav2-a').on("click", function() {
+		$('.itm').removeClass("mysty");
+		$(this).addClass("mysty");
+		var itm_val = $(this).text();
+		var i1 = 0;
+		$('.hide').each(function() {
+			if (this.value == itm_val) {
+				$(this).parents(".main_box").show(200);
+				++i1;
+			} else {
+				$(this).parents(".main_box").hide(200);
+			}
 
+		});
+
+	});
+
+
+	
 })
