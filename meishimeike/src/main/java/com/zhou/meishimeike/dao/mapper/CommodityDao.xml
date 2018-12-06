@@ -3,14 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhou.meishimeike.dao.CommodityDao">
 
-
+	<!-- boolean deletecommodityById(int id); -->
+	<delete id="deletecommodityBycyId">
+		delete from commodity where cy_id=#{param1}
+	</delete>
 
 	<insert id="addCommodity">
 		INSERT INTO commodity
 		VALUES(default,#{cId},#{cyName},#{cPrice},#{cyImg},#{cyRemark})
 	</insert>
 
-	
+	<delete id="deletecommodityById">
+		delete from commodity where c_id=#{param1}
+	</delete>
 
 	<select id="getCommodityBycIdList"
 		resultMap="commodityMap">

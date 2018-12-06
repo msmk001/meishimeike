@@ -2,6 +2,7 @@ package com.zhou.meishimeike.controller;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zhou.meishimeike.entity.CommodityJson;
 import com.zhou.meishimeike.entity.User;
 import com.zhou.meishimeike.service.UserService;
 
@@ -49,7 +51,19 @@ public class UserController {
 		Map <String, Integer> map=new HashMap<>();
 		boolean hasAdmin = userService.hasUser(phone, pass);
 		if(hasAdmin) {
-			map.put("data", 2);
+			
+			
+			List <CommodityJson> cList=(List<CommodityJson>) request.getSession().getAttribute("cList");
+			
+			System.out.println(cList);
+			
+			if(cList!=null) {
+				map.put("data", 4);
+			}else {
+				map.put("data", 2);
+			}
+			
+			
 			User userByPhone = userService.getUserByPhone(phone);
 			String name = userByPhone.getPhone();
 			name=name.substring(0, 5)+"...";
@@ -58,6 +72,8 @@ public class UserController {
 		}else {
 			map.put("data", 3);
 		}
+		
+		System.out.println("返回值"+map.get("data"));
 		return map;
 	}
 	

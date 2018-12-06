@@ -41,5 +41,8 @@ public interface MerchantDao {
 
 	Merchant getDataMerchantById(String id);
 
-	boolean deleteClassifyById(int id); 
+	boolean deleteClassifyById(int id);
+
+
+	List<Merchant> getIndexData(); 
 }

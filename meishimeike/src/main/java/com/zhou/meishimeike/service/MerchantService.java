@@ -1,5 +1,7 @@
 package com.zhou.meishimeike.service;
 
+import java.util.List;
+
 import com.zhou.meishimeike.entity.ClassifyList;
 import com.zhou.meishimeike.entity.Merchant;
 import com.zhou.meishimeike.entity.MerchantInfo;
@@ -32,6 +34,9 @@ public interface MerchantService {
 
 	Merchant getDataMerchantById(String id);
 
-	boolean deleteClassifyById(int id); 
+	boolean deleteClassifyById(int id);
+
+
+	List<Merchant> getIndexData(); 
 	
 }

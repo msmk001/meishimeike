@@ -222,7 +222,12 @@ a:link {
 	height: 30px;
 	line-height: 30px;
 }
-
+.tishi{
+	font-size: 15px;
+	padding-left: 20px;
+	color:#777;
+	box-sizing: border-box;
+}
 @media only screen and (max-width:400px) {
 	#bodys {
 		width: 100%;
@@ -352,8 +357,11 @@ a:link {
 					</h3>
 					<div class="mu_lu_box">
 						<div class="mu_lu_box_c">
+							<c:set var="bool" value="true" />
 							<c:forEach var="j" items="${merchantData.commodity}" varStatus="">
+								
 								<c:if test="${i.cId==j.cId}">
+									
 									<div id="float_left_boxss" class="float_left boxs">
 										<img class="float_left" src="img/${j.cyImg}" align="top" />
 										<div class="float_left"
@@ -370,8 +378,15 @@ a:link {
 											<span style="color: red">￥ ${j.cPrice }</span>
 										</div>
 									</div>
+									<c:set var="bool" value="false" />
 								</c:if>
+								
 							</c:forEach>
+							
+							
+							<c:if test="${bool}">
+									<div class="tishi">该目录下还没有商品,请添加</div>
+								</c:if>
 						</div>
 					</div>
 				</div>
@@ -487,8 +502,8 @@ a:link {
 					$('#box2').hide();
 					$.ajax({
 						type:"post",
-						data:{data:id},
-						url:"<%=(String) request.getAttribute("basePath")%>/Drop_Merchar_info",
+						data:{"id":id},
+						url:"/meishimeike/commodity/deleteCommodity",
 						async:false,
 						success:function(data)
 						{
@@ -497,7 +512,7 @@ a:link {
 							{
 								$(obj1).parents(".boxs").remove();
 							}else{
-								
+								alert(jso.data)
 							}
 						},error:function(a,b)
 						{

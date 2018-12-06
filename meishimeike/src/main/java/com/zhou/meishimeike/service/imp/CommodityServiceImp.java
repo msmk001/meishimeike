@@ -18,5 +18,19 @@ public class CommodityServiceImp implements CommodityService {
 		// TODO Auto-generated method stub
 		return commodityDao.addCommodity(c);
 	}
+
+	@Override
+	public boolean deleteCommodityById(int id) {
+		// TODO Auto-generated method stub
+		return commodityDao.deletecommodityById(id);
+	}
+
+	@Override
+	public boolean deleteCommodityBycyId(int id) {
+		// TODO Auto-generated method stub
+		return commodityDao.deletecommodityBycyId(id);
+	}
+
+	
 	
 }

@@ -6,10 +6,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -20,9 +24,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.alibaba.fastjson.JSON;
 import com.zhou.meishimeike.entity.ClassifyList;
+import com.zhou.meishimeike.entity.CommodityJson;
 import com.zhou.meishimeike.entity.Merchant;
 import com.zhou.meishimeike.entity.MerchantInfo;
+import com.zhou.meishimeike.entity.User;
 import com.zhou.meishimeike.service.MerchantService;
 
 @Controller
@@ -31,6 +38,54 @@ public class MerchantController {
 	
 	@Autowired
 	MerchantService merchantService;
+	
+	@RequestMapping("/xiadan") 
+	@ResponseBody
+	public Map xiadan(HttpServletResponse response,HttpServletRequest request) {
+		Map <String, Object> map=new HashMap<>();
+		List <CommodityJson> cList=new ArrayList<>();
+		Enumeration<String> parameterNames = request.getParameterNames();
+		int i=1;
+		for (;parameterNames.hasMoreElements();) {
+			String nextElement = parameterNames.nextElement();
+			String parameter2 = request.getParameter(nextElement);
+			
+			CommodityJson commodityJson=JSON.parseObject(parameter2,CommodityJson.class); 
+			
+			cList.add(commodityJson);
+		}
+		
+		User u=(User)request.getSession().getAttribute("user");
+		
+		request.getSession().setAttribute("cList", cList);
+		
+		if(u==null) {
+			map.put("data","跳转登陆");
+		}else {
+			
+			map.put("data","跳转确认订单");
+		}
+		return map;
+		
+	}
+	//getIndnxDate
+	@RequestMapping("/mdata") 
+	public void getIndnxDate(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
+		List<Merchant> list = merchantService.getIndexData();
+		request.setAttribute("merchantIndexData",list);
+		
+		request.getRequestDispatcher("/pages/indexs.jsp").forward(request, response);
+	}
+	
+	//openInfo
+	@RequestMapping("/openInfo") 
+	public void openInfo(int id,HttpServletResponse response,HttpServletRequest request) throws IOException {
+		Merchant m=merchantService.getMerchantById(id);
+		
+		request.getSession().setAttribute("merchantData", m);
+		
+		response.sendRedirect(request.getContextPath()+"/pages/merchant_info.jsp");
+	}
 	
 	@RequestMapping("/zhuxiao")
 	public void zhuxiao(HttpServletResponse response,HttpServletRequest request) throws IOException {
@@ -48,6 +103,7 @@ public class MerchantController {
 		
 		if(hasAdmin) {
 			int selectCodeByPhone = merchantService.selectCodeByPhone(phone);
+			
 			int mId = merchantService.getIdByPhone(phone);
 			request.getSession().setAttribute("mId",mId);
 			if(selectCodeByPhone==0) {

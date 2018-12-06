@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.zhou.meishimeike.entity.Commodity;
@@ -31,6 +34,30 @@ public class CommodityController {
 	
 	@Autowired
 	MerchantService merchantService;
+	
+	@RequestMapping("deleteCommodity")
+	@ResponseBody
+	public Map  deleteCommodity(int id,HttpServletRequest request, HttpServletResponse res) throws IOException {
+		Map map=new HashMap<String , Object>();
+		boolean bool =commodityService.deleteCommodityBycyId(id);
+		
+		if(request.getSession().getAttribute("mId")==null) {
+			res.sendRedirect(request.getContextPath()+"/pages/merchant_login.html");
+		}
+		
+		int mId = (int)request.getSession().getAttribute("mId");
+		
+		Merchant m=merchantService.getMerchantById(mId);
+		request.getSession().setAttribute("merchantData", m);
+		if(bool) {
+			map.put("data", true);
+		}else {
+			map.put("data", "服务器繁忙");
+		}
+		return map;
+	}
+	
+	
 	
 	@RequestMapping("addCommodity")
 	public void addCommodity(int id, @RequestParam("cyImg") CommonsMultipartFile cyImg, String cyName,

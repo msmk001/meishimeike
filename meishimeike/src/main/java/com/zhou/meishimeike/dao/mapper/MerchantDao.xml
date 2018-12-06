@@ -15,7 +15,17 @@
 		merchant(m_phone,m_name,m_pass,m_createtime)
 		values(#{param1},#{param1},#{param2},default)
 	</insert>
-
+	
+	<select id="getIndexData"  resultMap="merchantMap">
+		SELECT
+		*
+		from
+		merchant as
+		m,merchant_info as mInfo
+		where
+		m.m_id=mInfo.m_id and m.m_code=2
+		limit 20
+	</select>
 
 	<insert id="addClassifyList">
 		INSERT into classifylist

@@ -138,10 +138,27 @@ public class MerchantServiceImp implements MerchantService {
 	}
 
 
+	
+	/**
+	 * 删除目录加删除目录下的商品
+	 */
 	@Override
 	public boolean deleteClassifyById(int id) {
-		// TODO Auto-generated method stub
-		return merchantDao.deleteClassifyById(id);
+		
+		boolean deletecommodityById = commodityDao.deletecommodityById(id);
+		boolean deleteClassifyById = merchantDao.deleteClassifyById(id);
+		
+		return deleteClassifyById;
 	}
+
+
+	@Override
+	public List<Merchant> getIndexData() {
+		// TODO Auto-generated method stub
+		return merchantDao.getIndexData();
+	}
+
+
+
 
 }
