@@ -14,6 +14,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
 <style type="text/css">
+#footer1 {
+	font-size: 16px;
+	margin-top: 50px;
+	width: 100%;
+	height: 200px;
+}
+
+#footer1>div {
+	text-align: center;
+	width: 70%;
+	height: 200px;
+	width: 70%;
+}
+
+#footer1_ul1 {
+	width: 20%;
+}
+
+#footer1_ul2 {
+	width: 20%;
+}
+
+#footer1_ul3 {
+	width: 20%;
+}
+
+.nav {
+	position: relative;
+}
+
+#footer1_ul4 {
+	width: 20%;
+}
+
+#footer1_ul5 {
+	width: 20%;
+	height: 250px;
+}
+
+#footer1>div>ul {
+	line-height: 25px;
+	padding: 20px;
+	float: left;
+}
+.itm {
+    color: darkgray;
+    font-size: 13px;
+}
+#footer1>div{
+	width: 60%;
+	margin: 0 auto;
+}
+#footer1>div>ul>li {
+	list-style: none;
+}
+
+/* 导航栏结束 */
 .box1_s {
 	width: 245px;
 	height: 180px;
@@ -301,9 +358,9 @@ a:link {
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="/meishimeike">首页</a></li>
+						<li class="active"><a href="javascript:;">首页</a></li>
 						<li><a href="#">我的客服</a></li>
-						<li><a href="#">我的订单</a></li>
+						<li><a href="/meishimeike/order/open_merchant_order">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 						<li><a href="/meishimeike/merchant/zhuxiao">注销</a></li>
 
@@ -456,6 +513,51 @@ a:link {
 		</div>
 		<!-- ------------------隐藏层结束------------------------- -->
 	</div>
+	
+	
+	
+	
+	<!---------------------center-------------------------------------->
+	<p class="clearp"
+		style="border-bottom: 1px solid Gainsboro; margin: 30px 0">
+	<footer id="footer1">
+		<div>
+			<ul id="footer1_ul1">
+				<li class="caiming">用户帮助</li>
+				<li class="itm">我的客服</li>
+			</ul>
+			<ul id="footer1_ul2">
+				<li class="caiming">商务合作</li>
+				<li class="itm">我要开店</li>
+				<li class="itm">加盟指南</li>
+				<li class="itm">市场合作</li>
+				<li class="itm">开放市场</li>
+			</ul>
+			<ul id="footer1_ul3">
+				<li class="caiming">关于我们</li>
+				<li class="itm">团队介绍</li>
+				<li class="itm">加入我们</li>
+				<li class="itm">联系我们</li>
+				<li class="itm">规则中心</li>
+			</ul>
+			<ul id="footer1_ul4">
+				<li class="caiming">24小时客服热线：10105757</li>
+				<li class="itm">关注我们：扫描二维码，体验手机版</li>
+			</ul>
+			<ul id="footer1_ul5">
+				<img src="/meishimeike/pages/img/erwei.png" / width="150"
+					height="150">
+			</ul>
+
+			<p class="clearp">
+			<div style="text-align: center; margin-top: 20px; font-size: 13px;">
+				所有方 ：美食美客项目小组</div>
+			<div style="text-align: center; margin-top: 6px; font-size: 13px;">
+				<a style="margin: auto; color: #C0C0C0;"
+					href="http://www.miitbeian.gov.cn/">渝ICP备18005766号</a>
+			</div>
+		</div>
+	</footer>
 	<script>
 			//******************************************
 			function drop_classify(t_id,obj1)

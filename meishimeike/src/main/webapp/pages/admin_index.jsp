@@ -10,10 +10,10 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link href="css/bootstrap.hupeng.css" rel="stylesheet" type="text/css" />
-<link href="css/icons.min.css" rel="stylesheet" type="text/css" />
-<link href="css/app.min.css" rel="stylesheet" type="text/css" />
-<script src="js/echarts.js"></script>
+<link href="/meishimeike/pages/css/bootstrap.hupeng.css" rel="stylesheet" type="text/css" />
+<link href="/meishimeike/pages/css/icons.min.css" rel="stylesheet" type="text/css" />
+<link href="/meishimeike/pages/css/app.min.css" rel="stylesheet" type="text/css" />
+<script src="/meishimeike/pages/js/echarts.js"></script>
 <style type="text/css">
 	#mainBoxFooter {
 	text-align: center;
@@ -37,7 +37,7 @@
 						class="nav-link dropdown-toggle nav-user mr-0"
 						data-toggle="dropdown" href="#" role="button"
 						aria-haspopup="false" aria-expanded="false"> <img
-							src="img/users/admin.jpg" alt="user-image" class="rounded-circle">
+							src="/meishimeike/pages/img/users/admin.jpg" alt="user-image" class="rounded-circle">
 							<small class="pro-user-name ml-1"> Admin </small>
 					</a>
 						<div
@@ -51,7 +51,7 @@
 				<ul class="list-inline menu-left mb-0">
 					<li class="float-left"><a href="/meishimeike"
 						class="logo"> <span class="logo-lg"> <img
-								src="img/logo2.png" alt="" height="65">
+								src="/meishimeike/pages/img/logo2.png" alt="" height="65">
 						</span> <span class="logo-sm"> <img src="img/logo2.png" alt=""
 								height="55">
 						</span>
@@ -213,7 +213,7 @@
 									<c:forEach var="i" items="${PageUtil.list}">
 									<tbody onclick="location.href='/meishimeike/admin/open_merchant?id=${i.id}'">
 										<tr>
-											<td><img src="img/u=494529471,4145676902&fm=26&gp=0.jpg"
+											<td><img src="/meishimeike/pages/img/u=494529471,4145676902&fm=26&gp=0.jpg"
 												alt="contact-img" height="36" title="contact-img"
 												class="rounded-circle float-left mr-2" />
 												<p class="mb-0 font-weight-bold">
@@ -286,9 +286,9 @@
 			</div>
 		</div>
 	</footer>
-	<script src="js/vendor.min.js"></script>
-	<script src="js/Chart.bundle.js"></script>
-	<script src="js/jquery.sparkline.min.js"></script>
+	<script src="/meishimeike/pages/js/vendor.min.js"></script>
+	<script src="/meishimeike/pages/js/Chart.bundle.js"></script>
+	<script src="/meishimeike/pages/js/jquery.sparkline.min.js"></script>
 
 </body>
 </html>

@@ -30,6 +30,11 @@ public class AdminConroller {
 	@Autowired
 	UserService userService;
 
+	@RequestMapping("/l")
+	public void login(HttpServletResponse response, HttpServletRequest request) throws IOException {
+		response.sendRedirect(request.getContextPath()+"/pages/admin_login.html");
+	}
+	
 	@RequestMapping("/paging")
 	public void paging(HttpServletResponse response, HttpServletRequest request, String pageNo)
 			throws IOException, ServletException {

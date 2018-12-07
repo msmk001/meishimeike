@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -225,11 +224,10 @@ body{
 } */
 
 @media screen and (max-width: 500px) {
-
 	.box01{
 		padding-top: 20px;
 	}
-		#bodys {
+	#bodys {
 		width: 100%;
 	}
 	.Div {
@@ -237,12 +235,6 @@ body{
 		min-height: 500px;
 		padding: 0px 10px;
 		min-width: 360px;
-	}
-	.mynodep{
-		max-width: 200px;
-		white-space:nowrap;
-		text-overflow:ellipsis;
-		overflow: hidden;
 	}
 	.time {
 		margin-bottom: 0px;
@@ -312,12 +304,22 @@ body{
 	.Xiang_Xi-div>div:nth-of-type(2) {
 		min-width: 200px;
 	}
+	.Xiang_Xi-div2,.Xiang_Xi-div3{
+		padding-top: 20px;
+	}
+	.mynodep{
+		max-width: 200px;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+		overflow: hidden;
+	}
+	
 	.Xiang_Xi{
 		position: relative;
 	}
 	.Xiang_Xi-div2,.Xiang_Xi-div3{
 		position: absolute;
-		bottom: 8px;
+		bottom: 20px;
 	}
 }
 .Xiang_Xi-div2{
@@ -340,7 +342,7 @@ body{
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="/meishimeike">首页</a></li>
+						<li><a href="/meishimeike/pages/merchant_manage.jsp">首页</a></li>
 						<li><a href="#">我的客服</a></li>
 						<li class="active"><a href="#">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
@@ -376,30 +378,32 @@ body{
 		</div>
 		<div class="all-Xiang_Xi">
 
-			<c:if test="${userOrderFormData==null}">
-				<div id="nullbox">你还没有订单,快去下单吧</div>
+			<c:if test="${merchantOrderFormData==null}">
+				<div id="nullbox">你还没有订单</div>
 			</c:if>
 
 
-			<c:forEach var="i" items="${userOrderFormData}">
+			<c:forEach var="i" items="${merchantOrderFormData}">
 				<div class="Xiang_Xi">
 					<div class="Xiang_Xi-div">
 						<div>
 							<img src="/meishimeike/pages/img/munanniu.png" width="80px"
 								height="80px">
 						</div>
-						<div class="box01" style="line-height:1.15;">
+						<div class="box01"  style="line-height:1.15;">
 							
 							<c:forEach var="j" items="${i.commodity}">
 								<p>
-									<span>${j.name}</span> x <span>${j.num}</span>
+									<span>${j.name}</span> x <span>${j.num}</span>  ${i.uSerInfo.ufSite}
+									
 								</p>
 							</c:forEach>
 							
+							<p>手机号 : ${i.uSerInfo.ufPhone}</p>
 							<p class="mynodep">
 								订单号：<span>${i.oTradeNo}</span>
 							</p>
-							<p class="mynodep">
+							<p>
 								下单时间：<span><fmt:formatDate value="${i.oCreate}"  type="both" /></span>
 							</p>
 						</div>

@@ -69,14 +69,8 @@
 						<li class="active"><a href="#">首页</a></li>
 						<li><a href="#">我的客服</a></li>
 						
-						<li><a href="/meishimeike/pages/
-							<c:if test="${user==null}">
-								user_login.html
-							</c:if>
-							<c:if test="${user!=null}">
-								user_order.jsp
-							</c:if>
-						">我的订单</a></li>
+						<li><a href="/meishimeike/order/open_user_order">我的订单</a></li>
+						
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 						<li><c:if test="${user==null}">
 								<a href="/meishimeike/pages/user_login.html">登录|注册</a>

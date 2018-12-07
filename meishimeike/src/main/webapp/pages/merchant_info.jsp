@@ -17,7 +17,7 @@
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgb(141, 187, 30);
+	background-color: rgb(177, 210, 99);
 }
 
 ::-webkit-scrollbar {
@@ -45,6 +45,8 @@
 }
 </style>
 <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
 <style type="text/css">
 body {
 	background-color: #f7f7f7;
@@ -188,6 +190,10 @@ body {
 	float: left;
 	min-height: 90px;
 	/* border: 1px solid; */
+}
+
+.lock {
+	overflow: hidden;
 }
 
 .mu_lu_box_c img {
@@ -486,10 +492,91 @@ body {
 		display: none;
 	}
 }
+
+#yinying {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.8;
+	position: fixed;
+	z-index: 10;
+}
+
+.hide {
+	display: none;
+	background: #fff;
+	border-bottom: 1px solid gainsboro;
+}
+
+#ui_alert {
+	height: 500px;
+	width: 700px;
+	z-index: 10;
+	background: #fff;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+}
+
+.ui_hide {
+	display: none;
+}
+
+#alert_title {
+	height: 50px;
+	background: rgb(215, 57, 55);
+	box-sizing: border-box;
+	padding: 0 20px;
+	line-height: 50px;
+}
+
+#off_alert:hover {
+	transition: all 1s linear;
+	color: rgb(215, 57, 55);
+	background: #fff;
+	border: 1px solid gainsboro;
+}
+
+#off_alert {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	font-size: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-top: 10px;
+	vertical-align: bottom;
+}
+
+.alert_title_text {
+	color: #FFF2EF;
+	font-size: 18px;
+}
+
+#baidumap {
+	width: 100%;
+	height: 450px;
+}
 </style>
 </head>
 
 <body>
+
+	<!-- ----------------------隐藏层---------------------------->
+	<hide>
+	<div id="yinying" class="ui_hide"></div>
+	<!-- 阴影遮罩层结束 --> <!--隐藏弹出层-->
+	<div id="ui_alert" class="ui_hide">
+		<div id="alert_title">
+			<span class="alert_title_text">查看位置</span>
+			<div id="off_alert" class="float_r alert_title_text cursor">×</div>
+		</div>
+		<div id="baidumap"></div>
+	</div>
+	<!--隐藏弹出层结束--> </hide>
+
 	<div id="top1">
 		<header>
 			<nav class="navbar navbar-default" role="navigation">
@@ -526,7 +613,7 @@ body {
 								<li><a style="color: #b34644;"
 									href="/meishimeike/pages/user_login.html">注销</a></li>
 							</c:if>
-							
+
 							<li class="dropdown">
 								<ul class="dropdown-menu">
 									<li><a href="#">jmeter</a></li>
@@ -582,7 +669,9 @@ body {
 						style="border-right: 1px solid Gainsboro; color: rgba(30, 173, 250, 1);">所有商品</span></li>
 					<li class="float_left"><span
 						style="border-right: 1px solid Gainsboro;">评价</span></li>
-					<li class="float_left"><span>商家资质</span></li>
+					<li style="border-right: 1px solid Gainsboro;" class="float_left"><span>商家资质</span></li>
+					<li class="float_left" id="on_alert" style="cursor: pointer;"><span>位置
+					</span></li>
 				</ul>
 			</div>
 			<div class="float_left" id="float_leftss">
@@ -682,6 +771,8 @@ body {
 					24小时客服热线 : 10105757 <br />
 				<p style="margin-top: 10px; color: darkgray;">关注我们 : 扫描二维码,体验手机版
 
+
+
 				
 			</div>
 			<div style="width: 50%;" class="bot_r">
@@ -719,7 +810,7 @@ body {
 							&nbsp;配送费2
 						</div>
 						<div
-							style="width: 40%; background-color: #f3f3f3; text-align: center;"
+							style="width: 40%; background-color: #f3f3f3; text-align: center; cursor: pointer;"
 							id="jie" class="float_left">购物是空的</div>
 					</div>
 				</div>
@@ -727,6 +818,38 @@ body {
 		</div>
 	</div>
 	<script>
+	/*<!------------隐藏弹出层------------------>*/
+	$('#on_alert').click(function()
+	{
+		$('#yinying,#ui_alert').slideDown();
+		$('html').addClass('lock');
+		var map = new BMap.Map("baidumap");
+
+		var mlng =${merchantData.info.mLng};
+		var mlat = ${merchantData.info.mLat};
+		
+		
+		var Point1 =  new BMap.Point(mlng, mlat);
+		
+		
+		map.centerAndZoom(Point1, 17);
+
+		var marker = new BMap.Marker(Point1); 
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE);  
+		map.clearOverlays();
+		map.addOverlay(marker);               
+		
+		map.enableScrollWheelZoom(true);
+		map.addEventListener("click", showInfo);
+	})
+	$('#off_alert').click(function()
+	{
+		$('#yinying,#ui_alert').slideUp();
+		$('html').removeClass('lock');
+	})
+	/*<!------------隐藏弹出层结束------------------->*/
+	
+	
 				function Commodity(pName, pNum, pPice) {
 					this.name = pName;
 					this.pice = pPice;
@@ -804,6 +927,7 @@ body {
 				})
 
 				function add_info(obj1,args1) {
+					$('#jie').css("background", "#4CAF50");
 					var sum = 0;
 					var b = true;
 					/**
@@ -833,7 +957,7 @@ body {
 						return;
 					} else {
 						$('#gou_main').prepend('<div class="box" style="border-bottom: 1px solid darkgray;background: #f7f7f7;">' + "<table class='tab1' style='width: 100%;table-layout:fixed;'>" + '<tr style="width: 100%;">' + '<td class="names">' + text1 + '</td>' + '<td><input class="btn1" onclick="delet(this)" type="button" value="-" /><span class="danjia">1</span><input onclick="add(this)" class="btn2" type="button" value="+" /></td>' + '<td style="color:red;font-size: 13px;" class="price1">￥' + text2 + '</td>' + '</tr>' + "</table><input class='one' type='hidden' name='jia" + (cont + 1) + "'" + "value=''/>" + "<input type='hidden' name='name" + (cont + 1) + "'" + "value='" + text1 + "'" + "/><input id='inpu1' type='hidden' name='num" + (cont + 1) + "'" + "value='" + text2 + "'" + "/>" + "</div>");
-						$('#jie').css("background", "#4CAF50");
+						
 						cont += 1;
 					}
 				}
@@ -861,8 +985,27 @@ body {
 					$("#gouwuche").animate({
 						"margin-right": "-240px"
 					}, 500);
+					
 				})
 			</script>
+
+
+	<script>
+	function showInfo(e){
+		var mPoint= new BMap.Point(e.point.lng ,e.point.lat)
+		
+		
+		var marker = new BMap.Marker(mPoint);  // 创建标注
+		map.clearOverlays();
+		
+		map.addOverlay(marker);               // 将标注添加到地图中
+		marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
+	}
+
+	
+	
+	
+</script>
 </body>
 
 </html>

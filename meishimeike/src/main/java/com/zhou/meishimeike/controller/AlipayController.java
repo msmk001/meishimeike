@@ -59,7 +59,8 @@ public class AlipayController extends HttpServlet {
 		case PAYMENT:
 			OrderForm orderForm=(OrderForm)req.getSession().getAttribute("morder");
 			if(orderForm==null) {
-				resp.sendRedirect("/meishimeike/");
+				resp.sendRedirect("/meishimeike/"); //去首页
+				return;
 			}
 			boolean phone = CheckMobile.isPhone(req.getHeader("USER-AGENT"));
 			if (phone) {

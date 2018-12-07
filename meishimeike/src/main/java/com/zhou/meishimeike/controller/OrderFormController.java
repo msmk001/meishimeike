@@ -20,14 +20,14 @@ import com.zhou.meishimeike.entity.User;
 import com.zhou.meishimeike.service.OrderService;
 
 @Controller
-@RequestMapping("order")
+@RequestMapping("/order")
 public class OrderFormController {
 	
 	@Autowired
 	OrderService orderService;
 	
 	
-	@RequestMapping("goPay")
+	@RequestMapping("/goPay")
 	public void  goPay(HttpServletResponse response,HttpServletRequest request,int usersite) throws IOException{
 		OrderForm orderForm=(OrderForm)request.getSession().getAttribute("morder");
 		orderForm.setUfId(usersite);
@@ -37,11 +37,35 @@ public class OrderFormController {
 	}
 	
 	
-	@RequestMapping("open_user_order")
+	@RequestMapping("/open_merchant_order")
+	public void open_merchant_order(HttpServletResponse response,HttpServletRequest request) throws IOException, ServletException {
+		Merchant m=(Merchant)request.getSession().getAttribute("merchantData");
+		if(m==null) {
+			response.sendRedirect("/meishimeike/pagesmerchant_login.html");
+			return;
+		}
+		List<OrderForm> list01=orderService.getUserOrderFromDataByMId(m.getId());
+		
+		request.setAttribute("merchantOrderFormData", list01);
+		
+		request.getRequestDispatcher("/pages/merchant_order.jsp").forward(request, response);
+	}
+	
+	@RequestMapping("/open_user_order")
 	public void openOrder(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
 		
-		//orderService.openUserOrder();
+		User user=(User)request.getSession().getAttribute("user");
+		if(user==null) {
+			response.sendRedirect("/meishimeike/pages/user_login.html");
+			return;
+		}
+		List<OrderForm> list01=orderService.getUserOrderFromDataByUId(user.getId());
+		
+		
+		request.setAttribute("userOrderFormData", list01);
+		
 		request.getRequestDispatcher("/pages/user_order.jsp").forward(request, response);
+		
 	}
 	
 	@RequestMapping("/addOrder") 

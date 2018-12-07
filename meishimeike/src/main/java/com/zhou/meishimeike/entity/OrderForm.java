@@ -1,8 +1,11 @@
 package com.zhou.meishimeike.entity;
 
 import java.util.Date;
+import java.util.List;
 
 public class OrderForm {
+	
+	
 	private Integer oId	;
 	private Integer mId	;
 	private Integer uId	;
@@ -17,10 +20,9 @@ public class OrderForm {
 	private Date oCreate;
 	
 	
+	private List<CommodityJson> commodity;
 	
-	
-	
-	
+	private USerInfo uSerInfo;
 	
 	
 	public Integer getoId() {
@@ -93,6 +95,28 @@ public class OrderForm {
 
 	public void setUfId(Integer ufId) {
 		this.ufId = ufId;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderForm [oId=" + oId + ", mId=" + mId + ", uId=" + uId + ", ufId=" + ufId + ", oCode=" + oCode
+				+ ", oTradeNo=" + oTradeNo + ", oInfo=" + oInfo + ", oPrice=" + oPrice + ", oCreate=" + oCreate + "]";
+	}
+
+	public List<CommodityJson> getCommodity() {
+		return commodity;
+	}
+
+	public void setCommodity(List<CommodityJson> commodity) {
+		this.commodity = commodity;
+	}
+
+	public USerInfo getuSerInfo() {
+		return uSerInfo;
+	}
+
+	public void setuSerInfo(USerInfo uSerInfo) {
+		this.uSerInfo = uSerInfo;
 	}
 	
 }
