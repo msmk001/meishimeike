@@ -301,7 +301,7 @@ a:link {
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">首页</a></li>
+						<li class="active"><a href="/meishimeike">首页</a></li>
 						<li><a href="#">我的客服</a></li>
 						<li><a href="#">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>

@@ -193,7 +193,7 @@
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<h4 class="header-title">客户列表</h4>
+							<h4 class="header-title">等待审核商户列表</h4>
 
 							<div class="table-responsive mt-3">
 								<table class="table table-hover table-centered mb-0">
@@ -250,6 +250,8 @@
 									
 								</table>
 							</div>
+					
+					<p style="clear: both;margin-top: 10px;">
 							
 			<div id="mainBoxFooter">
 

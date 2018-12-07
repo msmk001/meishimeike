@@ -709,7 +709,7 @@ body, p {
 </style>
 </head>
 <body>
-<form id="form1" action="" method="post"> 
+<form id="form1" action="/meishimeike/order/goPay" method="post"> 
 	<header>
 		<nav class="navbar navbar-default" role="navigation">
 			<div id="bodys" class="container-fluid">
@@ -724,14 +724,21 @@ body, p {
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#">首页</a></li>
+						<li><a href="/meishimeike">首页</a></li>
 						<li><a href="#">我的客服</a></li>
-						<li class="active"><a href="#">我的订单</a></li>
+						<li><a href="/meishimeike/pages/
+							<c:if test="${user==null}">
+								user_login.html
+							</c:if>
+							<c:if test="${user!=null}">
+								user_order.jsp
+							</c:if>
+						">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 						<li><c:if test="${user==null}">
 								<a href="/meishimeike/pages/user_login.html">登录|注册</a>
 							</c:if> <c:if test="${user!=null}">
-								<a>${userName}</a>
+								<a href="/meishimeike/pages/userInfo.html">${userName}</a>
 							</c:if></li>
 						<c:if test="${user!=null}">
 							<li><a style="color: #b34644;"
@@ -764,7 +771,7 @@ body, p {
 			<p></p>
 			<c:forEach var="userItm" items="${user.userInfo}" varStatus="ind">
 				<div class="site">
-					<input type="radio"
+					<input type="radio" class="mySite" value="${userItm.ufId}"
 						<c:if test="${user.userInfo!=null&&ind.index==0}">checked="checked"</c:if>
 						name="usersite"> ${userItm.ufPhone} ${userItm.ufSite} ${userItm.ufName}
 				</div>
@@ -791,9 +798,6 @@ body, p {
 			</div>
 			<div class="food-name2">
 
-				<div class="food-img2">
-					<span>黄焖鸡米饭</span> <span>×1</span> <span>￥22</span> <span>￥19.99</span>
-				</div>
 				<c:set value="0" var="sumresult" />
 				<c:forEach var="i" items="${cList}">
 					<div class="food-img2">
@@ -835,7 +839,7 @@ body, p {
 		<div class="add_div1">
 			<span>￥${sumresult}</span> &nbsp; <span>已优惠￥3</span>
 		</div>
-		<input type="button" value="去支付" name="money" onclick="window.location.href='/meishimeike/alipay?command=payment'" />
+		<input type="button" value="去支付" onclick="goPay()" name="money" />
 	</div>
 	<div class="dizhi">
 		<div class="dizhi_div">
@@ -857,17 +861,19 @@ body, p {
 
 	</div>
 	 </form>
-	 <%
-	 	List <CommodityJson> m=(List <CommodityJson>)session.getAttribute("cList");
-	 	double amout=0;
-	 	for(CommodityJson c:m){
-	 		amout+=c.getPice()*c.getNum();
-	 	}
-	 	session.setAttribute("amout",(amout+3));
-	 %>
 </body>
 </html>
 <script>
+	
+	function goPay(){
+		var index=$('.mySite').length
+		if(index==0){
+			$(".dizhi").slideToggle()
+		}else{
+			$('#form1').submit();
+		}
+	}
+	
 	function commitSite(){
 		$.ajax({
 			type:"post",
@@ -885,10 +891,10 @@ body, p {
 
 	$(function() {
 		$(".x").click(function() {
-			$(".dizhi").hide();
+			$(".dizhi").slideToggle()
 		})
 		$(".driss>p:nth-of-type(2)").click(function() {
-			$(".dizhi").show();
+			$(".dizhi").slideToggle()
 			$(".sel").val("请选择地址");
 			$("input[name=name]").val("");
 			$("input[name=phone]").val("");
@@ -950,7 +956,7 @@ body, p {
 										$("input[name=name]").val());
 								$(".driss>p:last-child>span:last-child").text(
 										$("input[name=phone]").val());
-								$(".dizhi").hide();
+								$(".dizhi").slideToggle()
 								$(".sel").val("请选择地址");
 								$("input[name=name]").val("");
 								$("input[name=phone]").val("");

@@ -136,6 +136,7 @@ public class UserController {
 			map.put("data", "服务器繁忙");
 		}
 		User userByPhone = userService.getUserByPhone(phone);
+		System.out.println(userByPhone);
 		String name = userByPhone.getPhone();
 		name=name.substring(0, 5)+"...";
 		request.getSession().setAttribute("user", userByPhone);

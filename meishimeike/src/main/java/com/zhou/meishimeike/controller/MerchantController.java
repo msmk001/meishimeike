@@ -29,8 +29,10 @@ import com.zhou.meishimeike.entity.ClassifyList;
 import com.zhou.meishimeike.entity.CommodityJson;
 import com.zhou.meishimeike.entity.Merchant;
 import com.zhou.meishimeike.entity.MerchantInfo;
+import com.zhou.meishimeike.entity.OrderForm;
 import com.zhou.meishimeike.entity.User;
 import com.zhou.meishimeike.service.MerchantService;
+import com.zhou.meishimeike.service.OrderService;
 
 @Controller
 @RequestMapping("/merchant")
@@ -39,13 +41,16 @@ public class MerchantController {
 	@Autowired
 	MerchantService merchantService;
 	
+	@Autowired
+	OrderService orderService;
+	
+	
 	@RequestMapping("/xiadan") 
 	@ResponseBody
 	public Map xiadan(HttpServletResponse response,HttpServletRequest request) {
 		Map <String, Object> map=new HashMap<>();
 		List <CommodityJson> cList=new ArrayList<>();
 		Enumeration<String> parameterNames = request.getParameterNames();
-		int i=1;
 		for (;parameterNames.hasMoreElements();) {
 			String nextElement = parameterNames.nextElement();
 			String parameter2 = request.getParameter(nextElement);
@@ -55,16 +60,17 @@ public class MerchantController {
 			cList.add(commodityJson);
 		}
 		
-		User u=(User)request.getSession().getAttribute("user");
-		
 		request.getSession().setAttribute("cList", cList);
 		
+		User u=(User)request.getSession().getAttribute("user");
+		
 		if(u==null) {
-			map.put("data","跳转登陆");
+			map.put("data","跳转登陆"); return map;
 		}else {
 			
 			map.put("data","跳转确认订单");
 		}
+		
 		return map;
 		
 	}
@@ -72,8 +78,7 @@ public class MerchantController {
 	@RequestMapping("/mdata") 
 	public void getIndnxDate(HttpServletResponse response,HttpServletRequest request) throws ServletException, IOException {
 		List<Merchant> list = merchantService.getIndexData();
-		request.setAttribute("merchantIndexData",list);
-		
+		request.setAttribute("merchantIndexData",list);	
 		request.getRequestDispatcher("/pages/indexs.jsp").forward(request, response);
 	}
 	

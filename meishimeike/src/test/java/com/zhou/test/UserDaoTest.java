@@ -14,7 +14,7 @@ public class UserDaoTest {
 	public static void test01() {
 		UserDao testMapper = SqlSessionFactoryUtil.getTestMapper(UserDao.class);
 		User userByName = testMapper.getUserByPhone("15123232042");
-		System.out.println(userByName);
+		System.out.println(userByName.getPhone());
 	}
 
 	public static void test02() {

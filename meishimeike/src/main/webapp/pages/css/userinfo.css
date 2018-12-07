@@ -1,0 +1,251 @@
+html {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+	font-size: 12px;
+	color: #000;
+	background: #fff;
+	font-family: "微软雅黑";
+}
+
+.view-product {
+	width: auto;
+	min-width: 325px;
+	padding-bottom: 50px;
+	overflow: auto;
+	background: #FFF;
+}
+
+.account-manage {
+	padding-bottom: 20px;
+}
+
+.manage-head {
+	border-bottom: 1px solid #d9dfe4;
+	padding: 15px 0;
+	margin: 0 20px;
+}
+
+.manage-head-con {
+	position: relative;
+	height: 18px;
+	line-height: 18px;
+	color: #363636;
+	border-left: 2px solid #0098cd;
+	font-size: 16px;
+}
+
+.account-basic {
+	border-bottom: 1px dashed #dedede;
+	padding: 20px 0;
+	margin: 0 20px;
+	padding-left: 20px;
+}
+
+.account-basic div p {
+	line-height: 32px;
+}
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+
+.fl {
+	float: left !important;
+}
+
+.account-head {
+	width: 105px;
+	height: 105px;
+	float: left !important;
+}
+
+.account-head img {
+	width: 105px;
+	height: 105px;
+	border-radius: 15px;
+}
+
+.message {
+	float: left !important;
+	margin-left: 30px;
+	margin-top: 10px;
+}
+
+.base-name {
+	float: left !important;
+	width: 60px;
+}
+
+.modify {
+	margin-left: 10px;
+}
+
+.progress-bar {
+	width: 180px;
+	height: 20px;
+	border-radius: 3px;
+	background: #f5f5f5;
+	overflow: hidden;
+	margin-right: 35px;
+	float: left !important;
+	margin-left: 30px;
+}
+
+.progress-bar div {
+	height: 100%;
+	width: 0;
+}
+
+.accound-bund li {
+	border-bottom: 1px dashed #dedede;
+	padding: 30px 20px;
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 20px;
+	margin: 0 20px;
+}
+
+.accound-bund span {
+	float: left;
+	display: block;
+	line-height: 20px;
+}
+
+.bund-class {
+	margin-right: 25px;
+}
+
+.fr {
+	float: right !important;
+	margin-right: 30px;
+}
+
+h6,
+p,
+em,
+ul,
+li {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 14px;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.set {
+	margin-right: 10px;
+	color: #44b333;
+}
+
+ul {
+	list-style: none;
+}
+
+.accound-bund li {
+	border-bottom: 1px dashed #dedede;
+	padding: 30px 20px;
+	font-size: 12px;
+	letter-spacing: 1px;
+	line-height: 20px;
+	margin: 0 20px;
+}
+
+.accound-bund span {
+	float: left;
+	display: block;
+	line-height: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #40b2da;
+}
+
+
+.password {
+	width: 500px;
+	height: 450px;
+	position: absolute;
+	top: 30%;
+	left: 40%;
+	margin-left: -100px;
+	margin-top: -100px;
+	background-color: rgba(0,0,0,0.4);
+	border-radius: 10px;
+}
+.password>div{
+	color: white;
+	text-align: center;
+	font-family: "微软雅黑";
+	margin-top: 20px;
+}
+.password_div{
+	margin: 5% auto;
+	width: 450px;
+	height: 450px;
+}
+.password_div>input{
+	margin-top: 50px;
+	margin-left: 20px;
+	width: 400px;
+	height: 35px;
+	outline: none;
+	border: none;
+	border-radius: 5px;
+}
+.password_div input:focus{
+	border: 1px solid orange;
+	
+}
+.sub,.cancel{
+	margin-top: 50px;
+	margin-left: 20px;
+	width: 190px;
+	height: 35px;
+	border: none;
+	color: white;
+	background-color: #0099CC;
+	border-radius: 5px;
+	display:inline-block;
+	cursor: pointer;
+}
+.cancel{
+	font-size: 14px;
+	text-align:center;
+	line-height:35px;
+	text-decoration: none;
+}
+@media (max-width:500px) {
+	.progress-bar{
+		margin: 0;
+	}
+	.password{
+		width: 310px;
+	}
+	.password_div{
+		width: 100%;
+	}
+	.password_div>input{
+		display: block;
+		width: 88%;
+		overflow: hidden;
+	}
+	.sub,.cancel{
+		margin-right: 10px;
+		width: 37%;
+	}
+	
+}

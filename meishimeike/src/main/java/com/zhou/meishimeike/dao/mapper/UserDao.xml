@@ -21,29 +21,28 @@
 	</select>
 
 	<select id="getUserByPhone" resultMap="userMap">
-		select
-		*
-		from
-		user , user_info
-		where user_info.u_id=user.u_id and
-		u_phone=#{param1}
+		select * from
+		user
+		LEFT JOIN
+		user_info on user_info.u_id=user.u_id where u_phone=#{param1}
 	</select>
 
 	<insert id="addUser">
 		insert into user
 		values(default,#{name},#{pass},#{email},#{phone})
 	</insert>
-	
+
 	<insert id="addSite">
-		insert into user_info values(default,#{uId},#{ufName},#{ufSite},#{ufPhone})
+		insert into user_info
+		values(default,#{uId},#{ufName},#{ufSite},#{ufPhone})
 	</insert>
 
 	<select id="hasUserByPhone" resultType="boolean">
 		select count(u_id) from
 		user where u_phone=#{param1}
 	</select>
-	<resultMap type="com.zhou.meishimeike.entity.User"
-		id="userMap">
+	<resultMap id="userMap"
+		type="com.zhou.meishimeike.entity.User">
 		<id column="u_id" property="id" />
 		<result column="u_name" property="name" />
 		<result column="u_pass" property="pass" />

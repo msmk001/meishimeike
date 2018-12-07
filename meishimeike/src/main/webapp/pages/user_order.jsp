@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -275,12 +278,12 @@
 							<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
 								class="icon-bar"></span> <span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"><img id="logo4j"
+						<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
 							src="img/logo2.png" /></a>
 					</div>
 					<div class="collapse navbar-collapse" id="example-navbar-collapse">
 						<ul class="nav navbar-nav">
-							<li><a href="#">首页</a></li>
+							<li><a href="/meishimeike">首页</a></li>
 							<li><a href="#">我的客服</a></li>
 							<li class="active"><a href="#">我的订单</a></li>
 							<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
@@ -353,6 +356,50 @@
 						<input type="button" value="再来一单" />
 					</div>
 				</div>
+				
+				
+				<div class="Xiang_Xi">
+					<div class="Xiang_Xi-div">
+						<div><img src="img/霸王黄焖鸡.jpg" width="80px" height="80px" ></div>
+						<div>
+							<p><span>咖喱鸡排饭</span>+<span>韩式孜然烤藕片</span></p>
+							<p>订单号：<span>79694628469856298</span></p>
+							<p>下单时间：<span>2018-12-12</span></p>
+						</div>
+					</div>
+					<div class="Xiang_Xi-div2">
+						<span>34.00元</span>
+					</div>
+					<div class="Xiang_Xi-div3">
+						<span>已完成</span>
+					</div>
+					<div class="Xiang_Xi-div4">
+						<input type="button" value="详细信息" />
+						<input type="button" value="再来一单" />
+					</div>
+				</div>
+				
+				<div class="Xiang_Xi">
+					<div class="Xiang_Xi-div">
+						<div><img src="img/霸王黄焖鸡.jpg" width="80px" height="80px" ></div>
+						<div>
+							<p><span>咖喱鸡排饭</span>+<span>韩式孜然烤藕片</span></p>
+							<p>订单号：<span>79694628469856298</span></p>
+							<p>下单时间：<span>2018-12-12</span></p>
+						</div>
+					</div>
+					<div class="Xiang_Xi-div2">
+						<span>34.00元</span>
+					</div>
+					<div class="Xiang_Xi-div3">
+						<span>已完成</span>
+					</div>
+					<div class="Xiang_Xi-div4">
+						<input type="button" value="详细信息" />
+						<input type="button" value="再来一单" />
+					</div>
+				</div>
+				
 				<div class="Xiang_Xi">
 					<div class="Xiang_Xi-div">
 						<div><img src="img/霸王黄焖鸡.jpg" width="80px" height="80px" ></div>

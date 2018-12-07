@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,7 +32,7 @@ public class AdminConroller {
 
 	@RequestMapping("/paging")
 	public void paging(HttpServletResponse response, HttpServletRequest request, String pageNo)
-			throws IOException {
+			throws IOException, ServletException {
 		int thisPage = 0;
 		if (null != pageNo) {
 			thisPage = Integer.parseInt(pageNo);
@@ -42,7 +43,8 @@ public class AdminConroller {
 
 		request.getSession().setAttribute("PageUtil", allMemoByName);
 
-		response.sendRedirect(request.getContextPath() + "/pages/admin_index.jsp");
+		request.getRequestDispatcher("/pages/admin_index.jsp").forward(request, response);
+		
 	}
 
 	@RequestMapping("/admin_login")

@@ -47,7 +47,7 @@
 
 	<servlet-mapping>
 		<servlet-name>default</servlet-name>
-		<url-pattern>/img/*</url-pattern>
+		<url-pattern>*.gif</url-pattern>
 		<url-pattern>*.png</url-pattern>
 		<url-pattern>*.jpeg</url-pattern>
 		<url-pattern>*.jpg</url-pattern>
@@ -70,10 +70,11 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
+	
 	<error-page>
 		<error-code>404</error-code>
-		<location>/static/404.html</location>
-	</error-page>
+		<location>/pages/404.html</location>
+	</error-page> 
 
 	<filter>
 		<filter-name>characterEncodingFilter</filter-name>
