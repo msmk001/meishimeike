@@ -29,7 +29,7 @@
 }
 
 ::-webkit-scrollbar {
-	display: none
+	display: none;
 }
 
 .navbar-default .navbar-nav>li>a:hover {
@@ -65,8 +65,8 @@
 }
 .loader--spinningDisc {
 	
- width:70px !important;
-  height:70px !important;
+ width:50px !important;
+  height:50px !important;
   border: solid 2.0em #9b59b6;
   border-right-color: transparent;
   border-left-color: transparent;

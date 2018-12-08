@@ -84,6 +84,13 @@ $(function() {
 	})
 
 	$('#section-input').on("keypress", function() {
+		
+		if(screen.width<500){
+			$('body,html').animate({
+				scrollTop: "170px"
+			}, 300);
+		}
+		
 		var my_val = $(this).val();
 		$('.main_box').hide()
 
