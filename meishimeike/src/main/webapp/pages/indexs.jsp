@@ -5,12 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+<title>美食美客</title>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1,user-scalable=0">
 <link rel="stylesheet" href="/meishimeike/pages/css/indexs.css" />
+
 <link rel="stylesheet" href="/meishimeike/pages/css/bootstrap.css" />
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
+
+
+
 <style type="text/css">
 .navbar-brand {
 	/* height: 65px; */
@@ -50,7 +56,98 @@
 	z-index: 2;
 	/* background-image: linear-gradient(-90deg, #FFF -20%, #FFF 100%); */
 }
+
+.loader--spinningDisc,#spBox{
+	display: none;
+}
+#spBox{
+	height: 50px;
+}
+.loader--spinningDisc {
+	
+ width:70px !important;
+  height:70px !important;
+  border: solid 2.0em #9b59b6;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  padding: 0.5em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: #9bd807;
+  background-clip: content-box;
+  animation: spinDisc 0.8s linear infinite;
+  -moz-animation: spinDisc 0.8s linear infinite;
+	/* Safari 和 Chrome: */
+	-webkit-animation: spinDisc 0.8s linear infinite;
+	/* Opera: */
+	-o-animation: spinDisc 0.8s linear infinite;
+  
+  box-sizing: content-box;
+}
+@keyframes spinDisc {
+  50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+@-moz-keyframes spinDisc /* Firefox */
+{
+50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+
+@-webkit-keyframes spinDisc /* Safari 和 Chrome */
+{
+50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+
+@-o-keyframes spinDisc /* Opera */
+{
+50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
 </style>
+
 </head>
 <body>
 	<header>
@@ -133,22 +230,9 @@
 			</div>
 		</nav>
 		<div id="nav_3">
-			
-			<!-- private Integer iId;
-	private Integer mId;
-	private String phone;
-	private String name;
-	private String mName;
-	private String mType;
-	
-	private String mImgIdCar;
-	
-	private String mImgIndoor;
-	
-	private String mLogo;
-	private String mAppearance;
-	private String mPermission;
-	private String mImgLicense; //营业执照 mImgLicense -->
+		
+			<div id="spBox"></div>
+			<div class='loader loader--spinningDisc'></div>
 			
 			<c:forEach var="i" items="${merchantIndexData}">
 				<div class="main_box float_left" onclick="location.href='/meishimeike/merchant/openInfo?id=${i.id}'">
@@ -251,7 +335,7 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="快餐便当" />
+				<input type="hidden" class="hide" value="快餐" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
@@ -264,7 +348,7 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="快餐便当" />
+				<input type="hidden" class="hide" value="甜品" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
@@ -288,7 +372,7 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="快餐便当" />
+				<input type="hidden" class="hide" value="快餐" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
@@ -324,7 +408,7 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="午餐" />
+				<input type="hidden" class="hide" value="小吃" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
@@ -337,7 +421,7 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="早餐" />
+				<input type="hidden" class="hide" value="小吃" />
 			</div>
 			<div class="main_box float_left">
 				<div class="float_left">
@@ -409,7 +493,7 @@
 					<p class="caipinBoxp3">配送费￥5
 				</div>
 				<div class="s_time">33+分钟</div>
-				<input type="hidden" class="hide" value="午餐" />
+				<input type="hidden" class="hide" value="快餐" />
 			</div>
 			<p class="clearp">
 		</div>
@@ -444,7 +528,7 @@
 				<li class="itm">关注我们：扫描二维码，体验手机版</li>
 			</ul>
 			<ul id="footer1_ul5">
-				<img src="/meishimeike/pages/img/erwei.png" / width="150"
+				<img src="/meishimeike/pages/img/erwei.png"  width="150"
 					height="150">
 			</ul>
 
@@ -457,14 +541,9 @@
 			</div>
 		</div>
 	</footer>
-	<div id="baidu" style="height: 0;"></div>
+	<div id="baidu" style="display: none;"></div>
 <script>
-//百度地图API功能
 
-
-/* var marker = new BMap.Marker(Point1);  // 创建标注
-map.addOverlay(marker);               // 将标注添加到地图中
-marker.setAnimation(BMAP_ANIMATION_BOUNCE);  */
 
 function G(id) {
 	return document.getElementById(id);
@@ -516,4 +595,5 @@ geolocation.getCurrentPosition(function(r){
 </body>
 </html>
 <script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+
 <script type="text/javascript" src="/meishimeike/pages/js/tianlinxin_index.js"></script>

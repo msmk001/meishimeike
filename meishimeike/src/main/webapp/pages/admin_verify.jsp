@@ -7,6 +7,8 @@
 <title>JSP网站</title>
 <link href="css/app.min.css" rel="stylesheet" type="text/css" />
 
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+
 <link href="css/bootstrap.hupeng.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript"
 	src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>

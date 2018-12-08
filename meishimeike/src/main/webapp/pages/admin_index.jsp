@@ -7,6 +7,7 @@
 <head>
 <meta charset="utf-8" />
 <title>美食美客后台管理系统</title>
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 

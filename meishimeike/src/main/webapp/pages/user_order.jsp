@@ -10,6 +10,8 @@
 <meta name="format-detection" content="telephone=yes">
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+
 <title></title>
 <script type="text/javascript"
 	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
@@ -98,7 +100,7 @@ body{
 }
 
 .time>ul>li:first-child {
-	background-color: #cddc39e8;
+	background-color: #cddc39;
 }
 
 .time-nav {
@@ -364,7 +366,7 @@ body{
 	<div class="Div">
 		<div class="time">
 			<ul class="time-ul">
-				<li>全部</li>
+				<li style="background-color: #e2ead9;">全部</li>
 				<li>今天</li>
 				<li>一天前</li>
 				<li>三天前</li>

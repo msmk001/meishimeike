@@ -5,11 +5,12 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
-
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
 <title>用户登录</title>
 
-<script type="text/javascript"
-	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+
+
+<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
 <style>
 html, body {
 	margin: 0;
@@ -37,7 +38,8 @@ body {
 }
 
 #log_a2 {
-	text-align: center; width : 300px;
+	text-align: center;
+	width: 300px;
 	height: 100px;
 	width: 300px;
 }
@@ -122,10 +124,13 @@ input::-webkit-input-placeholder {
 	padding-top: 50px;
 	width: 100%;
 }
+
 input, input:focus, input:active {
 	user-select: text;
 }
+
 @media screen and (max-width:480px) {
+	
 	#log_a1 {
 		width: 100%;
 		height: 82%;
@@ -179,13 +184,13 @@ input, input:focus, input:active {
 					</p>
 				</div>
 				<div>
-					<input type="button" onclick="checks1()" class="btn1" value="注册">
+					<input type="button" style="border-radius: 20px;" onclick="checks1()" class="btn1" value="注册">
 				</div>
 				<div style="margin-top: 15px; color: purple;" id="t2"></div>
 			</div>
 		</form>
 
-		<form action="" method="post" id="form1">
+		<form action="" method="post" id="form1" onsubmit="return false">
 			<div style="width: 300px; height: 320px; text-align: center;"
 				; id="a4">
 				<div>
@@ -207,13 +212,19 @@ input, input:focus, input:active {
 				</div>
 				<div>
 					<input type="button" onclick="checks()" class="btn1" value="登录"
-						style="color: white; border-radius: 5px; margin-top: 0px;">
+						style="color: white; border-radius: 20px; margin-top: 0px;"> 
+
+					
+
 				</div>
 				<div style="margin-top: 15px; color: purple;" id="t1"></div>
 			</div>
 		</form>
 	</div>
 	<!-- ----------------------------- -->
+
+
+
 	<div id="my_bottom">
 		<div style="text-align: center; margin-top: 20px; font-size: 13px;">
 			所有方 ：美食美客项目小组</div>
@@ -226,7 +237,7 @@ input, input:focus, input:active {
 		var a2 = document.getElementById("a2")
 		var a3 = document.getElementById("a3")
 		var a4 = document.getElementById("a4")
-		
+
 		a4.style.display = "block"
 		a1.onclick = function() {
 			a3.style.display = "none";
@@ -256,6 +267,9 @@ input, input:focus, input:active {
 		});
 		//***************************************************
 		function checks() {
+
+
+
 			var t1 = $("#t1");
 			var b = false;
 			$.ajax({
@@ -266,12 +280,10 @@ input, input:focus, input:active {
 				success : function(d) {
 
 					var jso = JSON.parse(d);
-					
-					
-					
+
 					if (jso.data == 2) {
 						window.location.href = "/meishimeike";
-					}else if (jso.data == 4) {
+					} else if (jso.data == 4) {
 						window.location.href = "/meishimeike/order/addOrder";
 					} else {
 						showMsg("登陆失败,账号或者密码错误")
@@ -279,6 +291,7 @@ input, input:focus, input:active {
 
 				},
 				error : function(a, b) {
+					removeWaiting()
 					showMsg("错误")
 				}
 			});
@@ -292,8 +305,7 @@ input, input:focus, input:active {
 		}
 		function showKeyDown(evt) {
 			evt = (evt) ? evt : window.event;
-			
-			
+
 			if (evt.keyCode == 13 && a4.style.display == "block") {
 				checks();
 			}
@@ -358,8 +370,10 @@ input, input:focus, input:active {
 				$("#t2").hide()
 			}, 4000)
 		}
-		//--
 
+
+
+		//--
 	</script>
 </body>
 

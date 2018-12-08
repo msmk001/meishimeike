@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="format-detection" content="telephone=yes">
+
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 <title></title>
