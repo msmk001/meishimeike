@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
 		
 	</head>
-	<body>
+	<body onload="init()">
 	<div id="hideBox" style="display: none;"></div>
 	<div class="bg_img">
 		<div class="bg">
@@ -42,6 +42,21 @@
 		
 	</body>
 			<script>
+			function init() {
+				//页面键盘点击时触发
+				document.onkeydown = showKeyDown;
+			}
+			function showKeyDown(evt) {
+				evt = (evt) ? evt : window.event;
+				
+				
+				if (evt.keyCode == 13) {
+					checks1()
+				}
+
+			}
+			
+			
 			function checks1()
 			{
 				var b=null;

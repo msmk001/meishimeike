@@ -25,6 +25,8 @@
 }
 .card-body{
 	box-sizing: border-box;
+}.col-xl-8{
+	margin: 0 auto;
 }
 </style>
 </head>

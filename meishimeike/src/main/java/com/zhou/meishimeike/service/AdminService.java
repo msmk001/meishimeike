@@ -1,7 +1,7 @@
-package com.zhou.meishimeike.dao;
+package com.zhou.meishimeike.service;
 
 import com.zhou.meishimeike.entity.AdminData;
 
-public interface AdminDao {
+public interface AdminService {
 	AdminData getAdminData();
 }
