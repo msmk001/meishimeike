@@ -56,4 +56,10 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 		return userDao.addSite(uSerInfo);
 	}
+
+	@Override
+	public boolean updateUserPass(Integer id, String lodPass, String newPass) {
+		// TODO Auto-generated method stub
+		return userDao.updateUserPass( id, lodPass,newPass);
+	}
 }

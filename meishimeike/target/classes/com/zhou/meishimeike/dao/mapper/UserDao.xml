@@ -3,6 +3,9 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhou.meishimeike.dao.UserDao">
 
+	<update id="updateUserPass">
+		update user set u_pass=#{param3} where u_id = #{param1} and u_pass=#{param2}
+	</update>
 
 	<select id="getAllUserCount" resultType="int">
 		select count(u_id) from

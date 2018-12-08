@@ -501,12 +501,25 @@ body {
 		overflow: hidden;
 		text-overflow: ellipsis;
 	}
-	#ui_alert{
+	#ui_alert {
 		width: 95% !important;
 	}
-	#Mimg{
+	#Mimg {
 		position: relative;
 		left: -50px;
+	}
+	#alert_title{
+		
+	}
+	
+	#site{
+		display: inline-block;
+		width: 200px;
+		font-size: 12px;
+	}
+	#leftSite{
+	
+		display: none;
 	}
 }
 
@@ -599,7 +612,8 @@ body {
 	<!-- 阴影遮罩层结束 --> <!--隐藏弹出层-->
 	<div id="ui_alert" class="ui_hide">
 		<div id="alert_title">
-			<span class="alert_title_text">查看商家位置</span>
+			<span class="alert_title_text"><span id="leftSite">商家位置  : </span> <span id="site">
+			</span></span>
 			<div id="off_alert" class="float_r alert_title_text cursor">×</div>
 		</div>
 		<div id="baidumap"></div>
@@ -805,6 +819,7 @@ body {
 
 
 
+
 				
 			</div>
 			<div style="width: 50%;" class="bot_r">
@@ -860,9 +875,16 @@ body {
 		var mlng =${merchantData.info.mLng};
 		var mlat = ${merchantData.info.mLat};
 		
-		
+		var geoc = new BMap.Geocoder();
 		var Point1 =  new BMap.Point(mlng, mlat);
 		
+		var pt = Point1;
+        geoc.getLocation(pt, function(rs){
+            //addressComponents对象可以获取到详细的地址信息
+            var addComp = rs.addressComponents;
+            var site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+            $('#site').text(site)
+        }); 
 		
 		map.centerAndZoom(Point1, 17);
 

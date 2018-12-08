@@ -26,10 +26,27 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@RequestMapping("/test")
+	@RequestMapping("/updateUserPass")
 	@ResponseBody
-	public String test() {
-		return "ok"+userService.getAllUserCount();
+	public Map updateUserPass(String lodPass,String newPass,HttpServletResponse response,HttpServletRequest request) throws IOException {
+		Map <String, Object> map=new HashMap<>();
+		
+		if(request.getSession().getAttribute("user")==null) {
+			response.sendRedirect("/meishimeike");
+			map.put("data", "服务器繁忙");
+			return null;
+		}
+		User attribute = (User)request.getSession().getAttribute("user");
+		
+		
+		boolean b =userService.updateUserPass(attribute.getId(),lodPass,newPass);
+		
+		if(b) {
+			map.put("data",true);
+		}else {
+			map.put("data", "密码错误!");
+		}
+		return map;
 	}
 	
 	

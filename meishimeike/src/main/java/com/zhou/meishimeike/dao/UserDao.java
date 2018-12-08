@@ -12,4 +12,5 @@ public interface UserDao {
 	boolean addUser(User u);
 	boolean hasUserByPhone(String phone);
 	boolean addSite(USerInfo uSerInfo);
+	boolean updateUserPass(Integer id, String lodPass, String newPass);
 }

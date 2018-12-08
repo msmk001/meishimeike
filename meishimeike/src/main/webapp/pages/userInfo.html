@@ -57,15 +57,15 @@
 									})
 								})
 							</script>
-							<form>
+							<form id="form01" method="post" onsubmit="return false">
 								<div id="pwd" class="password" style="display: none;">
 									<div style="text-align: center;"><h2>修改密码</h2></div>
 									<div class="password_div">
-											<input type="password"  placeholder="请输入旧密码" required="required" />
-											<input type="password"  placeholder="请输入新密码" required="required"/>
-											<input type="password"  placeholder="请确认密码" required="required"/>
+											<input type="text" name="lodPass"  placeholder="请输入旧密码" required="required" />
+											<input type="text" name="newPass" placeholder="请输入新密码" required="required"/>
+											<input type="text"placeholder="请确认密码" required="required"/>
 											<div class="password_btn">
-												<input type="submit" class="sub" value="确认修改" />
+												<input type="button" id="btnsumit" class="sub" value="确认修改" />
 												<a href="userInfo.html" class="cancel">取消</a>
 											</div>
 									</div>
@@ -103,4 +103,23 @@
 			</div>
 		</div>
 	</body>
+	<script>
+		$('#btnsumit').on("click",function(){
+			$.ajax({
+				type:"post",
+				url:"/meishimeike/user/updateUserPass",
+				data:$('#form01').serializeArray(),
+				async:true,
+				success:function(d){
+					var jso = JSON.parse(d);
+					if(jso.data==true){
+						$("#pwd").hide();
+						alert("修改完成")
+					}else{
+						alert(jso.data)
+					}
+				}
+			});			
+		})
+	</script>
 </html>

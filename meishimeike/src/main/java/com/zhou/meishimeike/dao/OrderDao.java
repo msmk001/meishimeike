@@ -11,4 +11,10 @@ public interface OrderDao {
 	List<OrderForm> getUserOrderFromDataByUId(Integer id);
 	List<OrderForm> getUserOrderFromDataByMId(Integer id);
 	USerInfo getUserInfoByufId(Integer ufId);
+	
+	
+	
+	//支付宝回调,成功后修改定订单为以支付
+	boolean updateOrderDao(OrderForm o);
+	
 }

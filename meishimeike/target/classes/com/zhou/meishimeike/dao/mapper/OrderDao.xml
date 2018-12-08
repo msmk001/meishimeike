@@ -12,8 +12,23 @@
 		insert into order_form values(default , #{mId},
 		#{uId}, #{oTradeNo}, #{oPrice}, default, #{oInfo},now(),#{ufId})
 	</insert>
+	
+	
+	<!-- private Integer oId	;
+	private Integer mId	;
+	private Integer uId	;
+	private Integer ufId;
+	
+	private Integer oCode; //1 未支付  2已经支付
+	
+	private String oTradeNo;
+	private String oInfo;
+	
+	private Double oPrice;
 
-	<update id="updateOrderCode">
+	private Date oCreate; -->
+	
+	<update id="updateOrderDao">
 
 	</update>
 

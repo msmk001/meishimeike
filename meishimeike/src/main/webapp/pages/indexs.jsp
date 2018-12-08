@@ -10,6 +10,7 @@
 	content="width=device-width, initial-scale=1,user-scalable=0">
 <link rel="stylesheet" href="/meishimeike/pages/css/indexs.css" />
 <link rel="stylesheet" href="/meishimeike/pages/css/bootstrap.css" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
 <style type="text/css">
 .navbar-brand {
 	/* height: 65px; */
@@ -107,7 +108,7 @@
 	<section>
 		<nav>
 			<div id="section-div">
-				<div id="section-div-1">当前位置 : 红旗河沟</div>
+				<div id="section-div-1">当前位置 : <span id="siteText">红旗河沟</span></div>
 				<div id="section-div-2"></div>
 				<div id="section-div-3">
 					<input id="section-input" type="text" placeholder="搜索商家" />
@@ -456,7 +457,62 @@
 			</div>
 		</div>
 	</footer>
+	<div id="baidu" style="height: 0;"></div>
+<script>
+//百度地图API功能
 
+
+/* var marker = new BMap.Marker(Point1);  // 创建标注
+map.addOverlay(marker);               // 将标注添加到地图中
+marker.setAnimation(BMAP_ANIMATION_BOUNCE);  */
+
+function G(id) {
+	return document.getElementById(id);
+}
+
+
+var map = new BMap.Map("baidu");
+
+
+
+var mlng=106.53279,mlat=29.59129;
+
+var Point1 =new BMap.Point(mlng,mlat);
+map.centerAndZoom(Point1, 18);
+
+map.enableScrollWheelZoom(true); 
+
+
+var geoc = new BMap.Geocoder();
+
+//定位
+var geolocation = new BMap.Geolocation();
+
+geolocation.getCurrentPosition(function(r){
+	
+	var pt = r.point;
+    geoc.getLocation(pt, function(rs){
+        //addressComponents对象可以获取到详细的地址信息
+        var addComp = rs.addressComponents;
+        var site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+        $('#siteText').text(site)
+    }); 
+	
+	if(this.getStatus() == BMAP_STATUS_SUCCESS){
+		mlng=r.point.lng;
+		mlat=r.point.lat;
+		var mk = new BMap.Marker(r.point);
+		mk.setAnimation(BMAP_ANIMATION_BOUNCE);
+		map.addOverlay(mk);
+		map.panTo(r.point);
+		map.setZoom(18);  //设置地图方大级别
+	}
+	else {
+		alert('failed'+this.getStatus());
+	}        
+},{enableHighAccuracy: true})
+
+</script>
 </body>
 </html>
 <script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>

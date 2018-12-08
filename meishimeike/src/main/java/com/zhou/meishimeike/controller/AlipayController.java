@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,12 +27,16 @@ import com.maguor.pay.model.AliPayMent;
 import com.maguor.pay.service.AlipayService;
 import com.maguor.pay.service.impl.AlipayServiceImpl;
 import com.zhou.meishimeike.entity.OrderForm;
+import com.zhou.meishimeike.service.OrderService;
 import com.zhou.meishimeike.util.CheckMobile;
 
 @Controller
 
 public class AlipayController extends HttpServlet {
-
+	
+	@Autowired
+	OrderService orderService;
+	
 	private static final long serialVersionUID = 1L;
 
 	// 支付指令

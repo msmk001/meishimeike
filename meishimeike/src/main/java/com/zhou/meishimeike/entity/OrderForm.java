@@ -12,6 +12,7 @@ public class OrderForm {
 	private Integer ufId;
 	
 	private Integer oCode; //1 未支付  2已经支付
+	
 	private String oTradeNo;
 	private String oInfo;
 	
