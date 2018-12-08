@@ -491,7 +491,16 @@ body {
 	#btn_all {
 		display: none;
 	}
+		#bodys {
+	    width: 90%;
+	}
+	
+	
 }
+
+#top1{
+		padding-top: 50px;
+	}
 
 #yinying {
 	width: 100%;
@@ -559,6 +568,14 @@ body {
 	width: 100%;
 	height: 450px;
 }
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    border: 1px solid transparent;
+    z-index: 2;
+    top:0;
+}
 </style>
 </head>
 
@@ -570,7 +587,7 @@ body {
 	<!-- 阴影遮罩层结束 --> <!--隐藏弹出层-->
 	<div id="ui_alert" class="ui_hide">
 		<div id="alert_title">
-			<span class="alert_title_text">查看位置</span>
+			<span class="alert_title_text">查看商家位置</span>
 			<div id="off_alert" class="float_r alert_title_text cursor">×</div>
 		</div>
 		<div id="baidumap"></div>
@@ -770,6 +787,8 @@ body {
 				<p>
 					24小时客服热线 : 10105757 <br />
 				<p style="margin-top: 10px; color: darkgray;">关注我们 : 扫描二维码,体验手机版
+
+
 
 
 
@@ -987,6 +1006,10 @@ body {
 					}, 500);
 					
 				})
+				
+				$(".navbar-toggle").click(function(){
+		$("#example-navbar-collapse").toggleClass('in');
+	})
 			</script>
 
 

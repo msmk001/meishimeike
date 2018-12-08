@@ -35,6 +35,14 @@ body, p {
 	margin: 0px auto;
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    border: 1px solid transparent;
+    z-index: 2;
+    top:0;
+}
+
 @media screen and (min-width: 500px) {
 	body {
 		background-color: #dff0d8;
@@ -675,6 +683,9 @@ body, p {
 		font-size: 20px;
 		cursor: pointer;
 	}
+	#bodys {
+	    width: 90%;
+	}
 }
 
 .navbar-brand {
@@ -682,9 +693,17 @@ body, p {
 	padding: 0;
 }
 
+.driss{
+	/* position: relative;
+	top:50px; */
+	padding-top: 30px;
+	padding-bottom: 30px;
+	box-sizing: content-box;
+}
+
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgba(170, 234, 15, 0.62);
+	background-color: rgb(177, 210, 99);
 }
 
 ::-webkit-scrollbar {
@@ -705,6 +724,10 @@ body, p {
 	width: 100%;
 	height: 100%;
 	padding-right: 20px;
+}
+.Div_head{
+	position:relative;
+	top:50px;
 }
 </style>
 </head>
@@ -912,6 +935,14 @@ body, p {
 				$(".span1").text("用户名不能为空");
 			}
 		})
+		
+		
+		
+		$(".navbar-toggle").click(function(){
+		$("#example-navbar-collapse").toggleClass('in');
+	})
+		
+		
 		$("input[name=phone]")
 				.blur(
 						function() {
