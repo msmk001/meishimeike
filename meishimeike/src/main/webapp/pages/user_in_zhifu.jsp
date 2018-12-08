@@ -806,7 +806,7 @@ body, p {
 			</div>
 			<div>
 				<p>支付方式</p>
-				<p>在线支付</p>
+				<p>支付宝在线支付</p>
 			</div>
 		</div>
 		<div class="food">

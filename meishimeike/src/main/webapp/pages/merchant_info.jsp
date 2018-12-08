@@ -491,16 +491,28 @@ body {
 	#btn_all {
 		display: none;
 	}
-		#bodys {
-	    width: 90%;
+	#bodys {
+		width: 90%;
 	}
-	
-	
+	#userName {
+		width: 80px;
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	#ui_alert{
+		width: 95% !important;
+	}
+	#Mimg{
+		position: relative;
+		left: -50px;
+	}
 }
 
-#top1{
-		padding-top: 50px;
-	}
+#top1 {
+	padding-top: 50px;
+}
 
 #yinying {
 	width: 100%;
@@ -570,11 +582,11 @@ body {
 }
 
 .navbar {
-    position: fixed;
-    width: 100%;
-    border: 1px solid transparent;
-    z-index: 2;
-    top:0;
+	position: fixed;
+	width: 100%;
+	border: 1px solid transparent;
+	z-index: 2;
+	top: 0;
 }
 </style>
 </head>
@@ -648,13 +660,13 @@ body {
 			</nav>
 		</header>
 		<div style="clear: both; margin-top: 30px;" class="cent">
-			<img src="img/${merchantData.info.mLogo}" align="top"
+			<img src="img/${merchantData.info.mLogo}" id="Mimg" align="top"
 				class="float_left" width="80" height="80"
 				style="border-radius: 90px; box-shadow: 0px 0px 10px 5px #aaa;" />
 			<div
 				style="width: 20%; line-height: 20px; padding-top: 10px; padding-left: 20px;"
 				class="float_left">
-				<span style="color: #FFF; font-size: 20px;">
+				<span id="userName" style="color: #FFF; font-size: 20px;">
 					${merchantData.info.mName}</span><br> <br> <span
 					style="color: #cccc33;">★★★★★</span>
 			</div>
@@ -792,6 +804,7 @@ body {
 
 
 
+
 				
 			</div>
 			<div style="width: 50%;" class="bot_r">
@@ -838,7 +851,7 @@ body {
 	</div>
 	<script>
 	/*<!------------隐藏弹出层------------------>*/
-	$('#on_alert').click(function()
+	$('#on_alert,#Mimg').click(function()
 	{
 		$('#yinying,#ui_alert').slideDown();
 		$('html').addClass('lock');
