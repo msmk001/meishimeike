@@ -17,7 +17,12 @@ public class AdminServiceImp implements  AdminService{
 	@Override
 	public AdminData getAdminData() {
 		// TODO Auto-generated method stub
-		return adminDao.getAdminData();
+		AdminData adminData = new AdminData();
+		adminData.setCommoditySum(adminDao.getCommoditySum());
+		adminData.setDealSumToday(adminDao.getDealSumToday());
+		adminData.setMerchantSum(adminDao.getMerchantSum());
+		adminData.setUserSum(adminDao.getUserSum());
+		return adminData;
 	}
 
 }

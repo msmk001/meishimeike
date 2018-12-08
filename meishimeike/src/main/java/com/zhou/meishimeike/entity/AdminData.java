@@ -1,7 +1,7 @@
 package com.zhou.meishimeike.entity;
 
 public class AdminData {
-	private int CommoditySum;	//商品总数
+	private int commoditySum;	//商品总数
 	private int dealSumToday; //今日成交数量
 	private int merchantSum; 	//商家总数
 	private int userSum; 	//用户总数
@@ -9,12 +9,7 @@ public class AdminData {
 	
 	
 	
-	public int getCommoditySum() {
-		return CommoditySum;
-	}
-	public void setCommoditySum(int commoditySum) {
-		CommoditySum = commoditySum;
-	}
+
 	public int getDealSumToday() {
 		return dealSumToday;
 	}
@@ -32,6 +27,12 @@ public class AdminData {
 	}
 	public void setUserSum(int userSum) {
 		this.userSum = userSum;
+	}
+	public int getCommoditySum() {
+		return commoditySum;
+	}
+	public void setCommoditySum(int commoditySum) {
+		this.commoditySum = commoditySum;
 	}
 	
 	

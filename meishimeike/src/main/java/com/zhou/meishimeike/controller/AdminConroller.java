@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zhou.meishimeike.entity.AdminData;
 import com.zhou.meishimeike.entity.Merchant;
+import com.zhou.meishimeike.service.AdminService;
 import com.zhou.meishimeike.service.MerchantService;
 import com.zhou.meishimeike.service.UserService;
 import com.zhou.meishimeike.util.PageUtil;
@@ -25,8 +27,8 @@ public class AdminConroller {
 
 	@Autowired
 	MerchantService merchantService;
-
-	// 注入依赖
+	@Autowired
+	AdminService adminService;
 	@Autowired
 	UserService userService;
 
@@ -45,8 +47,12 @@ public class AdminConroller {
 			thisPage = 1;
 		}
 		PageUtil<Merchant> allMemoByName = merchantService.getAllMerchant(thisPage);
-
-		request.getSession().setAttribute("PageUtil", allMemoByName);
+		
+		AdminData aData=adminService.getAdminData();
+		
+		request.setAttribute("aData", aData);
+		
+		request.setAttribute("PageUtil", allMemoByName);
 
 		request.getRequestDispatcher("/pages/admin_index.jsp").forward(request, response);
 		
@@ -69,7 +75,8 @@ public class AdminConroller {
 		}
 		return map;
 	}
-	//open_merchant
+
+	
 	
 	@RequestMapping("/open_merchant")
 	public void open_merchant(HttpServletResponse response,String id,HttpServletRequest request) throws IOException {

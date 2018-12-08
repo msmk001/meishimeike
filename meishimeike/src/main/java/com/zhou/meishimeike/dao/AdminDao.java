@@ -1,7 +1,10 @@
 package com.zhou.meishimeike.dao;
 
-import com.zhou.meishimeike.entity.AdminData;
-
 public interface AdminDao {
-	AdminData getAdminData();
+
+	
+	int getCommoditySum();
+	int getDealSumToday();
+	int getMerchantSum();
+	int getUserSum();
 }

@@ -86,13 +86,14 @@
 									<i class="mdi mdi-cart text-primary widget-icon"></i>
 								</div>
 								<h5 class="text-muted font-weight-normal mt-0">商品总数</h5>
-								<h3 class="mt-2">3,543</h3>
+								<h3 class="mt-2">${aData.commoditySum}</h3>
 							</div>
 							<div id="sparkline1"></div>
 						</div>
 					</div>
 				</div>
-
+				
+				
 				<div class="col-xl-3 col-lg-6">
 					<div class="card widget-flat">
 						<div class="card-body p-0">
@@ -100,8 +101,8 @@
 								<div class="float-right">
 									<i class="mdi mdi-currency-usd text-danger widget-icon"></i>
 								</div>
-								<h5 class="text-muted font-weight-normal mt-0">销售总数</h5>
-								<h3 class="mt-2">21,287</h3>
+								<h5 class="text-muted font-weight-normal mt-0">今日成交订单总数</h5>
+								<h3 class="mt-2">${aData.dealSumToday}</h3>
 							</div>
 							<div id="sparkline2"></div>
 						</div>
@@ -115,8 +116,8 @@
 								<div class="float-right">
 									<i class="mdi mdi-account-multiple text-primary widget-icon"></i>
 								</div>
-								<h5 class="text-muted font-weight-normal mt-0">商家总数</h5>
-								<h3 class="mt-2">5,387</h3>
+								<h5 class="text-muted font-weight-normal mt-0">以审核商家总数</h5>
+								<h3 class="mt-2">${aData.merchantSum}</h3>
 							</div>
 							<div id="sparkline3"></div>
 						</div>
@@ -130,8 +131,8 @@
 								<div class="float-right">
 									<i class="mdi mdi-eye-outline text-danger widget-icon"></i>
 								</div>
-								<h5 class="text-muted font-weight-normal mt-0">访问量</h5>
-								<h3 class="mt-2">74,315</h3>
+								<h5 class="text-muted font-weight-normal mt-0">用户总数统计</h5>
+								<h3 class="mt-2">${aData.userSum}</h3>
 							</div>
 							<div id="sparkline4"></div>
 						</div>

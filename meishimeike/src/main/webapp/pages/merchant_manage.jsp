@@ -238,7 +238,7 @@ a:link {
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgba(170, 234, 15, 0.62);
+	background-color: rgb(177, 210, 99);
 }
 
 .navbar-default .navbar-nav>li>a {
@@ -286,6 +286,9 @@ a:link {
 	box-sizing: border-box;
 }
 @media only screen and (max-width:400px) {
+	#box1{
+		overflow: hidden;
+	}
 	#bodys {
 		width: 100%;
 	}
@@ -338,6 +341,19 @@ a:link {
 	.box1_s {
 		left: 18%;
 	}
+	#footer1{
+		display: none;
+	}
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    border: 1px solid transparent;
+    z-index: 2;
+    top:0;
+}#mBox01{
+	padding-top: 70px;
 }
 </style>
 </head>
@@ -382,7 +398,7 @@ a:link {
 	</header>
 	<div style="clear: both;"></div>
 	<div id="main">
-		<div>
+		<div id="mBox01">
 			欢迎商户 : ${merchantData.info.name}<img id="touxiang" class="float_r"
 				alt="" src="img/${merchantData.info.mLogo}" width="130" height="90" />
 		</div>
@@ -456,7 +472,7 @@ a:link {
 				enctype="multipart/form-data">
 				<input id="s_id" type="hidden" name="id" value="" />
 				<input id="s_name" type="hidden" name="s_name" value="" />
-				<table style="width: 100%; text-align: left;">
+				<table style="width: 100%; text-align: left;border-collapse:separate; border-spacing:0px 8px;">
 					<tr>
 						<td>图片</td>
 						<td><input name="cyImg" type="file" required="required"

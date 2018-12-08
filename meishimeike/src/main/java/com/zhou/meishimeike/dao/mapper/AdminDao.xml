@@ -13,16 +13,16 @@
 		select count(cy.cy_id) from commodity as cy 
 	</select>
 	
-	<select id="getdealSumToday" resultType="int">
-		select count(om.o_id) from  order_form as om ;
+	<select id="getDealSumToday" resultType="int">
+		select count(om.o_id) from  order_form as om where o_code=2 and TO_DAYS(NOW())=TO_DAYS(om.o_create)
 	</select>
 	
-	<select id="getCommoditySum" resultType="int">
-		select count(cy.cy_id)  from commodity as cy 
+	<select id="getMerchantSum" resultType="int">
+		select count(mt.m_id)  from merchant as mt where m_code=2
 	</select>
 	
-	<select id="getCommoditySum" resultType="int">
-		select count(cy.cy_id) as CommoditySum from commodity as cy 
+	<select id="getUserSum" resultType="int">
+		select count(u.u_id) as CommoditySum from user as u
 	</select>
 	
 	

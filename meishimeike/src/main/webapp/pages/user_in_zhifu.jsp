@@ -696,7 +696,7 @@ body, p {
 .driss{
 	/* position: relative;
 	top:50px; */
-	padding-top: 30px;
+	padding-top: 48px;
 	padding-bottom: 30px;
 	box-sizing: content-box;
 }
@@ -786,11 +786,13 @@ body, p {
 
 			<p></p>
 			<c:forEach var="userItm" items="${user.userInfo}" varStatus="ind">
-				<div class="site">
-					<input type="radio" class="mySite" value="${userItm.ufId}"
-						<c:if test="${user.userInfo!=null&&ind.index==0}">checked="checked"</c:if>
-						name="usersite"> ${userItm.ufPhone} ${userItm.ufSite} ${userItm.ufName}
-				</div>
+				<c:if test="${userItm.ufId!=null}">
+					<div class="site">
+						<input type="radio" class="mySite" value="${userItm.ufId}"
+							<c:if test="${user.userInfo!=null&&ind.index==0}">checked="checked"</c:if>
+							name="usersite"> ${userItm.ufPhone} ${userItm.ufSite} ${userItm.ufName}
+					</div>
+				</c:if>
 			</c:forEach>
 			<p>添加地址</p>
 			<p>

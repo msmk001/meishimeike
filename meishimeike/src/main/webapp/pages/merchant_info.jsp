@@ -802,7 +802,7 @@ body {
 		</div>
 		<div style="clear: both;"></div>
 		<div style="text-align: center; margin-top: 20px; font-size: 13px;">
-			所有方 ：三联信息工程系14班</div>
+			所有方 ：美食美客项目小组</div>
 		<div style="text-align: center; margin-top: 6px; font-size: 13px;">
 			<a style="margin: auto; color: #C0C0C0;"
 				href="http://www.miitbeian.gov.cn/">渝ICP备18005766号</a>
