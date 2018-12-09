@@ -646,14 +646,7 @@ body {
 							<li class="active"><a href="/meishimeike">首页</a></li>
 							<li><a href="#">我的客服</a></li>
 							<li><a
-								href="/meishimeike/pages/
-							<c:if test="${user==null}">
-								user_login.html
-							</c:if>
-							<c:if test="${user!=null}">
-								user_order.jsp
-							</c:if>
-						">我的订单</a></li>
+								href="/meishimeike/order/open_user_order">我的订单</a></li>
 							<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 							<li><c:if test="${user==null}">
 									<a href="/meishimeike/pages/user_login.html">登录|注册</a>
@@ -866,7 +859,7 @@ body {
 						</div>
 						<div
 							style="width: 40%; background-color: #f3f3f3; text-align: center; cursor: pointer;"
-							id="jie" class="float_left">购物是空的</div>
+							id="jie" class="float_left">购物车是空的</div>
 					</div>
 				</div>
 			</form>
@@ -890,7 +883,13 @@ body {
         geoc.getLocation(pt, function(rs){
             //addressComponents对象可以获取到详细的地址信息
             var addComp = rs.addressComponents;
-            var site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+            var site = "";
+            if(addComp.streetNumber==""){
+            	 site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street;
+            }
+            if(addComp.street==""){
+            	site = addComp.province + ", " + addComp.city + ", " + addComp.district ;
+            }
             $('#site').text(site)
         }); 
 		
@@ -948,6 +947,11 @@ body {
 				
 				
 				$('#jie').on("click", function() {
+					
+					
+					if($(this).text()=="购物车是空的"){
+						return;
+					}
 					
 					$('#jie')[0].disabled=false;
 					var arr = new Array();

@@ -1,5 +1,7 @@
 package com.zhou.meishimeike.service;
 
+import java.util.List;
+
 import com.zhou.meishimeike.entity.USerInfo;
 import com.zhou.meishimeike.entity.User;
 
@@ -12,4 +14,5 @@ public interface UserService {
 	boolean hasUserByPhone(String phone);
 	boolean addSite(USerInfo uSerInfo);
 	boolean updateUserPass(Integer id, String lodPass, String newPass);
+	List <USerInfo>  getUserById(User attribute);
 }

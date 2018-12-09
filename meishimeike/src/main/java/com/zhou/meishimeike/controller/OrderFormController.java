@@ -21,6 +21,7 @@ import com.zhou.meishimeike.service.OrderService;
 
 @Controller
 @RequestMapping("/order")
+@SuppressWarnings("unchecked")
 public class OrderFormController {
 
 	@Autowired

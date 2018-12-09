@@ -1,5 +1,7 @@
 package com.zhou.meishimeike.dao;
 
+import java.util.List;
+
 import com.zhou.meishimeike.entity.USerInfo;
 import com.zhou.meishimeike.entity.User;
 
@@ -13,4 +15,5 @@ public interface UserDao {
 	boolean hasUserByPhone(String phone);
 	boolean addSite(USerInfo uSerInfo);
 	boolean updateUserPass(Integer id, String lodPass, String newPass);
+	List <USerInfo> getUserById(User attribute);
 }

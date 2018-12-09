@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,6 +23,7 @@ import com.zhou.meishimeike.service.UserService;
 
 @Controller
 @RequestMapping("/user")
+@SuppressWarnings("unchecked")
 public class UserController {
 	private static final Logger logger = LogManager.getLogger(UserController.class);
 	//注入依赖
@@ -81,24 +83,47 @@ public class UserController {
 		uSerInfo.setUfPhone(phone);
 		uSerInfo.setUfSite(site);
 		
-		System.out.println(attribute);
-		System.out.println(uSerInfo);
+			
+		
 		
 		boolean b =userService.addSite(uSerInfo);
 		if(b) {
-			User userByPhone = userService.getUserByPhone(phone);
-			request.getSession().setAttribute("user", userByPhone);
+			List <USerInfo>  userByPhone = userService.getUserById(attribute);
+			
+			attribute.setUserInfo(userByPhone);
+			
+			request.getSession().setAttribute("user", attribute);
 			map.put("data", true);
 		}else {
 			map.put("data", "服务器繁忙");
 		}
 		return map;
 	}
+	
+	/*@RequestMapping("/getSite")
+	@ResponseBody
+	public void getSite(HttpServletResponse response,HttpServletRequest request) throws IOException, ServletException {
+
+		if(request.getSession().getAttribute("user")==null) {
+			response.sendRedirect("/meishimeike");
+			return ;
+		}
+		User attribute = (User)request.getSession().getAttribute("user");
+		
+		USerInfo uSerInfo = new USerInfo();
+		
+		User userByPhone = userService.getUserByPhone(attribute.getPhone());
+		
+		request.getSession().setAttribute("user", userByPhone);
+		
+		request.getRequestDispatcher("/pages/user_in_zhifu.jsp").forward(request, response);
+		
+	}*/
+		
 	@RequestMapping("/user_login")
 	@ResponseBody
 	public Map user_login(String phone,String pass,HttpServletRequest request) {
 		
-		logger.info("登录了");
 		
 		Map <String, Integer> map=new HashMap<>();
 		boolean hasAdmin = userService.hasUser(phone, pass);

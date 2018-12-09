@@ -1,9 +1,12 @@
+<%@page import="com.zhou.meishimeike.entity.User"%>
 <%@page import="java.util.List"%>
 <%@page import="com.zhou.meishimeike.entity.CommodityJson"%>
 <%@page import="com.zhou.meishimeike.entity.Merchant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,7 +74,7 @@ body, p {
 	}
 	.driss {
 		width: 100%;
-		height: 90px;
+		min-height: 90px;
 		margin-top: 10px;
 		padding: 0px 15px;
 	}
@@ -166,7 +169,7 @@ body, p {
 	}
 	.food-img2 {
 		float: left;
-		width: 85%;
+		width: 98%;
 		height: 40px;
 		line-height: 40px;
 		margin: 5px 0px;
@@ -191,7 +194,7 @@ body, p {
 		float: right;
 	}
 	.food-money {
-		width: 100%;
+		width: 98%;
 		height: 30px;
 		margin: 5px 0px;
 		line-height: 30px;
@@ -204,7 +207,7 @@ body, p {
 		text-align: right;
 	}
 	.food-money2 {
-		width: 100%;
+		width: 98%;
 		height: 40px;
 		margin: 5px 0px;
 		line-height: 30px;
@@ -220,7 +223,7 @@ body, p {
 		cursor: pointer;
 	}
 	.moneys {
-		width: 100%;
+		width: 98%;
 		height: 30px;
 		margin: 5px 0px;
 		line-height: 30px;
@@ -389,7 +392,7 @@ body, p {
 	}
 	.driss {
 		width: 100%;
-		height: 90px;
+		min-height: 90px;
 		margin-top: 10px;
 		padding: 0px 15px;
 	}
@@ -484,32 +487,34 @@ body, p {
 	}
 	.food-img2 {
 		float: left;
-		width: 85%;
+		width: 98%;
 		height: 40px;
 		line-height: 40px;
 		margin: 5px 0px;
 	}
 	.food-img2>span {
 		display: inline-block;
+		box-sizing: border-box;
 	}
 	.food-img2>span:nth-of-type(1) {
-		width: 40%;
+		width: 36%;
 	}
 	.food-img2>span:nth-of-type(2) {
-		width: 15%;
+		width: 20%;
 	}
 	.food-img2>span:nth-of-type(3) {
-		width: 15%;
+		width: 20%;
 		text-decoration: line-through;
 		color: #ccc;
 	}
 	.food-img2>span:nth-of-type(4) {
+		
 		width: 20%;
 		text-align: right;
 		float: right;
 	}
 	.food-money {
-		width: 100%;
+		width: 98%;
 		height: 30px;
 		margin: 5px 0px;
 		line-height: 30px;
@@ -522,7 +527,7 @@ body, p {
 		text-align: right;
 	}
 	.food-money2 {
-		width: 100%;
+		width: 98%;
 		height: 40px;
 		margin: 5px 0px;
 		line-height: 30px;
@@ -538,7 +543,7 @@ body, p {
 		cursor: pointer;
 	}
 	.moneys {
-		width: 100%;
+		width: 98%;
 		height: 30px;
 		margin: 5px 0px;
 		line-height: 30px;
@@ -697,7 +702,7 @@ body, p {
 	/* position: relative;
 	top:50px; */
 	padding-top: 48px;
-	padding-bottom: 30px;
+
 	box-sizing: content-box;
 }
 
@@ -901,7 +906,7 @@ body, p {
 			success:function(data){
 				var jso = JSON.parse(data);	
 				if(jso.data==true){
-					//alert("完成")
+					window.location.href = "/meishimeike/pages/user_in_zhifu.jsp";
 				}
 			}
 		});
@@ -975,21 +980,15 @@ body, p {
 				.click(
 						function() {
 							if (fle == true & fle2 == true & fle3 == true) {
-								$(".driss>p:first-child").text("订单配送至");
-								$(".driss>p:nth-of-type(2)").text(
-										$(".sel").val());
-								$(".driss>p:last-child>span:first-child").text(
-										$("input[name=name]").val());
-								$(".driss>p:last-child>span:last-child").text(
-										$("input[name=phone]").val());
+								
+								
 								$(".dizhi").slideToggle()
-								$(".sel").val("请选择地址");
+								
 								$("input[name=name]").val("");
 								$("input[name=phone]").val("");
 								$(".span1").text("");
 								$(".span3").text("");
 								$(".span2").text("");
-								window.location.reload();
 								
 								
 							} else {

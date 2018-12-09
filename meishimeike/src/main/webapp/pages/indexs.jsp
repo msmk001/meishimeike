@@ -580,7 +580,12 @@ geolocation.getCurrentPosition(function(r){
         if(addComp.street==""){
         	site = addComp.province + ", " + addComp.city + ", " + addComp.district ;
         }
-        $('#siteText').text(site)
+        if(site.trim()==""){
+        	 $('#siteText').text("红旗河沟")
+        }else{
+        	 $('#siteText').text(site)
+        }
+       
     }); 
 	
 	if(this.getStatus() == BMAP_STATUS_SUCCESS){

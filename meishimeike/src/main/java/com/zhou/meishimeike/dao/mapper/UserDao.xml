@@ -4,7 +4,8 @@
 <mapper namespace="com.zhou.meishimeike.dao.UserDao">
 
 	<update id="updateUserPass">
-		update user set u_pass=#{param3} where u_id = #{param1} and u_pass=#{param2}
+		update user set u_pass=#{param3} where u_id =
+		#{param1} and u_pass=#{param2}
 	</update>
 
 	<select id="getAllUserCount" resultType="int">
@@ -27,7 +28,12 @@
 		select * from
 		user
 		LEFT JOIN
-		user_info on user_info.u_id=user.u_id where u_phone=#{param1}
+		user_info on user_info.u_id=user.u_id where user.u_phone=#{param1}
+	</select>
+
+	<select id="getUserById" resultMap="uinfoMap">
+		select * from
+		user_info where u_id=#{id}
 	</select>
 
 	<insert id="addUser">
@@ -63,4 +69,12 @@
 
 		</collection>
 	</resultMap>
+	<resultMap type="com.zhou.meishimeike.entity.USerInfo" id="uinfoMap">
+		<id column="uf_id" property="ufId" />
+			<result column="u_id" property="uId" />
+			<result column="uf_name" property="ufName" />
+			<result column="uf_site" property="ufSite" />
+			<result column="uf_phone" property="ufPhone" />
+	</resultMap>
+	
 </mapper>

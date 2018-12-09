@@ -1,5 +1,7 @@
 package com.zhou.meishimeike.service.imp;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -63,5 +65,11 @@ public class UserServiceImp implements UserService {
 	public boolean updateUserPass(Integer id, String lodPass, String newPass) {
 		// TODO Auto-generated method stub
 		return userDao.updateUserPass( id, lodPass,newPass);
+	}
+
+	@Override
+	public List <USerInfo>  getUserById(User attribute) {
+		// TODO Auto-generated method stub
+		return userDao.getUserById(attribute);
 	}
 }
