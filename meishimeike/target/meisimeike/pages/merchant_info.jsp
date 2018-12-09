@@ -991,7 +991,6 @@ body {
 					*/
 					var text1 = $(obj1).parent().prev().prev().text().trim();
 					var text2 = parseFloat($(obj1).parent().parent().find(".price").text().trim());
-					alert(text1 +" _ "+text2)
 					//遍历购物车,商品相同的只加商品数量
 					$('.price1').each(function() {
 						var name = $(this).prev().prev().text();
