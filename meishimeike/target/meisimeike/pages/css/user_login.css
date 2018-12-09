@@ -1,0 +1,259 @@
+@charset "UTF-8";
+	html,body {
+				margin: 0;
+				padding: 0;
+				font-family: "微软雅黑";
+				width: 100%;
+				height: 100%;
+				background-image:linear-gradient(-90deg, #a71c5c 0%, rgba(39, 206, 167, 0.66) 100%);
+    			
+    			background-repeat: no-repeat;
+			}
+			
+			* {
+				margin: 0 auto;
+				padding: 0;
+			}
+			
+			body {
+				box-sizing: border-box;
+			}
+			
+			#log_a1 {
+				width: 400px;
+				height: 400px;
+				padding-top: 30px;
+				
+			}
+			
+			#log_a2 {
+				width: 150px;
+				height: 150px;
+				margin: 0px auto;
+			}
+			#log_a2_img{
+				 witd:150px;
+				 height:150px;
+			}
+			#log_a3 {
+				width: 250px;
+				height: 40px;
+				text-align: center;
+				margin-top: 10px;
+				margin-bottom: 15px;
+				box-sizing: border-box;
+				position: relative;
+			}
+			#log_a3>div{
+				width: 80px;
+				border-bottom: 2px solid blue;
+				position: absolute;
+				top:40px;
+				left: 23px;
+			}
+			#log_a3 a{
+				display: inline-block;
+				width: 80px;
+				height: 40px;
+				line-height: 40px;
+				text-align: center;
+				margin: 0px 20px;
+			}
+			.log_a2_a1{
+				color:blue;
+			}
+			.log_a2_a2{
+			 	color: #848181;
+			}
+			input[type=text],
+			input[type=submit] {
+				width: 300px;
+				height: 40px;
+				border-color: 1px lightgray solid;
+				outline: none;
+			}
+			
+			#log_b1 {
+				width: 300px;
+				height: 320px;
+				border: 1px lightgray solid;
+			}
+			
+			a {
+				text-decoration: none;
+				font-family: "微软雅黑";
+			}
+			
+			.inp {
+				text-align: center;
+				width: 300px;
+				height: 40px;
+				border: 0px;
+				border-bottom: 2px  solid rgba(0,0,0,0.2);
+				margin-top: 10px;
+				background: rgba(0,0,0,0);
+				outline: none;
+				transition: all 0.2s linear;
+			}
+			
+			input::-ms-input-placeholder {
+				text-align: center;
+			}
+			
+			input::-webkit-input-placeholder {
+				text-align: center;
+			}
+			
+			.btn1 {
+				background-color: #008CBA;
+				border: none;
+				color: white;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+				-webkit-transition-duration: 0.4s;
+				/* Safari */
+				transition-duration: 0.4s;
+				cursor: pointer;
+				color: white;
+				border-radius: 5px; 
+				margin-top: 0px;
+			}
+			
+			.deal::-webkit-inner-spin-button {
+				-webkit-appearance: none;
+			}
+			
+			.deal::-webkit-outer-spin-button {
+				-webkit-appearance: none;
+				}
+			#my_bottom{
+				position: relative;
+				text-align: center;
+				padding-top:100px;
+				width: 100%;
+			}
+			@media only screen and (max-width: 500px) {
+				#my_bottom{
+					position: fixed;
+					text-align: center;
+					bottom: 5%;
+					width: 100%;
+					display: none;
+				}
+				#log_a1 {
+				width:300px;
+				height: 400px;
+				padding-top: 10%;
+				}
+			}
+			.form-div1{
+				 width: 300px;
+				 height: 320px;
+				 display:none;
+				 text-align:center;
+				 transition: all 0.2s linear;
+				 
+			}
+			.form-div2{
+				 text-align: left;
+				 margin-top:0px;
+				 box-sizing: border-box;
+				 width: 100%;
+				 margin-top: 10px;
+				 height: 40px;
+			}
+			#form-div2-input{
+				 width: 48%;
+				 float: left;
+				 margin-top: 0px;
+			}
+			.chd{
+				width: 15px;
+				height: 15px;
+				vertical-align:middle;
+			}
+			.form-div2-img{
+				float: left;
+				width: 48%;
+				margin-left: 2%;
+			}
+			.form-div2-p{
+				clear: both;
+			}
+			.xieyi_div{
+				width: 290px;
+				height: 30px;
+			}
+			
+			.xieyi{
+				font-size: 12px;
+				width: 290px;
+				height: 30px;
+				margin-top: 20px; 
+				text-align: left;
+				vertical-align:middle;
+				margin-bottom: 20px;
+			}
+			.div-t2{
+				margin-top: 15px; 
+				color: purple;
+			}
+			.div-a4{
+				width: 300px;
+				height: 320px;
+				text-align: center;
+				transition: all 0.2s linear;
+			 }
+			#div-div-input{
+				 color: white;
+				 border-radius: 5px; 
+				 margin-top: 0px;
+			}
+			.div-div-t1{
+				 margin-top: 15px;
+				 color: purple;
+			}
+			.my_bottom_div1{
+				 text-align: center;
+				 margin-top: 20px;
+				 font-size: 13px;
+			}
+			.my_bottom_div2{
+				 text-align: center;
+				 margin-top: 6px;
+				 font-size: 13px;
+			}
+			.my_bottom_div2_a{
+			 	margin: auto;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

@@ -10,10 +10,11 @@
 		m_pass=#{param2}
 	</select>
 
+	
 	<insert id="addMerchant">
 		INSERT INTO
 		merchant(m_phone,m_name,m_pass,m_createtime)
-		values(#{param1},#{param1},#{param2},default)
+		values(#{phone},#{name},#{pass},default)
 	</insert>
 	
 	<select id="getIndexData"  resultMap="merchantMap">

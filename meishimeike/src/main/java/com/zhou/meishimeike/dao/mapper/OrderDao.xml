@@ -10,7 +10,7 @@
 
 	<insert id="addOrder">
 		insert into order_form values(default , #{mId},
-		#{uId}, #{oTradeNo}, #{oPrice}, default, #{oInfo},now(),#{ufId})
+		#{uId}, #{oTradeNo}, #{oPrice}, default, #{oInfo},now(),#{ufId},#{zTradeNo})
 	</insert>
 	
 	
@@ -29,8 +29,9 @@
 	private Date oCreate; -->
 	
 	<update id="updateOrderDao">
-
+		update order_form set o_code=2 , z_trade_no=#{zTradeNo} where  o_trade_no = #{oTradeNo};
 	</update>
+	
 
 	<select id="getUserOrderFromDataByUId" resultMap="formOrderMap">
 		select * from
@@ -62,6 +63,7 @@
 		<result column="uf_id" property="ufId" />
 		<result column="o_code" property="oCode" />
 		<result column="o_trade_no" property="oTradeNo" />
+		<result column="z_trade_no" property="zTradeNo" />
 		<result column="o_info" property="oInfo" />
 		<result column="o_price" property="oPrice" />
 		<result column="o_create" property="oCreate" />

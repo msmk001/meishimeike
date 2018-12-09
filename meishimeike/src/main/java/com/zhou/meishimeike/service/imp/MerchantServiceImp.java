@@ -33,11 +33,7 @@ public class MerchantServiceImp implements MerchantService {
 	}
 
 
-	@Override
-	public boolean addMerchant(String phone, String pass) {
-		// TODO Auto-generated method stub
-		return merchantDao.addMerchant(phone, pass);
-	}
+
 
 
 	@Override
@@ -156,6 +152,16 @@ public class MerchantServiceImp implements MerchantService {
 	public List<Merchant> getIndexData() {
 		// TODO Auto-generated method stub
 		return merchantDao.getIndexData();
+	}
+
+
+
+
+
+	@Override
+	public boolean addMerchant(Merchant m) {
+		// TODO Auto-generated method stub
+		return merchantDao.addMerchant(m);
 	}
 
 

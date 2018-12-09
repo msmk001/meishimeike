@@ -13,12 +13,17 @@ public class OrderForm {
 	
 	private Integer oCode; //1 未支付  2已经支付
 	
+	
+	
 	private String oTradeNo;
+	
 	private String oInfo;
 	
 	private Double oPrice;
 
 	private Date oCreate;
+	
+	private String zTradeNo;
 	
 	
 	private List<CommodityJson> commodity;
@@ -118,6 +123,14 @@ public class OrderForm {
 
 	public void setuSerInfo(USerInfo uSerInfo) {
 		this.uSerInfo = uSerInfo;
+	}
+
+	public String getzTradeNo() {
+		return zTradeNo;
+	}
+
+	public void setzTradeNo(String zTradeNo) {
+		this.zTradeNo = zTradeNo;
 	}
 	
 }

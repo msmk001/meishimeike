@@ -64,5 +64,11 @@ public class OrderServiceImp implements OrderService {
 		
 		return userOrderFromDataByMId;
 	}
+
+	@Override
+	public boolean updateOrderDao(OrderForm o) {
+		// TODO Auto-generated method stub
+		return orderDao.updateOrderDao(o);
+	}
 	
 }

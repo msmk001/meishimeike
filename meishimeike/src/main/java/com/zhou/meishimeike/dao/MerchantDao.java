@@ -9,7 +9,7 @@ import com.zhou.meishimeike.entity.MerchantInfo;
 public interface MerchantDao {
 	boolean hasMerchant(String phone, String pass);
 	
-	boolean addMerchant(String phone,String pass);
+	boolean addMerchant(Merchant m);
 	
 	
 	boolean addMerchantInfo(MerchantInfo info);

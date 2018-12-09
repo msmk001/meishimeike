@@ -7,7 +7,6 @@ import com.zhou.meishimeike.entity.USerInfo;
 
 public interface OrderDao {
 	boolean addOrder(OrderForm order);
-	boolean updateOrderCode();
 	List<OrderForm> getUserOrderFromDataByUId(Integer id);
 	List<OrderForm> getUserOrderFromDataByMId(Integer id);
 	USerInfo getUserInfoByufId(Integer ufId);

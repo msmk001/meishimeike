@@ -6,10 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -32,7 +30,7 @@ import com.zhou.meishimeike.util.CheckMobile;
 
 @Controller
 
-public class AlipayController extends HttpServlet {
+public class AlipayController{
 	
 	@Autowired
 	OrderService orderService;
@@ -56,7 +54,6 @@ public class AlipayController extends HttpServlet {
 	private final String RETURN_URL = "returnUrl";
 
 	// 总控制器
-	@Override
 	@RequestMapping("/alipay")
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String command = req.getParameter("command");
@@ -95,7 +92,7 @@ public class AlipayController extends HttpServlet {
 	
 	
 	//同步回调--------------------------------------------------------------------------------------
-	public void doReturnUrl(HttpServletRequest request, HttpServletResponse response) {
+	public void doReturnUrl(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			/*
 			 * * 功能：支付宝服务器同步�?�知页面 日期�?2017-03-30 说明�?
@@ -141,6 +138,7 @@ public class AlipayController extends HttpServlet {
 				System.out.println("验签失败");
 			}
 			// —�?�请在这里编写您的程序（以上代码仅作参�?�）—�??
+			response.sendRedirect(request.getContextPath()+"/pages/user_order.jsp");
 
 		} catch (AlipayApiException e) {
 			e.printStackTrace();
@@ -200,21 +198,30 @@ public class AlipayController extends HttpServlet {
 				// 交易状�??
 				String trade_status = new String(request.getParameter("trade_status").getBytes("ISO-8859-1"), "UTF-8");
 
-				if (trade_status.equals("TRADE_FINISHED")) {
+				if (trade_status.equals("TRADE_FINISHED")||trade_status.equals("TRADE_SUCCESS")) {
 					// 判断该笔订单是否在商户网站中已经做过处理
 					// 如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
 					// 如果有做过处理，不执行商户的业务程序
 
 					// 注意�?
 					// �?款日期超过可�?款期限后（如三个月可�?款），支付宝系统发�?�该交易状�?��?�知
-				} else if (trade_status.equals("TRADE_SUCCESS")) {
+					OrderForm orderForm = new OrderForm();
+					
+					orderForm.setoTradeNo(out_trade_no);
+					
+					orderForm.setzTradeNo(trade_no);
+					
+					orderService.updateOrderDao(orderForm);
+					
+					
+				} /*else if () {
 					// 判断该笔订单是否在商户网站中已经做过处理
 					// 如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
 					// 如果有做过处理，不执行商户的业务程序
 
 					// 注意�?
 					// 付款完成后，支付宝系统发送该交易状�?��?�知
-				}
+				}*/
 
 				System.out.println("success");
 
@@ -375,11 +382,6 @@ public class AlipayController extends HttpServlet {
 
 	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		super.doPost(req, resp);
-	}
 
-	
 
 }

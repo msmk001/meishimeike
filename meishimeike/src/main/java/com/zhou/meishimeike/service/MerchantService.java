@@ -10,7 +10,7 @@ import com.zhou.meishimeike.util.PageUtil;
 public interface MerchantService {
 	boolean hasUser(String phone, String pass);
 	
-	boolean addMerchant(String phone,String pass);
+	boolean addMerchant(Merchant m);
 	
 	boolean addMerchantInfo(MerchantInfo info);
 	

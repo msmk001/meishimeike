@@ -94,7 +94,7 @@ public class OrderFormController {
 
 		order.setoTradeNo(tradeNo);
 		order.setoInfo(JSON.toJSONString(cList));
-		order.setoPrice(amout + 3);
+		order.setoPrice(amout);
 
 		request.getSession().setAttribute("morder", (order));
 

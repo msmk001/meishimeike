@@ -12,5 +12,5 @@ public interface OrderService {
 
 	List<OrderForm> getUserOrderFromDataByMId(Integer id);
 	
-	
+	boolean updateOrderDao(OrderForm o);
 }

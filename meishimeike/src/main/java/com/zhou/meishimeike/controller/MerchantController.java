@@ -154,8 +154,13 @@ public class MerchantController {
 			map.put("data", "手机号已经被注册");
 			return map;
 		}
-
-		boolean addMerchant = merchantService.addMerchant(phone, pass);
+		
+	    Merchant merchant = new Merchant();
+	    merchant.setName(phone);
+	    merchant.setPass(pass);
+	    merchant.setPhone(phone);
+	    
+		boolean addMerchant = merchantService.addMerchant(merchant);
 		if(addMerchant) {
 			map.put("data", true);
 			int selectCodeByPhone = merchantService.selectCodeByPhone(phone);

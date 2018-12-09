@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
+<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+<title>用户登录</title>
+
+
+
+<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+<style>
+html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	width: 100%;
+	height: 100%;
+	background-image: linear-gradient(-90deg, #b5a116 -20%, #73f0b1 100%);
+}
+
+* {
+	margin: 0 auto;
+	padding: 0;
+}
+
+body {
+	box-sizing: border-box;
+	padding-top: 8%;
+}
+
+#log_a1 {
+	width: 400px;
+	height: 400px;
+	padding-top: 30px;
+}
+
+#log_a2 {
+	text-align: center;
+	width: 300px;
+	height: 100px;
+	width: 300px;
+}
+
+#log_a3 {
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	margin-top: 10px;
+	box-sizing: border-box;
+}
+
+input[type=text], input[type=submit] {
+	width: 300px;
+	height: 40px;
+	border-color: 1px lightgray solid;
+	outline: none;
+}
+
+#log_b1 {
+	width: 300px;
+	height: 320px;
+	border: 1px lightgray solid;
+}
+
+a {
+	text-decoration: none;
+	font-family: "微软雅黑";
+	margin-right: 20px;
+}
+
+.inp {
+	text-align: center;
+	width: 300px;
+	height: 40px;
+	border-color: 1px lightgray solid;
+	margin-top: 20px;
+	outline: none;
+}
+
+input::-ms-input-placeholder {
+	text-align: center;
+}
+
+input::-webkit-input-placeholder {
+	text-align: center;
+}
+
+.btn1 {
+	background-color: #008CBA;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	-webkit-transition-duration: 0.4s;
+	/* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+	height: 40px;
+	width: 300px;
+}
+
+#img01 {
+	outline: none;
+	border: 0;
+	height: 44px;
+}
+
+.deal::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+.deal::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+#my_bottom {
+	position: relative;
+	text-align: center;
+	padding-top: 50px;
+	width: 100%;
+}
+
+input, input:focus, input:active {
+	user-select: text;
+}
+
+@media screen and (max-width:480px) {
+	
+	#log_a1 {
+		width: 100%;
+		height: 82%;
+		padding-top: 20px;
+	}
+	#my_bottom {
+		display: none;
+	}
+}
+</style>
+</head>
+
+<body onload="init()">
+
+	<div id="log_a1">
+		<div id="log_a2">
+			<img src="/meishimeike/pages/img/logo1.png" width="250px"
+				height="110px" />
+		</div>
+		<div id="log_a3">
+			<a href="#" id="a1"
+				style="border-bottom: 2px solid blue; color: blue;">登录</a> |
+			&nbsp;&nbsp; <a href="#" id="a2" style="color: #000;">注册</a>
+
+		</div>
+		<form action="${basePath}/pc/user_login.jsp" method="post" id="form2">
+			<div
+				style="width: 300px; height: 320px; display: none; text-align: center;"
+				id="a3">
+				<div>
+					<input type="number" name="phone" class="inp deal"
+						placeholder="手机号" />
+				</div>
+				<div>
+					<input type="password" name="pass" class="inp" placeholder="密码" />
+				</div>
+				<div
+					style="text-align: left; margin-top: 0px; box-sizing: border-box; padding-top: 20px; width: 100%;">
+					<input type="text" class="inp" name="ck"
+						style="width: 48%; float: left; margin-top: 0px;" /> <img
+						style="float: left; width: 48%; margin-left: 2%;" width="80"
+						height="40px" onclick="ck1(this)" id="img01"
+						src="/meishimeike/DrawImage" />
+				</div>
+				<p style="clear: both;">
+				<div>
+					<p
+						style="font-size: 12px; width: 290px; height: 30px; margin-top: 15px; text-align: left;">
+						<span><input type="checkbox" checked="checked"></span> 我同意
+						<a href="#">《用户服务协议》</a>
+					</p>
+				</div>
+				<div>
+					<input type="button" style="border-radius: 20px;" onclick="checks1()" class="btn1" value="注册">
+				</div>
+				<div style="margin-top: 15px; color: purple;" id="t2"></div>
+			</div>
+		</form>
+
+		<form action="" method="post" id="form1" onsubmit="return false">
+			<div style="width: 300px; height: 320px; text-align: center;"
+				; id="a4">
+				<div>
+					<input type="text" class="inp" name="phone" required="required"
+						placeholder="手机号/邮箱" value="" />
+				</div>
+				<p style="height: 10px;">
+				<div>
+					<input type="password" class="inp" name="pass" required="required"
+						placeholder="密码" />
+				</div>
+				<p style="height: 10px;">
+				<div>
+					<p
+						style="font-size: 12px; width: 290px; height: 40px; margin-top: 15px; text-align: left;">
+						<span><input type="checkbox" checked="checked"></span> 我同意
+						<a href="#">《用户服务协议》</a>
+					</p>
+				</div>
+				<div>
+					<input type="button" onclick="checks()" class="btn1" value="登录"
+						style="color: white; border-radius: 20px; margin-top: 0px;"> 
+
+					
+
+				</div>
+				<div style="margin-top: 15px; color: purple;" id="t1"></div>
+			</div>
+		</form>
+	</div>
+	<!-- ----------------------------- -->
+
+
+
+	<div id="my_bottom">
+		<div style="text-align: center; margin-top: 20px; font-size: 13px;">
+			所有方 ：美食美客项目小组</div>
+		<div style="text-align: center; margin-top: 6px; font-size: 13px;">
+			<a style="margin: auto;" href="http://www.miitbeian.gov.cn/">渝ICP备18005766号</a>
+		</div>
+	</div>
+	<script>
+		var a1 = document.getElementById("a1")
+		var a2 = document.getElementById("a2")
+		var a3 = document.getElementById("a3")
+		var a4 = document.getElementById("a4")
+
+		a4.style.display = "block"
+		a1.onclick = function() {
+			a3.style.display = "none";
+			a4.style.display = "block";
+			a1.style.borderBottom = "2px solid blue";
+			a2.style.borderBottom = "0px";
+			a1.style.color = "blue";
+			a2.style.color = "#000";
+		}
+		a2.onclick = function() {
+			a2.style.borderBottom = "2px solid blue";
+			a1.style.borderBottom = "0px";
+			a3.style.display = "block";
+			a4.style.display = "none";
+			a2.style.color = "blue";
+			a1.style.color = "#000";
+		}
+		//***************************************************
+		function ck1(img) {
+			img.src = img.src + "?" + new Date().getTime();
+		}
+		//***************************************************
+
+		$('.inp').on("focus", function() {
+			$("#t1").hide()
+			$("#t2").hide()
+		});
+		//***************************************************
+		function checks() {
+
+
+
+			var t1 = $("#t1");
+			var b = false;
+			$.ajax({
+				type : "POST",
+				data : $('#form1').serialize(),
+				url : "/meishimeike/user/user_login",
+				async : false,
+				success : function(d) {
+
+					var jso = JSON.parse(d);
+
+					if (jso.data == 2) {
+						window.location.href = "/meishimeike";
+					} else if (jso.data == 4) {
+						window.location.href = "/meishimeike/order/addOrder";
+					} else {
+						showMsg("登陆失败,账号或者密码错误")
+					}
+
+				},
+				error : function(a, b) {
+					removeWaiting()
+					showMsg("错误")
+				}
+			});
+
+			return b;
+		}
+		//-------------
+		function init() {
+			//页面键盘点击时触发
+			document.onkeydown = showKeyDown;
+		}
+		function showKeyDown(evt) {
+			evt = (evt) ? evt : window.event;
+
+			if (evt.keyCode == 13 && a4.style.display == "block") {
+				checks();
+			}
+
+		}
+
+		//注册
+		function checks1() {
+			var t1 = $("#t2");
+			var b = false;
+			var phone = $('input[name=phone]').val()
+			var pwd = $('input[name=pwd]').val()
+			var ck = $('input[name=ck]').val()
+			var reg = /^((13[0-9])|(14[5,7,9])|(15[^4])|(18[0-9])|(17[0,1,3,5,6,7,8]))\d{8}$/;
+			var reg2 = /.{6,15}/
+			var reg3 = /[a-zA-Z1-9]{4}/
+			if (!reg.test(phone)) {
+				showMsg01("手机号格式不正确")
+				return false;
+			}
+			if (!reg2.test(pwd)) {
+				showMsg01("密码格式不正确")
+				return false;
+			}
+			if (!reg3.test(ck)) {
+				showMsg01("验证码格式不正确")
+				return false;
+			}
+
+			$.ajax({
+				type : "POST",
+				data : $('#form2').serialize(),
+				url : "/meishimeike/user/user_register",
+				async : true,
+				success : function(d) {
+					var jso = JSON.parse(d);
+					if (jso.data == true) {
+						window.location.href = "/meishimeike/";
+					} else {
+						showMsg01(jso.data)
+					}
+				},
+				error : function(a, b) {
+					showMsg01(b)
+				}
+			});
+
+			return b;
+		}
+		function showMsg(str) {
+			$("#t1").text(str);
+			$("#t1").show()
+			setTimeout(function() {
+				$("#t1").hide()
+			}, 4000)
+		}
+
+		function showMsg01(str) {
+			$("#t2").text(str);
+			$("#t2").show()
+			setTimeout(function() {
+				$("#t2").hide()
+			}, 4000)
+		}
+
+
+
+		//--
+	</script>
+</body>
+
+</html>
