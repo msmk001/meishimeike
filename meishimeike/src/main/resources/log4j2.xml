@@ -10,7 +10,7 @@
         <!--这个输出控制台的配置-->
         <console name="Console" target="SYSTEM_OUT">
         	<!-- info级别上通过,控制台输出 -->
-        	<!-- <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/> -->
+        	<ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <!--输出日志的格式-->
             <PatternLayout charset="UTF-8" pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
         </console>
@@ -70,34 +70,22 @@
  
     </appenders>
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
-    <Loggers>  
-          <!-- 3rdparty Loggers -->  
-          <logger name="org.springframework.core" level="info">  
-          </logger>  
-          <logger name="org.springframework.beans" level="info">  
-          </logger>  
-          <logger name="org.springframework.context" level="info">  
-          </logger>  
-          <logger name="org.springframework.web" level="info">  
-          </logger>  
-          <logger name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner" level="info">  
-          </logger>  
-          <!-- 下面的logger需要修改为你的项目根路径，如com.sd -->
-          <logger name="com.stu" level="debug" includeLocation="true" additivity="false">
-              <appender-ref ref="ErrorLog"/>  
-              <appender-ref ref="Console"/>  
-          </logger>  
-            <!-- 将druid连接池的sql语句打印到日志文件中 -->
-        <logger name="druid.sql.Statement" level="debug" additivity="false">
-          <appender-ref ref="Console"/>
-          <appender-ref ref="RollingFileName"/>
+    <loggers>
+        <!--过滤掉spring和hibernate的一些无用的debug信息-->
+        <logger name="org.springframework" level="INFO">
         </logger>
-          <root level="debug" includeLocation="true">
-              <appender-ref ref="ErrorLog"/>
-              <appender-ref ref="Console"/>  
-          </root>  
-      </Loggers> 
-
+        <logger name="org.mybatis" level="debug">
+        </logger>
+       <!--  info以上日志输出到控制台和文件中 -->
+        <root level="debug">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="RollingFileInfo"/>
+            <appender-ref ref="RollingFileWarn"/>
+            <appender-ref ref="RollingFileError"/>
+            <appender-ref ref="RollingFileDebug"/>
+            <appender-ref ref="RollingFileTrace"/>
+        </root>
+    </loggers>
 
 </configuration>
 
