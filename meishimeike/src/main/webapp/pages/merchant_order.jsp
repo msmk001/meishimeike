@@ -381,7 +381,7 @@ body{
 		</div>
 		<div class="all-Xiang_Xi">
 
-			<c:if test="${merchantOrderFormData==null}">
+			<c:if test="${merchantOrderFormData==null||merchantOrderFormData=='[]'}">
 				<div id="nullbox">你还没有订单</div>
 			</c:if>
 

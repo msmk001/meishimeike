@@ -1,11 +1,11 @@
 package com.zhou.meishimeike.service.imp;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zhou.meishimeike.dao.CommodityDao;
 import com.zhou.meishimeike.dao.MerchantDao;
@@ -18,6 +18,7 @@ import com.zhou.meishimeike.util.PageUtil;
 
 
 @Service
+@Transactional
 public class MerchantServiceImp implements MerchantService {
 	
 	@Autowired

@@ -573,7 +573,13 @@ geolocation.getCurrentPosition(function(r){
     geoc.getLocation(pt, function(rs){
         //addressComponents对象可以获取到详细的地址信息
         var addComp = rs.addressComponents;
-        var site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber;
+        var site = "";
+        if(addComp.streetNumber==""){
+        	 site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street;
+        }
+        if(addComp.street==""){
+        	site = addComp.province + ", " + addComp.city + ", " + addComp.district ;
+        }
         $('#siteText').text(site)
     }); 
 	

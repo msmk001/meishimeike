@@ -2,6 +2,7 @@ package com.zhou.meishimeike.service.imp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zhou.meishimeike.dao.UserDao;
 import com.zhou.meishimeike.entity.USerInfo;
@@ -10,6 +11,7 @@ import com.zhou.meishimeike.service.UserService;
 
 
 @Service
+@Transactional
 public class UserServiceImp implements UserService {
 
 	@Autowired

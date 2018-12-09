@@ -1,6 +1,13 @@
+<%@page import="com.zhou.meishimeike.entity.Merchant"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%
+	Merchant d=(Merchant)session.getAttribute("merchantData");
+	if(d==null){
+		response.sendRedirect(request.getContextPath());
+	}
+%>
 <!DOCTYPE html>
 <html>
 

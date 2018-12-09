@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSON;
 import com.zhou.meishimeike.dao.OrderDao;
@@ -14,6 +15,7 @@ import com.zhou.meishimeike.service.OrderService;
 
 
 @Service
+@Transactional
 public class OrderServiceImp implements OrderService {
 
 	@Autowired

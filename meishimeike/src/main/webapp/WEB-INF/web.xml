@@ -20,27 +20,20 @@
 	<!-- log-begin -->
 
 	<!-- log4j配置，文件路径，因为是跟随项目启动 -->
-	  <!-- log4j2-begin -->
-     <listener>
-         <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
-    </listener>
-     <filter>
-         <filter-name>log4jServletFilter</filter-name>
-         <filter-class>org.apache.logging.log4j.web.Log4jServletFilter</filter-class>
-     </filter>
-     <filter-mapping>
-         <filter-name>log4jServletFilter</filter-name>
-         <url-pattern>/*</url-pattern>
-         <dispatcher>REQUEST</dispatcher>
-         <dispatcher>FORWARD</dispatcher>
-         <dispatcher>INCLUDE</dispatcher>
-         <dispatcher>ERROR</dispatcher>
-     </filter-mapping>
-     <!-- log4j2-end -->
+	<!-- log4j2-begin -->
+	<listener>
+		<listener-class>org.apache.logging.log4j.web.Log4jServletContextListener
+		</listener-class>
+	</listener>
+	<context-param>
+		<param-name>log4jConfiguration</param-name>
+		<param-value>classpath:/log4j2.xml</param-value>
+	</context-param>
+	<!-- log4j2-end -->
 
-	
+
 	<!-- 加载log4j配置文件 -->
-	
+
 
 
 	<!-- log-end -->

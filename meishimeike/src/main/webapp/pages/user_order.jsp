@@ -377,8 +377,8 @@ body{
 			<span>订单内容</span> <span>总金额</span> <span>状态</span> <span>订单操作</span>
 		</div>
 		<div class="all-Xiang_Xi">
-
-			<c:if test="${userOrderFormData==null}">
+		
+			<c:if test="${userOrderFormData==null||userOrderFormData=='[]'}">
 				<div id="nullbox">你还没有订单,快去下单吧</div>
 			</c:if>
 
@@ -414,7 +414,7 @@ body{
 							<span>未支付</span>
 						</c:if>
 						<c:if test="${i.oCode==2}">
-							<span>已支付</span>
+							<span style="color:#286090">已支付</span>
 						</c:if>
 					</div>
 					<div class="Xiang_Xi-div4">

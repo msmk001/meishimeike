@@ -8,6 +8,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ import com.zhou.meishimeike.service.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	
+	private static final Logger logger = LogManager.getLogger(UserController.class);
 	//注入依赖
 	@Autowired
 	UserService userService;
@@ -95,6 +97,9 @@ public class UserController {
 	@RequestMapping("/user_login")
 	@ResponseBody
 	public Map user_login(String phone,String pass,HttpServletRequest request) {
+		
+		logger.info("登录了");
+		
 		Map <String, Integer> map=new HashMap<>();
 		boolean hasAdmin = userService.hasUser(phone, pass);
 		if(hasAdmin) {

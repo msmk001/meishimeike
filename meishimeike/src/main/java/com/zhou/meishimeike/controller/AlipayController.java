@@ -11,6 +11,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +33,8 @@ import com.zhou.meishimeike.util.CheckMobile;
 @Controller
 
 public class AlipayController{
+	
+	private static final Logger logger = LogManager.getLogger(AlipayController.class);
 	
 	@Autowired
 	OrderService orderService;
@@ -102,7 +106,7 @@ public class AlipayController{
 			 * 
 			 * 页面功能说明************************* 该页面仅做页面展示，业务逻辑处理请勿在该页面执行
 			 */
-
+			logger.info("同步回调");
 			// 获取支付宝GET过来反馈信息
 			Map<String, String> params = new HashMap<String, String>();
 			Map<String, String[]> requestParams = request.getParameterMap();
@@ -135,7 +139,7 @@ public class AlipayController{
 				System.out.println("trade_no:" + trade_no + "<br/>out_trade_no:" + out_trade_no + "<br/>total_amount:"
 						+ total_amount);
 			} else {
-				System.out.println("验签失败");
+				//System.out.println("验签失败");
 			}
 			// —�?�请在这里编写您的程序（以上代码仅作参�?�）—�??
 			response.sendRedirect(request.getContextPath()+"/order/open_user_order");
@@ -148,7 +152,7 @@ public class AlipayController{
 	}
 
 	// 异步回调--------------------------------------------------------------------------------------
-	private void doNotifyUrl(HttpServletRequest request, HttpServletResponse resp) {
+	public void doNotifyUrl(HttpServletRequest request, HttpServletResponse resp) {
 		// TODO Auto-generated method stub
 		try {
 			/*
@@ -176,9 +180,13 @@ public class AlipayController{
 				valueStr = new String(valueStr.getBytes("ISO-8859-1"), "utf-8");
 				params.put(name, valueStr);
 			}
-
-			boolean signVerified = AlipaySignature.rsaCheckV1(params, PaymentConfig.ALIPAY_PUBLIC_KEY,
-					PaymentConfig.CHARSET, PaymentConfig.SIGN_TYPE); // 调用SDK验证签名
+			
+			//实际开发一定要验证签名，这里暂时不验证签名
+			/*boolean signVerified = AlipaySignature.rsaCheckV1(params, PaymentConfig.ALIPAY_PUBLIC_KEY,
+					PaymentConfig.CHARSET, PaymentConfig.SIGN_TYPE); */// 调用SDK验证签名
+			
+			boolean signVerified =true;
+			
 			// —�?�请在这里编写您的程序（以下代码仅作参�?�）—�??
 
 			/*
@@ -197,7 +205,15 @@ public class AlipayController{
 
 				// 交易状�??
 				String trade_status = new String(request.getParameter("trade_status").getBytes("ISO-8859-1"), "UTF-8");
-
+				
+				logger.info("异步回调，参数2"+out_trade_no);
+				
+				logger.info("异步回调，参数3"+trade_no);
+				
+				logger.info("异步回调，参数3"+trade_status);
+				
+				
+				
 				if (trade_status.equals("TRADE_FINISHED")||trade_status.equals("TRADE_SUCCESS")) {
 					// 判断该笔订单是否在商户网站中已经做过处理
 					// 如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
@@ -215,6 +231,8 @@ public class AlipayController{
 					// 注意�?
 					// 付款完成后，支付宝系统发送该交易状�?��?�知
 				}*/
+				
+				
 				
 				OrderForm orderForm = new OrderForm();
 				
@@ -237,8 +255,6 @@ public class AlipayController{
 
 			// —�?�请在这里编写您的程序（以上代码仅作参�?�）—�??
 
-		} catch (AlipayApiException e) {
-			e.printStackTrace();
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}

@@ -2,6 +2,7 @@ package com.zhou.meishimeike.service.imp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.zhou.meishimeike.dao.CommodityDao;
 import com.zhou.meishimeike.entity.Commodity;
@@ -9,6 +10,7 @@ import com.zhou.meishimeike.service.CommodityService;
 
 
 @Service
+@Transactional
 public class CommodityServiceImp implements CommodityService {
 	@Autowired
 	CommodityDao commodityDao;
