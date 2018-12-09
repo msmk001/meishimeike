@@ -485,7 +485,7 @@ a:link {
 					
 					<tr>
 						<td>单价</td>
-						<td><input name="cPrice"  required="required" type="number" min="1" step="0.1"></td>
+						<td><input name="cPrice"  required="required" type="number" step="0.01" min="0.01" max="999999"></td>
 					</tr>
 					<tr>
 						<td>商品描述</td>

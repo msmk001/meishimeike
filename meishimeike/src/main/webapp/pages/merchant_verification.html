@@ -33,6 +33,7 @@
 #nav {
 	position: absolute;
 	width: 100%;
+	z-index:1;
 	height: 55px;
 	top: 0;
 	box-sizing: border-box;
@@ -69,6 +70,20 @@
 	text-align: center;
 }
 @media screen and (max-width:480px) {
+	
+	#ui_alert {
+    height: 70% !important;
+    width: 80% !important;
+    border-radius: 20px;
+    z-index: 10;
+    background: #e4e6e7;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+
 	
 	#main .right .articlefoot>.send_imgs{
 		width: 80%;
@@ -125,11 +140,171 @@
 	width: 700px;
 	height: 400px;
 }
+
+
+
+
+
+
+
+
+#yinying {
+	width: 100%;
+	height: 100%;
+	background: #000;
+	display:none;
+	opacity: 0.8;
+	top:0;
+	position: fixed;
+	z-index:10;
+}
+
+.lock {
+	overflow: hidden;
+}
+
+.hide {
+	display: none;
+	background: #fff;
+	border-bottom: 1px solid gainsboro;
+}
+
+#ui_alert {
+	height: 500px;
+	width: 700px;
+	border-radius:20px;
+	z-index: 10;
+	background: #e4e6e7;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	box-sizing: border-box;
+}
+
+.ui_hide {
+	/* display: none; */
+}
+
+#alert_title {
+	height: 50px;
+	background: rgb(215, 57, 55);
+	box-sizing: border-box;
+	padding: 0 20px;
+	line-height: 50px;
+}
+
+
+
+#spBox{
+	height: 50px;
+}
+.loader--spinningDisc {
+	margin :80px auto;
+ width:50px !important;
+  height:50px !important;
+  border: solid 2.0em #9b59b6;
+  border-right-color: transparent;
+  border-left-color: transparent;
+  padding: 0.5em;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background: #9bd807;
+  background-clip: content-box;
+  animation: spinDisc 0.8s linear infinite;
+  -moz-animation: spinDisc 0.8s linear infinite;
+	/* Safari 和 Chrome: */
+	-webkit-animation: spinDisc 0.8s linear infinite;
+	/* Opera: */
+	-o-animation: spinDisc 0.8s linear infinite;
+  
+  box-sizing: content-box;
+}
+@keyframes spinDisc {
+  50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+@-moz-keyframes spinDisc /* Firefox */
+{
+50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+
+@-webkit-keyframes spinDisc /* Safari 和 Chrome */
+{
+50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+
+@-o-keyframes spinDisc /* Opera */
+{
+50% {
+    border-top-color: #3498db;
+    border-bottom-color: #3498db;
+    background-color: #2ecc71;
+  }
+  100% {
+  	 transform: rotate(1turn);
+  	-webkit-transform: rotate(1turn);
+    -moz-transform: rotate(1turn);
+    -ms-transform:  rotate(1turn);
+    -o-transform: rotate(1turn);
+  }
+}
+#hideText{
+	margin-top:40px;
+	text-align: center;
+	font-size: 25px;
+}
 </style>
 </head>
 
 <body>
-
+	
+	
+	<!-- ----------------------隐藏层---------------------------->
+	<hide>
+	<div id="yinying"></div>
+	<!-- 阴影遮罩层结束 --> <!--隐藏弹出层-->
+	<div id="ui_alert" class="ui_hide" style="display:none">
+		<div class='loader loader--spinningDisc'></div>
+		<div id="hideText">资料提交者...你可能需要等待几分钟</div>
+	</div>
+	<!--隐藏弹出层结束--> </hide>
+	
+	
+	
 	<nav>
 		<div id="nav">
 			<a class="navbar-brand" href="/meishimeike"><img
@@ -237,7 +412,7 @@
 									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" required="required" name="imgIdCar" class="hide topimg_file" /> <label
+									<input type="file" name="imgIdCar" class="hide topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -256,7 +431,7 @@
 									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file"  required="required" name="imgLicense" class="hide" class="topimg_file" /> <label
+									<input type="file"   name="imgLicense" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -275,7 +450,7 @@
 									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" required="required" name="logo" class="hide" class="topimg_file" /> <label
+									<input type="file"  name="logo" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -294,7 +469,7 @@
 									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" required="required" name="permission" class="hide" class="topimg_file" /> <label
+									<input type="file"  name="permission" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -313,7 +488,7 @@
 									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" required="required" name="appearance" class="hide" class="topimg_file" /> <label
+									<input type="file" name="appearance" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -332,7 +507,7 @@
 									<img class="top_image" style="display: none;" />
 									<div class="addimg_ti"
 										style="background: url(/meishimeike/pages/img/icon/addworkiconh.png) no-repeat center 60px; padding-top: 104px;">添加封面</div>
-									<input type="file" required="required" name="imgIndoor" class="hide" class="topimg_file" /> <label
+									<input type="file"  name="imgIndoor" class="hide" class="topimg_file" /> <label
 										for="topimg_file" class="add_button"></label>
 								</div>
 							</div>
@@ -473,8 +648,16 @@
 		map.addOverlay(marker);               // 将标注添加到地图中
 		marker.setAnimation(BMAP_ANIMATION_BOUNCE); 
 	}
+
+
+	
 	//------------------"-------
 	$('#update_btn').on("click",function(){
+		
+		$('.ui_hide,#yinying').show();
+		
+		$('html').addClass('lock');
+		
 		var formData = new FormData($("#upload_form")[0]);
 		formData.append("mlng",mlng);
 		formData.append("mlat",mlat);
@@ -489,9 +672,12 @@
             contentType : false,  //必须false才会自动加上正确的Content-Type
 			success:function(data01){
 				
+				$('#yinying,.ui_hide').hide();
+				$('html').removeClass('lock');
+				
 				var jso = JSON.parse(data01);
 				if(jso.data==true){
-					window.location.href = "/meishimeike/pages/merchant_await.html";
+					window.location.href = "/meishimeike/pages/merchant_await.html";					
 				}else{
 					showMsg(jso.data)
 				}
@@ -500,7 +686,7 @@
 			},error:function(a,b,c){
 				
 			}
-		});
+		}); 
 	})
 	
 		function showMsg(str) {

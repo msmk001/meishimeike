@@ -138,7 +138,7 @@ public class AlipayController{
 				System.out.println("验签失败");
 			}
 			// —�?�请在这里编写您的程序（以上代码仅作参�?�）—�??
-			response.sendRedirect(request.getContextPath()+"/pages/user_order.jsp");
+			response.sendRedirect(request.getContextPath()+"/order/open_user_order");
 
 		} catch (AlipayApiException e) {
 			e.printStackTrace();
@@ -205,13 +205,6 @@ public class AlipayController{
 
 					// 注意�?
 					// �?款日期超过可�?款期限后（如三个月可�?款），支付宝系统发�?�该交易状�?��?�知
-					OrderForm orderForm = new OrderForm();
-					
-					orderForm.setoTradeNo(out_trade_no);
-					
-					orderForm.setzTradeNo(trade_no);
-					
-					orderService.updateOrderDao(orderForm);
 					
 					
 				} /*else if () {
@@ -222,6 +215,15 @@ public class AlipayController{
 					// 注意�?
 					// 付款完成后，支付宝系统发送该交易状�?��?�知
 				}*/
+				
+				OrderForm orderForm = new OrderForm();
+				
+				orderForm.setoTradeNo(out_trade_no);
+				
+				orderForm.setzTradeNo(trade_no);
+				
+				orderService.updateOrderDao(orderForm);
+				
 
 				System.out.println("success");
 

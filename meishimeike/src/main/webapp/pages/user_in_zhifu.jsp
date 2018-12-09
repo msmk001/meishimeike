@@ -925,9 +925,9 @@ body, p {
 		var fle3 = false;
 		$("input[name=name]").blur(function() {
 			if ($(this).val() != "") {
-				if ($(this).val().length < 3) {
+				if ($(this).val().length < 2) {
 
-					$(".span1").text("用户名至少3位");
+					$(".span1").text("用户名至少2位");
 					fle = false;
 				} else {
 					$(".span1").text("");
@@ -989,10 +989,13 @@ body, p {
 								$(".span1").text("");
 								$(".span3").text("");
 								$(".span2").text("");
+								window.location.reload();
+								
+								
 							} else {
 								if ($("input[name=name]").val() != "") {
-									if ($("input[name=name]").val().length < 4) {
-										$(".span1").text("用户名至少3位");
+									if ($("input[name=name]").val().length <2) {
+										$(".span1").text("用户名至少2位");
 										fle = false;
 									} else {
 										$(".span1").text("");
