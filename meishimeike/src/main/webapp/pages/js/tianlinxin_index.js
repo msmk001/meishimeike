@@ -8,7 +8,7 @@ $(function() {
 		var str = imgSrc.substring((imgSrc.length - 6), (imgSrc.length - 5))
 
 		if(str == 1) {
-			$('#img01')[0].src = "/meishimeike/pages/img/bg2.jpeg";
+			$('#img01')[0].src = "/meishimeike/pages/img/bg4.jpeg";
 		} else if(str == 2) {
 			$('#img01')[0].src = "/meishimeike/pages/img/bg3.jpeg";
 		} else if(str == 3) {
@@ -17,7 +17,7 @@ $(function() {
 			$('#img01')[0].src = "/meishimeike/pages/img/bg1.jpeg";
 		}
 
-	}, 3000)
+	}, 5000)
 
 	$('#section-input').on("focus", function() {
 		$('#section-input')[0].placeholder = "";
@@ -85,6 +85,8 @@ $(function() {
 
 	$('#section-input').on("keypress", function() {
 		
+		$(this).blur();
+		
 		if(screen.width<500){
 			$('body,html').animate({
 				scrollTop: "170px"
@@ -119,6 +121,17 @@ $(function() {
 		}, 920)
 
 	});
+	
+	$('#fen').on("click",function(){
+		$('.main_box').hide()
+		$('.loader--spinningDisc,#spBox').show()
+		setTimeout(function() {
+			$('.main_box').show()
+			$('.loader--spinningDisc,#spBox').hide();
+		},900)
+		
+		
+	})
 
 	$('.nav2-a').on("click", function() {
 		if(screen.width<500){
@@ -148,6 +161,7 @@ $(function() {
 
 	});
 	//-----------------------------------------------------
+	
 
 
 })

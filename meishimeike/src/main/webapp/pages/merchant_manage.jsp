@@ -58,14 +58,17 @@
 	padding: 20px;
 	float: left;
 }
+
 .itm {
-    color: darkgray;
-    font-size: 13px;
+	color: darkgray;
+	font-size: 13px;
 }
-#footer1>div{
+
+#footer1>div {
 	width: 60%;
 	margin: 0 auto;
 }
+
 #footer1>div>ul>li {
 	list-style: none;
 }
@@ -99,7 +102,7 @@
 	position: fixed;
 	padding: 5px;
 	top: 35%;
-	background: gray;
+	background: rgba(68, 56, 130, 0.62);
 	text-align: center;
 }
 
@@ -117,10 +120,12 @@
 }
 
 #btn6 {
-	margin: 5px 5px;
+	margin: 0px 5px;
+	line-height: 20px;
 }
 
 .box_span {
+	overflow: hidden;
 	margin-left: 10px;
 	height: 33px;
 	line-height: 33px;
@@ -128,10 +133,10 @@
 	border: 1px solid;
 	width: 110px;
 	text-align: center;
-	margin-top: 8px;
-	margin-bottom: 8px;
-	background: #ffffff;
+	margin-top: 3px; vertical-align : bottom; background : #ffffff;
 	display: inline-block;
+	background: #ffffff;
+	vertical-align: bottom;
 }
 
 .box_span:hover {
@@ -166,10 +171,13 @@
 }
 
 * {
-	/*  border: 1px solid; */
+	
 	
 }
-
+.navbar-toggle{
+	color: #fff;
+	background-color: #ddd;
+}
 .btnsty {
 	width: 65px;
 	height: 30px;
@@ -238,11 +246,18 @@ a:link {
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgb(177, 210, 99);
+	background-color: rgba(68, 56, 130, 0.62);
+}
+
+#bgBox {
+	width: 100%;
+	height: 52px;
+	background-color: #FFFFFF;
+	position: fixed;
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #555;
+	color: #fff;
 }
 
 #bodys {
@@ -279,14 +294,16 @@ a:link {
 	height: 30px;
 	line-height: 30px;
 }
-.tishi{
+
+.tishi {
 	font-size: 15px;
 	padding-left: 20px;
-	color:#777;
+	color: #777;
 	box-sizing: border-box;
 }
+
 @media only screen and (max-width:400px) {
-	#box1{
+	#box1 {
 		overflow: hidden;
 	}
 	#bodys {
@@ -341,19 +358,50 @@ a:link {
 	.box1_s {
 		left: 18%;
 	}
-	#footer1{
+	#footer1 {
 		display: none;
 	}
+
 }
 
+
+
+
 .navbar {
-    position: fixed;
-    width: 100%;
-    border: 1px solid transparent;
-    z-index: 2;
-    top:0;
-}#mBox01{
+	position: fixed;
+	width: 100%;
+	border: 1px solid transparent;
+	z-index: 2;
+	top: 0;
+}
+
+#mBox01 {
 	padding-top: 70px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus,
+	.navbar-default .navbar-nav>.active>a:hover {
+	color: #FFFFFF !important;
+	background-color: #82adbd;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	background-color: #82adbd;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+#box1 {
+	background-color: rgba(68, 56, 130, 0.62);
+	color: #fff;
+	padding-left: 2px;
+}
+
+#box1 td.td01 {
+	width: 120px !important;
+}
+#box1 input[type=text],#box1 input[type=number] {
+	color: #000;
 }
 </style>
 </head>
@@ -369,8 +417,8 @@ a:link {
 						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/meishimeike"><img
-						id="logo4j" src="img/logo2.png" /></a>
+					<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
+						src="/meishimeike/pages/img/log4j1.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -395,12 +443,14 @@ a:link {
 				</div>
 			</div>
 		</nav>
+		<div id="bgBox"></div>
 	</header>
 	<div style="clear: both;"></div>
 	<div id="main">
 		<div id="mBox01">
-			欢迎商户 : ${merchantData.info.name}<img id="touxiang" class="float_r"
-				alt="" src="img/${merchantData.info.mLogo}" width="130" height="90" />
+			欢迎商户 : <span style="color: red;">${merchantData.info.name}</span><img
+				id="touxiang" class="float_r" alt=""
+				src="img/${merchantData.info.mLogo}" width="130" height="90" />
 		</div>
 
 		<h3 id="shangping_title" style="margin-top: 15px;">我的商品目录</h3>
@@ -411,11 +461,18 @@ a:link {
 			</c:forEach>
 			<input class="btnsty_1" type="button" id="btn6" class="btnsty"
 				value="+">
-			<c:if test="${merchantData.classifyList==null||merchantData.classifyList=='[]'}">
+			<c:if
+				test="${merchantData.classifyList==null||merchantData.classifyList=='[]'}">
 				你还没有商品目录,请添加目录,例:米饭,饮品
 			</c:if>
-			
+
 		</div>
+
+		<c:if
+			test="${merchantData.classifyList==null||merchantData.classifyList=='[]'}">
+
+			<div style="height: 300px;"></div>
+		</c:if>
 
 		<c:forEach var="i" items="${merchantData.classifyList}">
 			<div class="boxs1">
@@ -423,8 +480,8 @@ a:link {
 				<div style="margin-top: 30px;">
 					<h3 style="padding-left: 20px;">
 						<span style="font-size: 20px; font-weight: 500;">${i.cName}</span>
-						<input type="button" onclick="ck(this,${i.cId})" class="btn1 btnsty"
-							value="添加商品"> <input type="button"
+						<input type="button" onclick="ck(this,${i.cId})"
+							class="btn1 btnsty" value="添加商品"> <input type="button"
 							onclick="drop_classify(${i.cId},this)" class="btn1 btnsty"
 							value="删除目录">
 					</h3>
@@ -432,9 +489,9 @@ a:link {
 						<div class="mu_lu_box_c">
 							<c:set var="bool" value="true" />
 							<c:forEach var="j" items="${merchantData.commodity}" varStatus="">
-								
+
 								<c:if test="${i.cId==j.cId}">
-									
+
 									<div id="float_left_boxss" class="float_left boxs">
 										<img class="float_left" src="img/${j.cyImg}" align="top" />
 										<div class="float_left"
@@ -453,13 +510,13 @@ a:link {
 									</div>
 									<c:set var="bool" value="false" />
 								</c:if>
-								
+
 							</c:forEach>
-							
-							
+
+
 							<c:if test="${bool}">
-									<div class="tishi">该目录下还没有商品,请添加</div>
-								</c:if>
+								<div class="tishi">该目录下还没有商品,请添加</div>
+							</c:if>
 						</div>
 					</div>
 				</div>
@@ -468,28 +525,34 @@ a:link {
 
 		<!-- ------------------隐藏层------------------------- -->
 		<div id="box1" class="box1_s">
-			<form id="form5" method="post" action="/meishimeike/commodity/addCommodity"
+			<form id="form5" method="post"
+				action="/meishimeike/commodity/addCommodity"
 				enctype="multipart/form-data">
-				<input id="s_id" type="hidden" name="id" value="" />
-				<input id="s_name" type="hidden" name="s_name" value="" />
-				<table style="width: 100%; text-align: left;border-collapse:separate; border-spacing:0px 8px;">
+				<input id="s_id" type="hidden" name="id" value="" /> <input
+					id="s_name" type="hidden" name="s_name" value="" />
+				<table
+					style="width: 100%; text-align: left; border-collapse: separate; border-spacing: 0px 8px;">
 					<tr>
 						<td>图片</td>
-						<td><input name="cyImg" type="file" required="required"
+						<td class="td01"><input name="cyImg" type="file"
+							required="required"
 							accept="image/gif, image/jpeg, image/png, image/jpg, image/bmp" /></td>
 					</tr>
 					<tr>
 						<td>商品名字</td>
-						<td><input name="cyName" required="required" type="text" /></td>
+						<td class="td01"><input name="cyName" required="required"
+							type="text" /></td>
 					</tr>
-					
+
 					<tr>
 						<td>单价</td>
-						<td><input name="cPrice"  required="required" type="number" step="0.01" min="0.01" max="999999"></td>
+						<td class="td01"><input name="cPrice" required="required"
+							type="number" step="0.01" min="0.01" max="999999"></td>
 					</tr>
 					<tr>
 						<td>商品描述</td>
-						<td><input type="text" required="required"  name="cyRemark" /></td>
+						<td class="td01"><input type="text" required="required"
+							name="cyRemark" /></td>
 					</tr>
 					<tr align="center">
 						<td><input type="submit" id="btn5" class="btnsty" value="提交" />
@@ -500,16 +563,17 @@ a:link {
 			</form>
 		</div>
 		<div id="box1x">
-			<form id="form5x" method="post"  onsubmit="return false">
+			<form id="form5x" method="post" onsubmit="return false">
 				<input type="hidden" name="id" value="${merchantData.id}" />
 				<table style="width: 100%; text-align: center;">
 					<tr>
 						<td style="color: white;">商品目录名</td>
-						<td><input name="name" required="required" id="inp1" type="text" /></td>
+						<td><input name="name" required="required" id="inp1"
+							type="text" /></td>
 					<tr />
 
 					<tr>
-						<td><input type="button"  class="btnsty" id="btn5x" value="提交" />
+						<td><input type="button" class="btnsty" id="btn5x" value="提交" />
 						</td>
 						<td><input type="button" class="btnsty" id="btn2x" value="关闭" /></td>
 					</tr>
@@ -529,10 +593,10 @@ a:link {
 		</div>
 		<!-- ------------------隐藏层结束------------------------- -->
 	</div>
-	
-	
-	
-	
+
+
+
+
 	<!---------------------center-------------------------------------->
 	<p class="clearp"
 		style="border-bottom: 1px solid Gainsboro; margin: 30px 0">
@@ -630,7 +694,7 @@ a:link {
 							{
 								$(obj1).parents(".boxs").remove();
 							}else{
-								alert(jso.data)
+								
 							}
 						},error:function(a,b)
 						{

@@ -18,6 +18,11 @@
 
 
 <style type="text/css">
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
 .navbar-brand {
 	/* height: 65px; */
 	padding: 0;
@@ -25,21 +30,34 @@
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgba(170, 234, 15, 0.62);
+	background-color: rgba(68, 56, 130, 0.62);
+}
+
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: inherit;
 }
 
 ::-webkit-scrollbar {
 	display: none;
 }
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #FFFFFF;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #FFFFFF !important;
+    background-color: #82adbd;
+}
 
 .navbar-default .navbar-nav>li>a:hover {
-	background-color: #0f698a;
-	color: #19e4c0 !important;
+	background-color: #82adbd;
+	color: #fff !important;
 	cursor: pointer;
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #555;
+	color: #fff;
 }
 
 #logo4j {
@@ -67,12 +85,10 @@
 	
  width:50px !important;
   height:50px !important;
-  border: solid 2.0em #9b59b6;
+  border: solid 0.7em #9b59b6;
   border-right-color: transparent;
   border-left-color: transparent;
   padding: 0.5em;
-  width: 2em;
-  height: 2em;
   border-radius: 50%;
   background: #9bd807;
   background-clip: content-box;
@@ -160,7 +176,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="#"><img id="logo4j"
-						src="/meishimeike/pages/img/logo2.png" /></a>
+						src="/meishimeike/pages/img/log4j1.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -176,7 +192,7 @@
 								<a href="/meishimeike/pages/userInfo.html">${userName}</a>
 							</c:if></li>
 						<c:if test="${user!=null}">
-							<li><a style="color: #b34644;"
+							<li><a
 								href="/meishimeike/pages/user_login.html">注销</a></li>
 						</c:if>
 						
@@ -208,7 +224,7 @@
 				<div id="section-div-1">当前位置 : <span id="siteText">红旗河沟</span></div>
 				<div id="section-div-2"></div>
 				<div id="section-div-3">
-					<input id="section-input" type="text" placeholder="搜索商家" />
+					<input id="section-input"  type="text" placeholder="搜索商家" />
 				</div>
 			</div>
 		</nav>
@@ -216,14 +232,13 @@
 		<section>
 			<p class="clearp">
 			<div id="imgBox">
-				<img id="img01" src="/meishimeike/pages/img/bg1.jpeg" width="100%"
-					height="100%" />
+				<img id="img01" src="/meishimeike/pages/img/bg1.jpeg" />
 			</div>
 		</section>
 
 		<nav>
 			<div id="nav_2">
-				<span id="fen">商家分类 |</span> <a class="nav2-a">美食</a> <a
+				<span id="fen">全部分类 |</span> <a class="nav2-a">美食</a> <a
 					class="nav2-a">快餐</a> <a class="nav2-a">小吃</a> <a class="nav2-a">甜品</a>
 				<a class="nav2-a">早餐</a> <a class="nav2-a">午餐</a> <a class="nav2-a">下午茶</a>
 				<a class="nav2-a">晚餐</a>

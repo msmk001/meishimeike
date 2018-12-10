@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +10,7 @@
 <meta name="format-detection" content="telephone=yes">
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+<link href="/meishimeike/pages/img/myimg.ico" rel="SHORTCUT ICON" />
 
 <title></title>
 <script type="text/javascript"
@@ -18,6 +18,24 @@
 <link rel="stylesheet" type="text/css"
 	href="/meishimeike/pages/css/bootstrap.css" />
 <style>
+.navbar {
+	position: fixed;
+	width: 100%;
+	border: 1px solid transparent;
+	margin-bottom: 20px;
+	z-index: 2;
+	top: 0;
+	/* background-image: linear-gradient(-90deg, #FFF -20%, #FFF 100%); */
+}
+
+#bgBox {
+	width: 100%;
+	height: 52px;
+	background-color: #FFFFFF;
+	top: 0;
+	position: fixed;
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -35,11 +53,21 @@ body {
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgba(170, 234, 15, 0.62);
+	background-color: rgba(68, 56, 130, 0.62);
 }
 
 .navbar-default .navbar-nav>li>a {
 	color: #555;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	background-color: #82adbd;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
 }
 
 #logo4j {
@@ -55,17 +83,22 @@ body {
 .mar {
 	margin-bottom: 0px;
 }
-body{
+
+body {
 	/* line-height: 0; */
+	
 }
+
 .Div {
 	width: 60%;
 	min-height: 500px;
 	background-color: #FFF;
+	margin-top: 80px;
 	border: 1px solid #eee;
 	border-top: 0px;
 	padding: 0px 20px;
 	min-width: 750px;
+	border: 1px solid #eee;
 }
 
 .time {
@@ -147,8 +180,8 @@ body{
 	width: 100%;
 	min-height: 100px;
 	padding: 20px 0px;
-	margin:10px 0;
-	box-sizing:content-box;
+	margin: 10px 0;
+	box-sizing: content-box;
 	box-shadow: 0 7px 10px -2px #c7ef67;
 }
 
@@ -225,13 +258,11 @@ body{
 	font-size: 14px;
 	color: #696969;
 } */
-
 @media screen and (max-width: 500px) {
-
-	.box01{
+	.box01 {
 		padding-top: 20px;
 	}
-		#bodys {
+	#bodys {
 		width: 100%;
 	}
 	.Div {
@@ -240,10 +271,10 @@ body{
 		padding: 0px 10px;
 		min-width: 360px;
 	}
-	.mynodep{
+	.mynodep {
 		max-width: 200px;
-		white-space:nowrap;
-		text-overflow:ellipsis;
+		white-space: nowrap;
+		text-overflow: ellipsis;
 		overflow: hidden;
 	}
 	.time {
@@ -314,16 +345,40 @@ body{
 	.Xiang_Xi-div>div:nth-of-type(2) {
 		min-width: 200px;
 	}
-	.Xiang_Xi{
+	.Xiang_Xi {
 		position: relative;
 	}
-	.Xiang_Xi-div2,.Xiang_Xi-div3{
+	.Xiang_Xi-div2, .Xiang_Xi-div3 {
 		position: absolute;
 		bottom: 8px;
 	}
+	.navbar-toggle {
+		border-color: #fff !important;
+		background-color: transparent;
+		color: #fff;
+		border: 1px solid transparent;
+	}
+	.navbar-default .navbar-toggle .icon-bar {
+		background-color: #dff0d8 !important;
+	}
+	.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
+		{
+		background-color: inherit;
+		
+	}
 }
-.Xiang_Xi-div2{
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #FFFFFF;
+    background-color: #82adbd;
+}
+
+.Xiang_Xi-div2 {
 	color: red;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #ddd;
 }
 </style>
 </head>
@@ -338,7 +393,7 @@ body{
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
-						src="/meishimeike/pages/img/logo2.png" /></a>
+						src="/meishimeike/pages/img/log4j1.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -347,6 +402,14 @@ body{
 						<li class="active"><a href="#">我的订单</a></li>
 						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 
+						<li><c:if test="${user==null}">
+								<a href="/meishimeike/pages/user_login.html">登录|注册</a>
+							</c:if> <c:if test="${user!=null}">
+								<a href="/meishimeike/pages/userInfo.html">${userName}</a>
+							</c:if></li>
+						<c:if test="${user!=null}">
+							<li><a href="/meishimeike/pages/user_login.html">注销</a></li>
+						</c:if>
 
 						<ul class="dropdown-menu">
 							<li><a href="#">jmeter</a></li>
@@ -362,6 +425,7 @@ body{
 				</div>
 			</div>
 		</nav>
+		<div id="bgBox"></div>
 	</header>
 	<div class="Div">
 		<div class="time">
@@ -377,7 +441,7 @@ body{
 			<span>订单内容</span> <span>总金额</span> <span>状态</span> <span>订单操作</span>
 		</div>
 		<div class="all-Xiang_Xi">
-		
+
 			<c:if test="${userOrderFormData==null||userOrderFormData=='[]'}">
 				<div id="nullbox">你还没有订单,快去下单吧</div>
 			</c:if>
@@ -390,19 +454,20 @@ body{
 							<img src="/meishimeike/pages/img/munanniu.png" width="80px"
 								height="80px">
 						</div>
-						<div class="box01" style="line-height:1.15;">
-							
+						<div class="box01" style="line-height: 1.15;">
+
 							<c:forEach var="j" items="${i.commodity}">
 								<p>
 									<span>${j.name}</span> x <span>${j.num}</span>
 								</p>
 							</c:forEach>
-							
+
 							<p class="mynodep">
 								订单号：<span>${i.oTradeNo}</span>
 							</p>
 							<p class="mynodep">
-								下单时间：<span><fmt:formatDate value="${i.oCreate}"  type="both" /></span>
+								下单时间：<span><fmt:formatDate value="${i.oCreate}"
+										type="both" /></span>
 							</p>
 						</div>
 					</div>
@@ -414,7 +479,7 @@ body{
 							<span>未支付</span>
 						</c:if>
 						<c:if test="${i.oCode==2}">
-							<span style="color:#286090">已支付</span>
+							<span style="color: #286090">已支付</span>
 						</c:if>
 					</div>
 					<div class="Xiang_Xi-div4">

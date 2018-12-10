@@ -27,7 +27,7 @@
 <style type="text/css">
 #merchant {
 	font-size: 23px;
-	color: #e15a26;
+	color: #FFFFFF;
 }
 
 #nav {
@@ -37,7 +37,7 @@
 	height: 55px;
 	top: 0;
 	box-sizing: border-box;
-	background-color: rgba(170, 234, 15, 0.62);
+	background-color: rgba(68, 56, 130, 0.62);
 	box-sizing: border-box;
 }
 
@@ -203,7 +203,7 @@
 	margin :80px auto;
  width:50px !important;
   height:50px !important;
-  border: solid 2.0em #9b59b6;
+  border: solid 0.7em #9b59b6;
   border-right-color: transparent;
   border-left-color: transparent;
   padding: 0.5em;
@@ -559,19 +559,7 @@
 	var geolocation = new BMap.Geolocation();
 	geolocation.getCurrentPosition(function(r){
 		
-		var pt = r.point;
-        geoc.getLocation(pt, function(rs){
-            //addressComponents对象可以获取到详细的地址信息
-            var addComp = rs.addressComponents;
-            var site = "";
-            if(addComp.streetNumber==""){
-            	 site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street;
-            }
-            if(addComp.street==""){
-            	site = addComp.province + ", " + addComp.city + ", " + addComp.district ;
-            }
-            $('#siteText').text(site)
-        }); 
+		
 		
 		if(this.getStatus() == BMAP_STATUS_SUCCESS){
 			mlng=r.point.lng;
@@ -585,6 +573,22 @@
 		else {
 			alert('failed'+this.getStatus());
 		}        
+		
+		var pt = r.point;
+        geoc.getLocation(pt, function(rs){
+            //addressComponents对象可以获取到详细的地址信息
+            var addComp = rs.addressComponents;
+            var site = "红旗河沟";
+            
+            if(addComp.streetNumber.trim()==""){
+            	 site = addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street;
+            }
+            if(addComp.street.trim()==""){
+            	site = addComp.province + ", " + addComp.city + ", " + addComp.district ;
+            }
+            $('#siteText').text(site)
+        }); 
+		
 	},{enableHighAccuracy: true})
 	
 	

@@ -18,6 +18,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title></title>
 <style type="text/css">
+
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #FFFFFF !important;
+    background-color: #c3582e;
+}
+
+#bgBox {
+    width: 100%;
+    height: 52px;
+  
+    position: fixed;
+    top:0;
+}
+
 .navbar-brand {
 	/* height: 65px; */
 	padding: 0;
@@ -25,7 +40,11 @@
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgb(177, 210, 99);
+	background-color:rgba(128, 66, 27, 0.66);
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -33,13 +52,13 @@
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-	background-color: #0f698a;
-	color: #19e4c0 !important;
+	background-color: #c3582e;
+	
 	cursor: pointer;
 }
 
 .navbar-default .navbar-nav>li>a {
-	color: #555;
+	color: #FFF;
 }
 
 #logo4j {
@@ -376,6 +395,7 @@ body {
 
 #ul1>li:nth-child(2) {
 	background-color: #818b35;
+	overflow: hidden;
 }
 
 #ul1>li:nth-child(3) {
@@ -639,7 +659,7 @@ body {
 							<span class="icon-bar"></span> <span class="icon-bar"></span>
 						</button>
 						<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
-							src="img/logo2.png" /></a>
+							src="img/log4j1.png" /></a>
 					</div>
 					<div class="collapse navbar-collapse" id="example-navbar-collapse">
 						<ul class="nav navbar-nav">
@@ -673,6 +693,7 @@ body {
 					</div>
 				</div>
 			</nav>
+			<div id="bgBox"></div>
 		</header>
 		<div style="clear: both; margin-top: 30px;" class="cent">
 			<img src="img/${merchantData.info.mLogo}" id="Mimg" align="top"

@@ -222,6 +222,13 @@ public class AlipayController{
 					// 注意�?
 					// �?款日期超过可�?款期限后（如三个月可�?款），支付宝系统发�?�该交易状�?��?�知
 					
+					OrderForm orderForm = new OrderForm();
+					
+					orderForm.setoTradeNo(out_trade_no);
+					
+					orderForm.setzTradeNo(trade_no);
+					
+					orderService.updateOrderDao(orderForm);					
 					
 				} /*else if () {
 					// 判断该笔订单是否在商户网站中已经做过处理
@@ -234,13 +241,7 @@ public class AlipayController{
 				
 				
 				
-				OrderForm orderForm = new OrderForm();
 				
-				orderForm.setoTradeNo(out_trade_no);
-				
-				orderForm.setzTradeNo(trade_no);
-				
-				orderService.updateOrderDao(orderForm);
 				
 
 				System.out.println("success");

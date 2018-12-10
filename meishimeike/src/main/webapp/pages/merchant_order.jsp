@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="format-detection" content="telephone=yes">
 
-<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+<link href="/meishimeike/pages/img/myimg.ico" rel="SHORTCUT ICON" />
 
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
@@ -18,6 +18,24 @@
 <link rel="stylesheet" type="text/css"
 	href="/meishimeike/pages/css/bootstrap.css" />
 <style>
+.navbar {
+	position: fixed;
+	width: 100%;
+	border: 1px solid transparent;
+	margin-bottom: 20px;
+	z-index: 2;
+	top: 0;
+	/* background-image: linear-gradient(-90deg, #FFF -20%, #FFF 100%); */
+}
+
+#bgBox {
+	width: 100%;
+	height: 52px;
+	background-color: #FFFFFF;
+	top: 0;
+	position: fixed;
+}
+
 body {
 	margin: 0px;
 	padding: 0px;
@@ -35,11 +53,21 @@ body {
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgba(170, 234, 15, 0.62);
+	background-color: rgba(68, 56, 130, 0.62);
 }
 
 .navbar-default .navbar-nav>li>a {
 	color: #555;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	background-color: #82adbd;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
 }
 
 #logo4j {
@@ -55,17 +83,22 @@ body {
 .mar {
 	margin-bottom: 0px;
 }
-body{
+
+body {
 	/* line-height: 0; */
+	
 }
+
 .Div {
 	width: 60%;
 	min-height: 500px;
 	background-color: #FFF;
+	margin-top: 80px;
 	border: 1px solid #eee;
 	border-top: 0px;
 	padding: 0px 20px;
 	min-width: 750px;
+	border: 1px solid #eee;
 }
 
 .time {
@@ -100,7 +133,7 @@ body{
 }
 
 .time>ul>li:first-child {
-	background-color: #cddc39e8;
+	background-color: #cddc39;
 }
 
 .time-nav {
@@ -147,8 +180,8 @@ body{
 	width: 100%;
 	min-height: 100px;
 	padding: 20px 0px;
-	margin:10px 0;
-	box-sizing:content-box;
+	margin: 10px 0;
+	box-sizing: content-box;
 	box-shadow: 0 7px 10px -2px #c7ef67;
 }
 
@@ -225,9 +258,8 @@ body{
 	font-size: 14px;
 	color: #696969;
 } */
-
 @media screen and (max-width: 500px) {
-	.box01{
+	.box01 {
 		padding-top: 20px;
 	}
 	#bodys {
@@ -238,6 +270,12 @@ body{
 		min-height: 500px;
 		padding: 0px 10px;
 		min-width: 360px;
+	}
+	.mynodep {
+		max-width: 200px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
 	}
 	.time {
 		margin-bottom: 0px;
@@ -307,26 +345,40 @@ body{
 	.Xiang_Xi-div>div:nth-of-type(2) {
 		min-width: 200px;
 	}
-	.Xiang_Xi-div2,.Xiang_Xi-div3{
-		padding-top: 20px;
-	}
-	.mynodep{
-		max-width: 200px;
-		white-space:nowrap;
-		text-overflow:ellipsis;
-		overflow: hidden;
-	}
-	
-	.Xiang_Xi{
+	.Xiang_Xi {
 		position: relative;
 	}
-	.Xiang_Xi-div2,.Xiang_Xi-div3{
+	.Xiang_Xi-div2, .Xiang_Xi-div3 {
 		position: absolute;
-		bottom: 20px;
+		bottom: 8px;
+	}
+	.navbar-toggle {
+		border-color: #fff !important;
+		background-color: transparent;
+		color: #fff;
+		border: 1px solid transparent;
+	}
+	.navbar-default .navbar-toggle .icon-bar {
+		background-color: #dff0d8 !important;
+	}
+	.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
+		{
+		background-color: inherit;
+		
 	}
 }
-.Xiang_Xi-div2{
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+    color: #FFFFFF;
+    background-color: #82adbd;
+}
+
+.Xiang_Xi-div2 {
 	color: red;
+}
+
+.navbar-default .navbar-toggle {
+	border-color: #ddd;
 }
 </style>
 </head>
@@ -341,7 +393,7 @@ body{
 							class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
-						src="/meishimeike/pages/img/logo2.png" /></a>
+						src="/meishimeike/pages/img/log4j1.png" /></a>
 				</div>
 				<div class="collapse navbar-collapse" id="example-navbar-collapse">
 					<ul class="nav navbar-nav">
@@ -365,11 +417,12 @@ body{
 				</div>
 			</div>
 		</nav>
+		<div id="bgBox"></div>
 	</header>
 	<div class="Div">
 		<div class="time">
 			<ul class="time-ul">
-				<li>全部</li>
+				<li style="background-color: #e2ead9;">全部</li>
 				<li>今天</li>
 				<li>一天前</li>
 				<li>三天前</li>
@@ -381,7 +434,8 @@ body{
 		</div>
 		<div class="all-Xiang_Xi">
 
-			<c:if test="${merchantOrderFormData==null||merchantOrderFormData=='[]'}">
+			<c:if
+				test="${merchantOrderFormData==null||merchantOrderFormData=='[]'}">
 				<div id="nullbox">你还没有订单</div>
 			</c:if>
 
@@ -393,21 +447,23 @@ body{
 							<img src="/meishimeike/pages/img/munanniu.png" width="80px"
 								height="80px">
 						</div>
-						<div class="box01"  style="line-height:1.15;">
-							
+						<div class="box01" style="line-height: 1.15;">
+
 							<c:forEach var="j" items="${i.commodity}">
 								<p>
-									<span>${j.name}</span> x <span>${j.num}</span>  ${i.uSerInfo.ufSite}
-									
+									<span>${j.name}</span> x <span>${j.num}</span>
+									${i.uSerInfo.ufSite}
+
 								</p>
 							</c:forEach>
-							
+
 							<p>手机号 : ${i.uSerInfo.ufPhone}</p>
 							<p class="mynodep">
 								订单号：<span>${i.oTradeNo}</span>
 							</p>
 							<p>
-								下单时间：<span><fmt:formatDate value="${i.oCreate}"  type="both" /></span>
+								下单时间：<span><fmt:formatDate value="${i.oCreate}"
+										type="both" /></span>
 							</p>
 						</div>
 					</div>
