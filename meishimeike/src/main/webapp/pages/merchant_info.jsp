@@ -923,23 +923,25 @@ body {
 
 				function delet(obj) {
 					var sum = 0;
-					var t1 = parseInt($(obj).next().text());
+					var t1 = parseFloat($(obj).next().text());
 					if(t1 == 1) {
 						$(obj).next().text(1 + "")
 					} else {
 						$(obj).next().text((t1 - 1) + "")
-						var num1 = parseInt($(obj).parent().next().text().substring(1))
+						var num1 = parseFloat($(obj).parent().next().text().substring(1))
 						sum2 -= num1
+						sum2=parseFloat(sum2.toFixed(2))
 						$('#sum').text("￥" + sum2);
 					}
 				}
 				
 
 				function add(obj) {
-					var t1 = parseInt($(obj).prev().text());
+					var t1 = parseFloat($(obj).prev().text());
 					$(obj).prev().text((t1 + 1) + "")
-					var num1 = parseInt($(obj).parent().next().text().substring(1))
+					var num1 = parseFloat($(obj).parent().next().text().substring(1))
 					sum2 += num1
+					sum2=parseFloat(sum2.toFixed(2))
 					$('#sum').text("￥" + sum2);
 				}
 				$(function() {});
@@ -994,7 +996,6 @@ body {
 
 				function add_info(obj1,args1) {
 					$('#jie').css("background", "#4CAF50");
-					var sum = 0;
 					var b = true;
 					/**
 					text1  商品名字
@@ -1007,16 +1008,24 @@ body {
 						var name = $(this).prev().prev().text();
 						if(text1 == name) {
 							var danjia = parseInt($(this).prev().find(".danjia").text());
+							//alert($(this).prev().find(".danjia").text())
 							$(this).prev().find(".danjia").text(
 								(danjia + 1) + "");
 							b = false;
 							return;
 						}
 					});
+					
 					sum2 = text2 + sum2;
+					
+					sum2=parseFloat(sum2.toFixed(2))
+					
+					//sum2=Math.ceil(sum2)
+					
 					$('#jie').height($('#jie').prev().height());
 					$('#jie').text("去结算");
 					$('#sum').text("￥" + (sum2));
+
 					//---------------
 					//---------------
 					if(b == false) {
