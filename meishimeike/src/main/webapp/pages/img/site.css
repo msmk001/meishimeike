@@ -1,0 +1,64 @@
+
+body{
+	background: url(../../../img/sitebg.jpg);
+  font-family: 'Open Sans', sans-serif;
+}
+.app-location{
+  width:450px;
+  margin:150px auto;
+    text-align: center;
+    background: #323542;
+      padding:40px 10px 50px 10px;
+      border-radius: 15px;
+}
+h1{color: white;font-size: 30px;}
+ul,ol,li{list-style: none;}
+form {
+   padding: 0% 1%;
+}
+/*-----*/
+
+.app-location input[type="text"],.app-location select{
+  width: 81.2%;
+  padding: 1.1em 1em 1.1em 4em;
+  color: #858282;
+  font-size: 16px;
+  outline: none;
+  background: #fff;
+  font-weight: 500;
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -webkit- border-radius: 0.3em;
+  margin:0.7em 0;
+  }
+ .app-location input[type="radio"]{
+  width: 20px;
+  }
+ 
+  .submit {
+  margin: 1em 0;
+  }
+.app-location input[type="submit"]{
+  font-size: 20px;
+  font-weight: 300;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  padding: 17px 15px;
+  width:355px;
+  border:3px solid #0bd38a;
+  background: #0bd38a;
+  border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+}
+input[type="submit"]:hover{
+  background:none;
+  border: 3px solid #0bd38a;
+  color: #0bd38a;
+
+}

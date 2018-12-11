@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.meishimeike.dao.OrderDao">
+
+	<!-- private Integer oId ; private Integer mId ; private Integer uId ; private 
+		Integer oCode; //1 未支付 2已经支付 private String oTradeNo; private String oInfo; 
+		private Double oPrice; -->
+
+
+	<insert id="addOrder">
+		insert into order_form values(default , #{mId},
+		#{uId}, #{oTradeNo}, #{oPrice}, default, #{oInfo},now(),#{ufId},#{zTradeNo})
+	</insert>
+	
+	
+	<!-- private Integer oId	;
+	private Integer mId	;
+	private Integer uId	;
+	private Integer ufId;
+	
+	private Integer oCode; //1 未支付  2已经支付
+	
+	private String oTradeNo;
+	private String oInfo;
+	
+	private Double oPrice;
+
+	private Date oCreate; -->
+	
+	<update id="updateOrderDao">
+		update order_form set o_code=2 , z_trade_no=#{zTradeNo} where  o_trade_no = #{oTradeNo};
+	</update>
+	
+
+	<select id="getUserOrderFromDataByUId" resultMap="formOrderMap">
+		select * from
+		order_form where u_id=#{param1}
+	</select>
+
+	<select id="getUserOrderFromDataByMId" resultMap="formOrderMap">
+		select * from
+		order_form where m_id=#{param1}
+	</select>
+	
+	<select id="getUserInfoByufId" resultMap="userInfoMap">
+		select * from user_info where uf_id = #{param1}
+	</select>
+	
+	<resultMap id="userInfoMap" type="com.zhou.meishimeike.entity.USerInfo" >
+		<id column="uf_id" property="ufId" />
+		<result column="u_id" property="uId" />
+		<result column="uf_name" property="ufName" />
+		<result column="uf_site" property="ufSite" />
+		<result column="uf_phone" property="ufPhone" />
+	</resultMap>
+	
+	<resultMap type="com.zhou.meishimeike.entity.OrderForm"
+		id="formOrderMap">
+		<id column="o_id" property="oId" />
+		<result column="m_id" property="mId" />
+		<result column="u_id" property="uId" />
+		<result column="uf_id" property="ufId" />
+		<result column="o_code" property="oCode" />
+		<result column="o_trade_no" property="oTradeNo" />
+		<result column="z_trade_no" property="zTradeNo" />
+		<result column="o_info" property="oInfo" />
+		<result column="o_price" property="oPrice" />
+		<result column="o_create" property="oCreate" />
+	</resultMap>
+</mapper>
