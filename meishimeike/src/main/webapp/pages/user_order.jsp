@@ -12,7 +12,7 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 <link href="/meishimeike/pages/img/myimg.ico" rel="SHORTCUT ICON" />
 
-<title></title>
+<title>我的订单</title>
 <script type="text/javascript"
 	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
 <link rel="stylesheet" type="text/css"
@@ -34,12 +34,14 @@
 	background-color: #FFFFFF;
 	top: 0;
 	position: fixed;
+	min-width: 1300px;
 }
 
 body {
 	margin: 0px;
 	padding: 0px;
 	background-color: #F7F7F7;
+	min-width: 1300px;
 }
 
 * {
@@ -91,7 +93,7 @@ body {
 
 .Div {
 	width: 60%;
-	min-height: 500px;
+	min-height: 900px;
 	background-color: #FFF;
 	margin-top: 80px;
 	border: 1px solid #eee;
@@ -177,39 +179,57 @@ body {
 }
 
 .Xiang_Xi {
+	/* max-width:38%; */
+	position:relative;
+	
+	margin:10px 0 !important;
+	
 	width: 100%;
 	min-height: 100px;
-	padding: 20px 0px;
+	padding: 13px 0px;
 	margin: 10px 0;
-	box-sizing: content-box;
-	box-shadow: 0 7px 10px -2px #c7ef67;
+	box-sizing: border-box;
+	box-shadow: 0 7px 10px -2px rgba(139, 132, 178, 0.26);
 }
 
 .Xiang_Xi>div {
-	margin: 0px 1.3%;
+	margin: 0px ;
 	float: left;
-	text-align: center;
+	text-align: left;
+	
 	height: 80px;
 }
+.box01{
+	width: 170px;
+	    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
 
 .Xiang_Xi-div {
-	width: 38%;
+	/*  */
+	width: 45%;
+	
 }
 
 .Xiang_Xi-div2 {
-	width: 15%;
+	width: 17%;
 	font-size: 18px;
+	padding-left:10px;
 	line-height: 80px;
 }
 
 .Xiang_Xi-div3 {
-	width: 15%;
+	width: 17%;
 	font-size: 14px;
 	line-height: 80px;
+	padding-left:20px;
 	color: #ADADAD;
 }
 
 .Xiang_Xi-div4 {
+	position:relative;
+	right:0;
 	width: 18%;
 }
 
@@ -259,6 +279,14 @@ body {
 	color: #696969;
 } */
 @media screen and (max-width: 500px) {
+		.Xiang_Xi-div3 {
+	width: 20%;
+
+}
+
+	body{
+		min-width:200px; 
+	}
 	.box01 {
 		padding-top: 20px;
 	}
@@ -313,7 +341,7 @@ body {
 	.Xiang_Xi-div3 {
 		height: auto;
 		position: absolute;
-		right: 20%;
+		right: 24%;
 		line-height: 115px;
 	}
 	.Xiang_Xi-div4 {
@@ -487,7 +515,7 @@ body {
 							value="再来一单" />
 					</div>
 				</div>
-				<p style="clear: both;">
+				<p style="clear: both;height: 20px;">
 			</c:forEach>
 
 

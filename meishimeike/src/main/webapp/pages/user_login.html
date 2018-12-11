@@ -6,7 +6,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0">
 <link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
-<title>用户登录</title>
+<title>登录注册</title>
 
 
 
@@ -91,7 +91,9 @@ input::-webkit-input-placeholder {
 
 .btn1 {
 	background-color: #008CBA;
-	border: none;
+	-webkit-appearance:none;
+	outline:none;
+	border:0;
 	color: white;
 	text-align: center;
 	text-decoration: none;
@@ -149,13 +151,13 @@ input, input:focus, input:active {
 
 	<div id="log_a1">
 		<div id="log_a2">
-			<img src="/meishimeike/pages/img/logo1.png" width="250px"
+			<img src="/meishimeike/pages/img/log4j1.png" width="150px"
 				height="110px" />
 		</div>
 		<div id="log_a3">
 			<a href="#" id="a1"
-				style="border-bottom: 2px solid blue; color: blue;">登录</a> |
-			&nbsp;&nbsp; <a href="#" id="a2" style="color: #000;">注册</a>
+				style=" border-bottom: 2px solid blue;color: blue;">登录</a> |
+			&nbsp;&nbsp; <a href="#" id="a2" style="color: rgb(148, 149, 158);">注册</a>
 
 		</div>
 		<form action="${basePath}/pc/user_login.jsp" method="post" id="form2">
@@ -244,18 +246,18 @@ input, input:focus, input:active {
 		a1.onclick = function() {
 			a3.style.display = "none";
 			a4.style.display = "block";
-			a1.style.borderBottom = "2px solid blue";
+			a1.style.borderBottom=" 2px solid #008cba"
 			a2.style.borderBottom = "0px";
 			a1.style.color = "blue";
-			a2.style.color = "#000";
+			a2.style.color = "rgb(148, 149, 158)";
 		}
 		a2.onclick = function() {
-			a2.style.borderBottom = "2px solid blue";
 			a1.style.borderBottom = "0px";
 			a3.style.display = "block";
 			a4.style.display = "none";
+			a2.style.borderBottom=" 2px solid #008cba"
 			a2.style.color = "blue";
-			a1.style.color = "#000";
+			a1.style.color = "rgb(148, 149, 158)";
 		}
 		//***************************************************
 		function ck1(img) {

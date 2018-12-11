@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/meishimeike/pages/css/bootstrap.css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
+<title>商家后台</title>
 <style type="text/css">
 #footer1 {
 	font-size: 16px;
@@ -75,7 +75,7 @@
 
 /* 导航栏结束 */
 .box1_s {
-	width: 245px;
+	width: 280px;
 	height: 180px;
 	display: none;
 	border: 1px solid;
@@ -102,7 +102,7 @@
 	position: fixed;
 	padding: 5px;
 	top: 35%;
-	background: rgba(68, 56, 130, 0.62);
+	background: rgb(147, 138, 193);
 	text-align: center;
 }
 
@@ -391,8 +391,12 @@ a:link {
 	cursor: pointer;
 }
 
+input, input:focus, input:active {
+	user-select: text;
+}
+
 #box1 {
-	background-color: rgba(68, 56, 130, 0.62);
+	background-color: rgb(147, 138, 193);
 	color: #fff;
 	padding-left: 2px;
 }

@@ -12,7 +12,7 @@
 
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-<title></title>
+<title>我的订单</title>
 <script type="text/javascript"
 	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
 <link rel="stylesheet" type="text/css"

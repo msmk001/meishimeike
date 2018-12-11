@@ -54,7 +54,7 @@
 				<ul class="list-inline menu-left mb-0">
 					<li class="float-left"><a href="/meishimeike"
 						class="logo"> <span class="logo-lg"> <img
-								src="/meishimeike/pages/img/logo2.png" alt="" height="65">
+								src="/meishimeike/pages/img/log4j1.png" alt="" height="65">
 						</span> <span class="logo-sm"> <img src="img/logo2.png" alt=""
 								height="55">
 						</span>

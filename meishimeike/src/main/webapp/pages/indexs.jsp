@@ -13,12 +13,14 @@
 <link rel="stylesheet" href="/meishimeike/pages/css/indexs.css" />
 
 <link rel="stylesheet" href="/meishimeike/pages/css/bootstrap.css" />
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
+
 
 
 
 <style type="text/css">
-
+body{
+	min-width: 1300px;
+}
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #fff;
 }
@@ -103,9 +105,9 @@
 }
 @keyframes spinDisc {
   50% {
-    border-top-color: #3498db;
+   /*  border-top-color: #3498db;
     border-bottom-color: #3498db;
-    background-color: #2ecc71;
+    background-color: #2ecc71; */
   }
   100% {
   	 transform: rotate(1turn);
@@ -118,9 +120,9 @@
 @-moz-keyframes spinDisc /* Firefox */
 {
 50% {
-    border-top-color: #3498db;
+   /*  border-top-color: #3498db;
     border-bottom-color: #3498db;
-    background-color: #2ecc71;
+    background-color: #2ecc71; */
   }
   100% {
   	 transform: rotate(1turn);
@@ -134,9 +136,9 @@
 @-webkit-keyframes spinDisc /* Safari 和 Chrome */
 {
 50% {
-    border-top-color: #3498db;
+   /*  border-top-color: #3498db;
     border-bottom-color: #3498db;
-    background-color: #2ecc71;
+    background-color: #2ecc71; */
   }
   100% {
   	 transform: rotate(1turn);
@@ -150,9 +152,9 @@
 @-o-keyframes spinDisc /* Opera */
 {
 50% {
-    border-top-color: #3498db;
+  /*   border-top-color: #3498db;
     border-bottom-color: #3498db;
-    background-color: #2ecc71;
+    background-color: #2ecc71; */
   }
   100% {
   	 transform: rotate(1turn);
@@ -162,6 +164,7 @@
     -o-transform: rotate(1turn);
   }
 }
+
 </style>
 
 </head>
@@ -216,7 +219,9 @@
 		<div id="bgBox"></div>
 	</header>
 
-	<div class="cursor h_red ui_hide" id="on_top" title="返回顶部">△</div>
+	<div class="cursor h_red ui_hide" id="on_top" title="返回顶部">
+		<img alt="" src="/meishimeike/pages/img/huojian.png"  width="120%" height="100%"/>
+	</div>
 
 	<section>
 		<nav>
@@ -224,7 +229,7 @@
 				<div id="section-div-1">当前位置 : <span id="siteText">红旗河沟</span></div>
 				<div id="section-div-2"></div>
 				<div id="section-div-3">
-					<input id="section-input"  type="text" placeholder="搜索商家" />
+					<input id="section-input" maxlength="10"  type="text" placeholder="搜索商家" />
 				</div>
 			</div>
 		</nav>
@@ -236,9 +241,9 @@
 			</div>
 		</section>
 
-		<nav>
+		<nav id="nav02">
 			<div id="nav_2">
-				<span id="fen">全部分类 |</span> <a class="nav2-a">美食</a> <a
+				<span id="fen">全部分类 |</span><span id="allBtn"  class="nav2-a">全部</span> <a class="nav2-a">美食</a> <a
 					class="nav2-a">快餐</a> <a class="nav2-a">小吃</a> <a class="nav2-a">甜品</a>
 				<a class="nav2-a">早餐</a> <a class="nav2-a">午餐</a> <a class="nav2-a">下午茶</a>
 				<a class="nav2-a">晚餐</a>
@@ -557,6 +562,14 @@
 		</div>
 	</footer>
 	<div id="baidu" style="display: none;"></div>
+	
+
+</body>
+</html>
+<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="/meishimeike/pages/js/tianlinxin_index.js"></script>
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
 <script>
 
 
@@ -618,8 +631,3 @@ geolocation.getCurrentPosition(function(r){
 },{enableHighAccuracy: true})
 
 </script>
-</body>
-</html>
-<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
-
-<script type="text/javascript" src="/meishimeike/pages/js/tianlinxin_index.js"></script>

@@ -9,24 +9,25 @@ body {
 	margin: 0;
 	padding: 0;
 }
-#bgBox{
+
+#bgBox {
 	width: 100%;
-	height:52px;
-	background-color:#FFFFFF;
-	
+	height: 52px;
+	background-color: #FFFFFF;
 	position: fixed;
 }
+
 #fen {
 	display: inline-block;
 	height: 30px;
 	line-height: 30px;
 	color: #6e64a7;
 	font-size: 18px;
-	cursor:pointer;
+	cursor: pointer;
 	font-weight: 700;
 }
-.nav2-a:hover{
 
+.nav2-a:hover {
 	cursor: pointer;
 	transition: color 1s;
 }
@@ -125,8 +126,7 @@ input::-webkit-input-placeholder {
 
 #section-div {
 	height: 49px;
-	padding-top:70px;
-	
+	padding-top: 70px;
 	width: 70%;
 }
 
@@ -147,6 +147,7 @@ input::-webkit-input-placeholder {
 	cursor: pointer;
 }
 
+
 #imgBox {
 	height: 287px;
 	box-shadow: 0px 0px 5px 1px #8b84b2;
@@ -160,21 +161,24 @@ input::-webkit-input-placeholder {
 	transition: all 0.5s linear;
 	width: 200px;
 	border-radius: 20px;
-    height: 35px;
+	height: 35px;
 	text-align: center;
+	background-image: url("/meishimeike/pages/img/sousuo.png");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position-y: center;
+	background-position-x: 5px;
 }
 
 #nav_2 {
-	background-color:rgb(255, 255, 255);
-	padding:5px 0 0 10px;
+	background-color: rgb(255, 255, 255);
+	padding: 5px 0 0 10px;
 	width: 70%;
-		box-shadow: 0px 0px 5px 1px #8b84b2;
+	box-shadow: 0px 0px 5px 1px #8b84b2;
 	height: 74px;
 	line-height: 65px;
 	margin-top: 5px;
 }
-
-
 
 .nav2-a {
 	font-family: "微软雅黑";
@@ -338,47 +342,64 @@ input::-webkit-input-placeholder {
 	
 }
 
-#on_top{
+#on_top {
 	position: fixed;
-	font-size:25px;
-	width:40px;
-	height:40px;
-	line-height:40px;
-	text-align:center;
-	color:#fff;
-	display:none;
-	background-color:#8b84b2;
-	right: 10%;
+	font-size: 25px;
+	width: 60px;
+	height: 80px;
+	line-height: 40px;
+	text-align: center;
+	color: #fff;
+	display: none;
+	right: 5%;
 	bottom: 10%;
 }
-#imgBox>img{
+
+#imgBox>img {
 	width: 100%;
 	height: 100%;
 }
-#on_top:hover{
-	background-color:rgb(215,57,55);
+
+#allBtn {
+	display: none;
 }
+
+.nav2-a:nth-child(10) {
+	background-color: rgba(170, 197, 60, 0.73);
+	color: #f5f5f5;
+}
+
 @media screen and (max-width:480px) {
+	#allBtn {
+		display: inline-block;
+		border: 1px solid rgba(68, 56, 130, 0.62);
+	}
+	body {
+		min-width: 200px !important;
+	}
+	#nav02 {
+		width: 100%;
+		overflow: scroll;
+	}
+	
+	#section-input {
+		width: 90%;
+	}
 	#imgBox {
 		overflow: hidden;
 		position: relative;
 		z-index: -1;
 	}
 	#imgBox>img {
-		
 		width: 200%;
 		height: 200%;
 		position: absolute;
 		top: 0;
 		left: 50%;
-		transform:  translateX(-50%);
+		transform: translateX(-50%);
 		min-width: 100% !important;
 		height: 100% !important;
 		z-index: -1;
-	}
-	
-	#on_top:hover {
-		background-color: #666 !important;
 	}
 	#fen {
 		display: none;
@@ -393,10 +414,9 @@ input::-webkit-input-placeholder {
 	.main_box {
 		width: 100%;
 	}
-	.navbar-toggle{
+	.navbar-toggle {
 		background-color: #fff;
 	}
-	
 	.collapse.navbar-collapse {
 		position: absolute;
 		width: 100%;
@@ -416,9 +436,10 @@ input::-webkit-input-placeholder {
 	#nav_2 {
 		padding: 0px;
 		margin-top: 10px;
-		width: 99%;
+		width: 680px;
 		line-height: 0;
-		height: 100px;
+		height: 60px;
+
 		padding-top: 10px;
 		box-shadow: none;
 		border-bottom: 1px solid Gainsboro;
@@ -427,7 +448,6 @@ input::-webkit-input-placeholder {
 	#logo4j {
 		width: 95%;
 		height: 100%;
-		
 	}
 	#nav_2>p {
 		margin: 10px;
@@ -435,13 +455,11 @@ input::-webkit-input-placeholder {
 	#nav_2>a {
 		text-decoration: none;
 	}
-	
-
 	.nav2-a {
 		margin: 5px;
 		border-radius: 15px;
 		text-align: center;
-		width: 20%;
+		width: 60px;
 		border: 1px solid #E6E6E6;
 		height: 30px;
 		line-height: 12px;

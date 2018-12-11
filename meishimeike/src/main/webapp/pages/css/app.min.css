@@ -15,12 +15,13 @@ body {
 	}
 }
 
+
 .wrapper {
 	padding-top: 130px
 }
 
 #topnav {
-	background: rgb(177, 210, 99);
+	background: rgba(68, 56, 130, 0.62);
 	position: fixed;
 	left: 0;
 	right: 0;

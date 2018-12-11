@@ -3,8 +3,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	Merchant d=(Merchant)session.getAttribute("merchantData");
-	if(d==null){
+	Merchant d = (Merchant) session.getAttribute("merchantData");
+	if (d == null) {
 		response.sendRedirect(request.getContextPath());
 	}
 %>
@@ -13,24 +13,27 @@
 
 <head>
 <meta charset="UTF-8">
-<link  href="/meishimeike/pages/img/myimg.ico"  rel="SHORTCUT ICON" />
+<link href="/meishimeike/pages/img/myimg.ico" rel="SHORTCUT ICON" />
 <link rel="stylesheet" href="css/bootstrap.css" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
+<title>浏览商品</title>
 <style type="text/css">
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus,
+	.navbar-default .navbar-nav>.active>a:hover {
+	color: #FFFFFF !important;
+	background-color: #795732;
+}
 
-
-.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
-    color: #FFFFFF !important;
-    background-color: #c3582e;
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
+	{
+	background-color: inherit;
 }
 
 #bgBox {
-    width: 100%;
-    height: 52px;
-  
-    position: fixed;
-    top:0;
+	width: 100%;
+	height: 52px;
+	position: fixed;
+	top: 0;
 }
 
 .navbar-brand {
@@ -40,11 +43,11 @@
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color:rgba(128, 66, 27, 0.66);
+	background-color: rgb(136, 108, 58);
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -52,8 +55,8 @@
 }
 
 .navbar-default .navbar-nav>li>a:hover {
-	background-color: #c3582e;
-	
+	background-color: #795732;
+	color: #fff;
 	cursor: pointer;
 }
 
@@ -440,8 +443,11 @@ body {
 	width: 15px;
 	height: 20px;
 }
-
+.navbar-toggle{
+		background-color: none;
+	}
 @media only screen and (max-width:400px) {
+	
 	#float_r {
 		display: none;
 	}
@@ -482,7 +488,7 @@ body {
 	.itm {
 		border-radius: 15px;
 		margin-top: 10px;
-		width:74px;
+		width: 74px;
 		height: 30px;
 		line-height: 30px;
 		font-size: 14px;
@@ -536,17 +542,15 @@ body {
 		position: relative;
 		left: -50px;
 	}
-	#alert_title{
+	#alert_title {
 		
 	}
-	
-	#site{
+	#site {
 		display: inline-block;
 		width: 200px;
 		font-size: 12px;
 	}
-	#leftSite{
-	
+	#leftSite {
 		display: none;
 	}
 }
@@ -640,8 +644,8 @@ body {
 	<!-- 阴影遮罩层结束 --> <!--隐藏弹出层-->
 	<div id="ui_alert" class="ui_hide">
 		<div id="alert_title">
-			<span class="alert_title_text"><span id="leftSite">商家位置  : </span> <span id="site">
-			</span></span>
+			<span class="alert_title_text"><span id="leftSite">商家位置
+					: </span> <span id="site"> </span></span>
 			<div id="off_alert" class="float_r alert_title_text cursor">×</div>
 		</div>
 		<div id="baidumap"></div>
@@ -665,8 +669,7 @@ body {
 						<ul class="nav navbar-nav">
 							<li class="active"><a href="/meishimeike">首页</a></li>
 							<li><a href="#">我的客服</a></li>
-							<li><a
-								href="/meishimeike/order/open_user_order">我的订单</a></li>
+							<li><a href="/meishimeike/order/open_user_order">我的订单</a></li>
 							<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
 							<li><c:if test="${user==null}">
 									<a href="/meishimeike/pages/user_login.html">登录|注册</a>
@@ -674,8 +677,7 @@ body {
 									<a href="/meishimeike/pages/userInfo.html">${userName}</a>
 								</c:if></li>
 							<c:if test="${user!=null}">
-								<li><a style="color: #b34644;"
-									href="/meishimeike/pages/user_login.html">注销</a></li>
+								<li><a href="/meishimeike/pages/user_login.html">注销</a></li>
 							</c:if>
 
 							<li class="dropdown">
@@ -842,6 +844,7 @@ body {
 
 
 
+
 				
 			</div>
 			<div style="width: 50%;" class="bot_r">
@@ -879,7 +882,7 @@ body {
 							&nbsp;配送费2
 						</div>
 						<div
-							style="width: 40%; background-color: #f3f3f3; text-align: center; cursor: pointer;"
+							style="width: 40%; background-color: #f3f3f3; text-align: center; cursor: pointer; height: 47px;"
 							id="jie" class="float_left">购物车是空的</div>
 					</div>
 				</div>
@@ -1043,7 +1046,7 @@ body {
 					
 					//sum2=Math.ceil(sum2)
 					
-					$('#jie').height($('#jie').prev().height());
+					
 					$('#jie').text("去结算");
 					$('#sum').text("￥" + (sum2));
 
@@ -1064,6 +1067,13 @@ body {
 					$("#gouwuche").css({
 						"display": "block"
 					});
+					
+				
+					
+					if($('#jie').text()=="去结算"){
+						$('#jie').css("background", "#4CAF50");
+					}
+					
 				})
 				$("#ul1>li").mouseover(function() {
 					$("#ul1>li").css({

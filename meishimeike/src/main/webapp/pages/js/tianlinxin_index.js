@@ -8,7 +8,7 @@ $(function() {
 		var str = imgSrc.substring((imgSrc.length - 6), (imgSrc.length - 5))
 
 		if(str == 1) {
-			$('#img01')[0].src = "/meishimeike/pages/img/bg4.jpeg";
+			$('#img01')[0].src = "/meishimeike/pages/img/bg3.jpeg";
 		} else if(str == 2) {
 			$('#img01')[0].src = "/meishimeike/pages/img/bg3.jpeg";
 		} else if(str == 3) {
@@ -69,37 +69,68 @@ $(function() {
 	}
 
 	//---------------------滚动条事件---------------------------------
+	var bool01 =false;
 	$(window).on("scroll", function() {
-		var top_margin = $(this).scrollTop();
-		if(top_margin > 200) {
-			$('#on_top').slideDown();
-		} else {
-			$('#on_top').slideUp();
+		
+		
+		
+		var top_margin = $(this).scrollTop();		
+		if(bool01==true){
+			return;
+		}else{
+			$('#on_top').hide()
+			$('#on_top').css({"bottom":"10%","top":"inherit"})
+			
+			if(top_margin > 200&&bool01==false) {
+				$('#on_top').show();
+			} else {
+				$('#on_top').hide()
+			}
 		}
+		
 	})
 	$('#on_top').on('click', function() {
+		
+		bool01=true;
+		
 		$('body,html').animate({
 			scrollTop: "0px"
-		}, 300);
+		}, 500,function(){
+			
+			$('#on_top').hide()
+			
+			bool01=false;
+		});
+		
+		$('#on_top').animate({
+			top:"0px"
+		},500);
 	})
 
-	$('#section-input').on("keypress", function() {
+//rgba(68, 56, 130, 0.62)
+	
+
+	$('#section-input').on("keydown", function(evt) {
+
+		//$(this).blur();
 		
-		$(this).blur();
+		evt = (evt) ? evt : window.event;
+
+		if (evt.keyCode==13 ) {
+			$('#section-input').blur();
 		
-		if(screen.width<500){
+		if(screen.width < 500) {
 			$('body,html').animate({
 				scrollTop: "170px"
 			}, 300);
 		}
-		
+
 		var my_val = $(this).val();
 		$('.main_box').hide()
 
 		$('.loader--spinningDisc,#spBox').show()
 
 		setTimeout(function() {
-			
 
 			if(my_val.trim() == "") {
 				$('.hide').each(function() {
@@ -119,33 +150,43 @@ $(function() {
 			$('.loader--spinningDisc,#spBox').hide()
 
 		}, 920)
-
+		}
 	});
-	
-	$('#fen').on("click",function(){
+
+	/*$('.main_box').hide();
+	$('.loader--spinningDisc,#spBox').show();*/
+
+	$('#fen,#allBtn').on("click", function() {
+		
+		if(screen.width < 500) {
+			$('body,html').animate({
+				scrollTop: "140px"
+			}, 300);
+		}
+		
 		$('.main_box').hide()
 		$('.loader--spinningDisc,#spBox').show()
 		setTimeout(function() {
 			$('.main_box').show()
 			$('.loader--spinningDisc,#spBox').hide();
-		},900)
-		
-		
+		}, 900)
+
 	})
 
-	$('.nav2-a').on("click", function() {
-		if(screen.width<500){
+	$('.nav2-a:not(#allBtn)').on("click", function() {
+		
+		if(screen.width < 500) {
 			$('body,html').animate({
-				scrollTop: "170px"
+				scrollTop: "140px"
 			}, 300);
 		}
-		
+
 		$('.main_box').hide()
 
 		$('.loader--spinningDisc,#spBox').show()
 		var itm_val = $(this).text();
 		setTimeout(function() {
-			
+
 			$('.hide').each(function() {
 				if(this.value == itm_val) {
 					$(this).parents(".main_box").show(0);
@@ -154,14 +195,12 @@ $(function() {
 				}
 
 			});
-			
+
 			$('.loader--spinningDisc,#spBox').hide();
 
 		}, 920)
 
 	});
 	//-----------------------------------------------------
-	
-
 
 })

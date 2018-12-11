@@ -14,7 +14,7 @@
 <meta http-equiv="X-UA-Compatible" content="TE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1,user-scalable=no, width=device-width">
-<title></title>
+<title>去支付</title>
 <script type="text/javascript" src="js/jquery-2.1.0.js"></script>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 <style type="text/css">
@@ -38,12 +38,20 @@ body, p {
 	margin: 0px auto;
 }
 
+#bgBox {
+	width: 100%;
+	height: 52px;
+	background-color: #fff; position : fixed;
+	top: 0;
+	position: fixed;
+}
+
 .navbar {
-    position: fixed;
-    width: 100%;
-    border: 1px solid transparent;
-    z-index: 2;
-    top:0;
+	position: fixed;
+	width: 100%;
+	border: 1px solid transparent;
+	z-index: 2;
+	top: 0;
 }
 
 @media screen and (min-width: 500px) {
@@ -68,7 +76,7 @@ body, p {
 		height: 40px;
 		line-height: 40px;
 		font-size: 18px;
-		color: #dd6f2f;
+		color: #dd2f2f;
 		border-radius: 5px;
 		font-weight: bold;
 	}
@@ -508,7 +516,6 @@ body, p {
 		color: #ccc;
 	}
 	.food-img2>span:nth-of-type(4) {
-		
 		width: 20%;
 		text-align: right;
 		float: right;
@@ -689,7 +696,11 @@ body, p {
 		cursor: pointer;
 	}
 	#bodys {
-	    width: 90%;
+		width: 90%;
+	}
+	.tijiao {
+		width: 80% !important;
+		margin: 0 auto ;
 	}
 }
 
@@ -698,17 +709,16 @@ body, p {
 	padding: 0;
 }
 
-.driss{
+.driss {
 	/* position: relative;
 	top:50px; */
 	padding-top: 48px;
-
 	box-sizing: content-box;
 }
 
 .navbar-default {
 	box-sizing: border-box;
-	background-color: rgb(177, 210, 99);
+	background-color: rgba(68, 56, 130, 0.62);
 }
 
 ::-webkit-scrollbar {
@@ -730,124 +740,148 @@ body, p {
 	height: 100%;
 	padding-right: 20px;
 }
-.Div_head{
-	position:relative;
-	top:50px;
+
+.Div_head {
+	position: relative;
+	top: 55px;
+}
+
+.tijiao {
+	width: 400px;
+	margin-left: 20px; display : block;
+	height: 32px;
+	display: block;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+	background-color: #82adbd;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+.navbar-default .navbar-nav>li>a {
+	color: #fff;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover
+	{
+	background-color: inherit;
 }
 </style>
 </head>
 <body>
-<form id="form1" action="/meishimeike/order/goPay" method="post"> 
-	<header>
-		<nav class="navbar navbar-default" role="navigation">
-			<div id="bodys" class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target="#example-navbar-collapse">
-						<span class="sr-only">切换导航</span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span> <span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
-						src="img/logo2.png" /></a>
-				</div>
-				<div class="collapse navbar-collapse" id="example-navbar-collapse">
-					<ul class="nav navbar-nav">
-						<li><a href="/meishimeike">首页</a></li>
-						<li><a href="#">我的客服</a></li>
-						<li><a href="/meishimeike/order/open_user_order">我的订单</a></li>
-						<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
-						<li><c:if test="${user==null}">
-								<a href="/meishimeike/pages/user_login.html">登录|注册</a>
-							</c:if> <c:if test="${user!=null}">
-								<a href="/meishimeike/pages/userInfo.html">${userName}</a>
-							</c:if></li>
-						<c:if test="${user!=null}">
-							<li><a style="color: #b34644;"
-								href="/meishimeike/pages/user_login.html">注销</a></li>
-						</c:if>
-						<li class="dropdown">
-
-							<ul class="dropdown-menu">
-								<li><a href="#">jmeter</a></li>
-								<li><a href="#">EJB</a></li>
-								<li><a href="#">Jasper Report</a></li>
-								<li class="divider"></li>
-								<li><a href="#">分离的链接</a></li>
-								<li class="divider"></li>
-								<li><a href="#">另一个分离的链接</a></li>
-							</ul>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<div class="Div_head">
-		<p>确认订单</p>
-	</div>
-	<div class="Div">
-
-		<div class="driss">
-
-			<p></p>
-			<c:forEach var="userItm" items="${user.userInfo}" varStatus="ind">
-				<c:if test="${userItm.ufId!=null}">
-					<div class="site">
-						<input type="radio" class="mySite" value="${userItm.ufId}"
-							<c:if test="${user.userInfo!=null&&ind.index==0}">checked="checked"</c:if>
-							name="usersite"> ${userItm.ufPhone} ${userItm.ufSite} ${userItm.ufName}
+	<form id="form1" action="/meishimeike/order/goPay" method="post">
+		<header>
+			<nav class="navbar navbar-default" role="navigation">
+				<div id="bodys" class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#example-navbar-collapse">
+							<span class="sr-only">切换导航</span> <span class="icon-bar"></span>
+							<span class="icon-bar"></span> <span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/meishimeike"><img id="logo4j"
+							src="img/log4j1.png" /></a>
 					</div>
-				</c:if>
-			</c:forEach>
-			<p>添加地址</p>
-			<p>
-				<span></span>&nbsp;<span></span>
-			</p>
-		</div>
-		<div class="time">
-			<div>
-				<p>送达时间</p>
-				<p>尽快送达</p>
-			</div>
-			<div>
-				<p>支付方式</p>
-				<p>支付宝在线支付</p>
-			</div>
-		</div>
-		<div class="food">
-			<div class="food-name">
-				<p>${merchantData.info.mName}</p>
+					<div class="collapse navbar-collapse" id="example-navbar-collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="/meishimeike">首页</a></li>
+							<li><a href="#">我的客服</a></li>
+							<li><a href="/meishimeike/order/open_user_order">我的订单</a></li>
+							<li><a href="/meishimeike/pages/merchant_login.html">入住加盟</a></li>
+							<li><c:if test="${user==null}">
+									<a href="/meishimeike/pages/user_login.html">登录|注册</a>
+								</c:if> <c:if test="${user!=null}">
+									<a href="/meishimeike/pages/userInfo.html">${userName}</a>
+								</c:if></li>
+							<c:if test="${user!=null}">
+								<li><a href="/meishimeike/pages/user_login.html">注销</a></li>
+							</c:if>
+							<li class="dropdown">
 
-			</div>
-			<div class="food-name2">
-
-				<c:set value="0" var="sumresult" />
-				<c:forEach var="i" items="${cList}">
-					<div class="food-img2">
-						<span>${i.name}</span> <span>×${i.num}</span> <span>￥${i.pice*i.num+5}</span>
-						<span>￥${i.pice*i.num}</span>
-						<c:set value="${sumresult+i.pice*i.num}" var="sumresult" />
+								<ul class="dropdown-menu">
+									<li><a href="#">jmeter</a></li>
+									<li><a href="#">EJB</a></li>
+									<li><a href="#">Jasper Report</a></li>
+									<li class="divider"></li>
+									<li><a href="#">分离的链接</a></li>
+									<li class="divider"></li>
+									<li><a href="#">另一个分离的链接</a></li>
+								</ul>
+							</li>
+						</ul>
 					</div>
+				</div>
+			</nav>
+			<div id="bgBox"></div>
+		</header>
+		<div class="Div_head">
+			<p>确认订单</p>
+		</div>
+		<div class="Div">
+
+			<div class="driss">
+
+				<p></p>
+				<c:forEach var="userItm" items="${user.userInfo}" varStatus="ind">
+					<c:if test="${userItm.ufId!=null}">
+						<div class="site">
+							<input type="radio" class="mySite" value="${userItm.ufId}"
+								<c:if test="${user.userInfo!=null&&ind.index==0}">checked="checked"</c:if>
+								name="usersite"> ${userItm.ufPhone} ${userItm.ufSite}
+							${userItm.ufName}
+						</div>
+					</c:if>
 				</c:forEach>
+				<p>添加地址</p>
+				<p>
+					<span></span>&nbsp;<span></span>
+				</p>
+			</div>
+			<div class="time">
+				<div>
+					<p>送达时间</p>
+					<p>尽快送达</p>
+				</div>
+				<div>
+					<p>支付方式</p>
+					<p>支付宝在线支付</p>
+				</div>
+			</div>
+			<div class="food">
+				<div class="food-name">
+					<p>${merchantData.info.mName}</p>
 
-			</div>
-			<p style="clear: both;">
-				<c:set value="${sumresult}" var="sumresult" />
-			<div class="food-money">
-				<span>包装费</span> <span>￥1</span>
-			</div>
-			<div class="food-money">
-				<span>配送费</span> <span>￥2</span>
-			</div>
-			<div class="food-money2">
-				<span>红包</span> <span>无可用红包&nbsp;></span>
-			</div>
-			<div class="moneys">
-				<span>${sumresult}</span> <span>小计:￥</span>
-			</div>
-		</div>
+				</div>
+				<div class="food-name2">
 
-		<!-- 
+					<c:set value="0" var="sumresult" />
+					<c:forEach var="i" items="${cList}">
+						<div class="food-img2">
+							<span>${i.name}</span> <span>×${i.num}</span> <span>￥${i.pice*i.num+5}</span>
+							<span>￥${i.pice*i.num}</span>
+							<c:set value="${sumresult+i.pice*i.num}" var="sumresult" />
+						</div>
+					</c:forEach>
+
+				</div>
+				<p style="clear: both;">
+					<c:set value="${sumresult}" var="sumresult" />
+				<div class="food-money">
+					<span>包装费</span> <span>￥1</span>
+				</div>
+				<div class="food-money">
+					<span>配送费</span> <span>￥2</span>
+				</div>
+				<div class="food-money2">
+					<span>红包</span> <span>无可用红包&nbsp;></span>
+				</div>
+				<div class="moneys">
+					<span>${sumresult}</span> <span>小计:￥</span>
+				</div>
+			</div>
+
+			<!-- 
 		<div class="foot">
 			<div class="foot_div1">
 				<span>餐具份数</span> <span>未选择></span>
@@ -857,59 +891,61 @@ body, p {
 			</div>
 		</div>
  -->
-	</div>
-	<div class="add">
-		<div class="add_div1">
-			<span>￥${sumresult}</span> &nbsp; <span>已优惠￥3</span>
 		</div>
-		<input type="button" value="去支付" onclick="goPay()" name="money" />
-	</div>
-	<div class="dizhi">
-		<div class="dizhi_div">
-			<h3>添加地址</h3>
-			<input type="text" placeholder="请输入点餐人姓名" name="name" />
-			<span class="span1"></span> <br />
-			<select class="sel" name="site">
-				<option>请选择地址</option>
-				<option>三峡联大</option>
-				<option>北大青鸟</option>
-				<option>重庆企业管理学校</option>
-			</select> <span class="span2"></span> <br />
-			<input type="text" placeholder="请输入点餐人手机号" name="phone" /> <span
-				class="span3"></span> <br />
-			<input type="button" onclick="commitSite()"  id="dizhi" class="tijiao"
-				value="添加完成" />
-			<p class="x">×</p>
+		<div class="add">
+			<div class="add_div1">
+				<span>￥${sumresult}</span> &nbsp; <span>已优惠￥3</span>
+			</div>
+			<input type="button" value="去支付" onclick="goPay()" name="money" />
 		</div>
+		
+		
+		<div class="dizhi">
+			<div class="dizhi_div">
+				<h3>添加地址</h3>
+				<input type="text" placeholder="请输入点餐人姓名" name="name" /> <span
+					class="span1"></span> <br /> <select class="sel" name="site">
+					<option>请选择地址</option>
+					<option>三峡联大</option>
+					<option>北大青鸟</option>
+					<option>重庆企业管理学校</option>
+				</select> <span class="span2"></span> <br /> <input type="text"
+					placeholder="请输入点餐人手机号" name="phone" /> <span class="span3"></span>
+				<br /> <input type="button" onclick="commitSite()" id="dizhi"
+					class="tijiao" value="添加完成" />
+				<p class="x">×</p>
+			</div>
 
-	</div>
-	 </form>
+		</div>
+		
+		
+	</form>
 </body>
 </html>
 <script>
-	
-	function goPay(){
-		var index=$('.mySite').length
-		if(index==0){
+	function goPay() {
+		var index = $('.mySite').length
+		if (index == 0) {
 			$(".dizhi").slideToggle()
-		}else{
+		} else {
 			$('#form1').submit();
 		}
 	}
-	
-	function commitSite(){
-		$.ajax({
-			type:"post",
-			url:"/meishimeike/user/addSite",
-			async:true,
-			data:$('#form1').serializeArray(),
-			success:function(data){
-				var jso = JSON.parse(data);	
-				if(jso.data==true){
-					window.location.href = "/meishimeike/pages/user_in_zhifu.jsp";
-				}
-			}
-		});
+
+	function commitSite() {
+		$
+				.ajax({
+					type : "post",
+					url : "/meishimeike/user/addSite",
+					async : true,
+					data : $('#form1').serializeArray(),
+					success : function(data) {
+						var jso = JSON.parse(data);
+						if (jso.data == true) {
+							window.location.href = "/meishimeike/pages/user_in_zhifu.jsp";
+						}
+					}
+				});
 	}
 
 	$(function() {
@@ -942,14 +978,11 @@ body, p {
 				$(".span1").text("用户名不能为空");
 			}
 		})
-		
-		
-		
-		$(".navbar-toggle").click(function(){
-		$("#example-navbar-collapse").toggleClass('in');
-	})
-		
-		
+
+		$(".navbar-toggle").click(function() {
+			$("#example-navbar-collapse").toggleClass('in');
+		})
+
 		$("input[name=phone]")
 				.blur(
 						function() {
@@ -980,20 +1013,18 @@ body, p {
 				.click(
 						function() {
 							if (fle == true & fle2 == true & fle3 == true) {
-								
-								
+
 								$(".dizhi").slideToggle()
-								
+
 								$("input[name=name]").val("");
 								$("input[name=phone]").val("");
 								$(".span1").text("");
 								$(".span3").text("");
 								$(".span2").text("");
-								
-								
+
 							} else {
 								if ($("input[name=name]").val() != "") {
-									if ($("input[name=name]").val().length <2) {
+									if ($("input[name=name]").val().length < 2) {
 										$(".span1").text("用户名至少2位");
 										fle = false;
 									} else {
