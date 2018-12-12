@@ -568,3 +568,63 @@
     };
 
 })(jQuery, window, document);
+
+
+
+$(function() {
+	// 地址选择器遮罩层打开与关闭
+	$("#areaLabel").click(function(e) {
+		$("#addressSelectWrapper").show();
+		e.stopPropagation();
+	});
+	$(document).click(function() {
+		$("#addressSelectWrapper").hide();
+	});
+	$("#cancel").click(function() {
+		$("#addressSelectWrapper").hide();
+	});
+	$("#addressSelect").click(function(e) {
+		e.stopPropagation();
+	});
+
+	initAddress();
+});
+
+//初始化地址选择
+function initAddress() {
+	$("#Addr").cityLinkage(
+			{
+				containerId : 'addressSelectWrapper',
+				getSelectedCode : function() {
+					return $("#Addr").data("code");
+				},
+				callback : function(data) {
+					$("#Addr").val(data.addr).data("code",
+							data.town.code);
+				}
+			});
+}
+
+
+function sub() {
+	alter("asdasd");
+	var name = document.getElementById("name");
+	var contacts = document.getElementById("contacts");
+	var Addr = document.getElementById("Addr");
+	var site = document.getElementById("site");
+	var zzz = /^([\u4E00-\u9FA5])*$/;
+	var telzz = /^1[3,5,8]\d{9}$/;
+	if (zzz.test(name)) {
+		name.style.border = "1px green solid";
+		if (telzz.test(contacts)) {
+			name.style.border = "1px green solid";
+			return true;
+		} else {
+			name.style.border = "1px green red";
+			return false;
+		}
+	} else {
+		name.style.border = "1px green red";
+		return false;
+	}
+}

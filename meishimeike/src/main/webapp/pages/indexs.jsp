@@ -92,7 +92,7 @@ body{
   border-left-color: transparent;
   padding: 0.5em;
   border-radius: 50%;
-  background: #9bd807;
+  background: #8b83b1;
   background-clip: content-box;
   animation: spinDisc 0.8s linear infinite;
   -moz-animation: spinDisc 0.8s linear infinite;

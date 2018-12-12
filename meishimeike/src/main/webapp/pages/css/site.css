@@ -2,24 +2,35 @@
 body{
 	background: url(../../../img/sitebg.jpg);
   font-family: 'Open Sans', sans-serif;
+  font-family: "微软雅黑";
 }
 .app-location{
+	position:relative;
   width:450px;
-  margin:150px auto;
+  top: 50%;
+  transform: translateY(-50%);
     text-align: center;
-    background: #323542;
+    background: #8c84b7;
       padding:40px 10px 50px 10px;
       border-radius: 15px;
 }
 h1{color: white;font-size: 30px;}
 ul,ol,li{list-style: none;}
-form {
-   padding: 0% 1%;
-}
+
 /*-----*/
 
+#x{
+	position: absolute;
+		right: 20px;
+		top: 5px;
+		font-size: 26px;
+		cursor: pointer;
+		color:#ccc;
+}
+
 .app-location input[type="text"],.app-location select{
-  width: 81.2%;
+	
+  width: 79.2%;
   padding: 1.1em 1em 1.1em 4em;
   color: #858282;
   font-size: 16px;
@@ -34,31 +45,31 @@ form {
   -webkit- border-radius: 0.3em;
   margin:0.7em 0;
   }
+  
+  
  .app-location input[type="radio"]{
   width: 20px;
   }
- 
+ #msgBox{
+ 	color: red;
+ 	display: none;
+ }
   .submit {
   margin: 1em 0;
   }
-.app-location input[type="submit"]{
+.app-location input[type="button"]{
   font-size: 20px;
   font-weight: 300;
   color: #fff;
   cursor: pointer;
   outline: none;
   padding: 17px 15px;
-  width:355px;
-  border:3px solid #0bd38a;
-  background: #0bd38a;
+  width:340px;
+
+  background: #c6ee66;
   border-radius: 0.3em;
   -o-border-radius: 0.3em;
   -webkit-border-radius: 0.3em;
   -moz-border-radius: 0.3em;
 }
-input[type="submit"]:hover{
-  background:none;
-  border: 3px solid #0bd38a;
-  color: #0bd38a;
 
-}

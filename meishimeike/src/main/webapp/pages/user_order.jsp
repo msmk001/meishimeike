@@ -177,16 +177,21 @@ body {
 	min-height: 100px;
 	margin: 10px 0px;
 }
-
+.Xiang_Xi:after {
+content: "";
+display: block;
+clear: both;
+width: 100%;
+}
 .Xiang_Xi {
 	/* max-width:38%; */
-	position:relative;
+	
 	
 	margin:10px 0 !important;
 	
 	width: 100%;
 	min-height: 100px;
-	padding: 13px 0px;
+	
 	margin: 10px 0;
 	box-sizing: border-box;
 	box-shadow: 0 7px 10px -2px rgba(139, 132, 178, 0.26);
@@ -197,7 +202,7 @@ body {
 	float: left;
 	text-align: left;
 	
-	height: 80px;
+	min-height: 80px;
 }
 .box01{
 	width: 170px;
@@ -288,7 +293,7 @@ body {
 		min-width:200px; 
 	}
 	.box01 {
-		padding-top: 20px;
+		padding-top: 8px;
 	}
 	#bodys {
 		width: 100%;
@@ -321,13 +326,13 @@ body {
 		position: relative;
 		border-bottom: 1px solid #eee;
 		margin-top: 30px;
-		height: 80px;
+		min-height: 80px;
 		box-sizing: content-box;
 		box-shadow: 0 7px 10px -2px #c7ef6782;
 	}
 	.Xiang_Xi-div {
 		width: 80%;
-		position: absolute;
+		
 		left: 0px;
 		top: 0px;
 	}
@@ -335,6 +340,7 @@ body {
 		height: auto;
 		position: absolute;
 		right: 40%;
+		bottom:2px;
 		line-height: 115px;
 		font-size: 14px;
 	}
@@ -367,9 +373,7 @@ body {
 		width: 60px;
 		height: 60px;
 	}
-	.Xiang_Xi-div>div:nth-of-type(2)>p:nth-of-type(2) {
-		display: none;
-	}
+	
 	.Xiang_Xi-div>div:nth-of-type(2) {
 		min-width: 200px;
 	}
@@ -499,8 +503,9 @@ body {
 							</p>
 						</div>
 					</div>
+					<p style="">
 					<div class="Xiang_Xi-div2">
-						<span>${i.oPrice}元</span>
+						<span><fmt:formatNumber type="number" value="${i.oPrice}" pattern="0.00" maxFractionDigits="2"/></span>
 					</div>
 					<div class="Xiang_Xi-div3">
 						<c:if test="${i.oCode==1}">

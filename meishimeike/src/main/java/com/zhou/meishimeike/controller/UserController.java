@@ -66,7 +66,9 @@ public class UserController {
 	
 	@RequestMapping("/addSite")
 	@ResponseBody
-	public Map addSite(HttpServletResponse response,HttpServletRequest request,String name,String phone,String site) throws IOException {
+	public Map addSite(HttpServletResponse response,HttpServletRequest request,String name,String phone,String site1,String site2) throws IOException {
+		
+		
 		Map <String, Object> map=new HashMap<>();
 		
 		if(request.getSession().getAttribute("user")==null) {
@@ -81,7 +83,7 @@ public class UserController {
 		uSerInfo.setuId(attribute.getId());
 		uSerInfo.setUfName(name);
 		uSerInfo.setUfPhone(phone);
-		uSerInfo.setUfSite(site);
+		uSerInfo.setUfSite((site1+"--"+site2));
 		
 			
 		
