@@ -102,25 +102,7 @@ public class UserController {
 		return map;
 	}
 	
-	/*@RequestMapping("/getSite")
-	@ResponseBody
-	public void getSite(HttpServletResponse response,HttpServletRequest request) throws IOException, ServletException {
 
-		if(request.getSession().getAttribute("user")==null) {
-			response.sendRedirect("/meishimeike");
-			return ;
-		}
-		User attribute = (User)request.getSession().getAttribute("user");
-		
-		USerInfo uSerInfo = new USerInfo();
-		
-		User userByPhone = userService.getUserByPhone(attribute.getPhone());
-		
-		request.getSession().setAttribute("user", userByPhone);
-		
-		request.getRequestDispatcher("/pages/user_in_zhifu.jsp").forward(request, response);
-		
-	}*/
 		
 	@RequestMapping("/user_login")
 	@ResponseBody

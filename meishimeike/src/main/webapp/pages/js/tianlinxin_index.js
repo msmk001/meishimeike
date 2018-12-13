@@ -79,7 +79,7 @@ $(function() {
 			return;
 		}else{
 			$('#on_top').hide()
-			$('#on_top').css({"bottom":"10%","top":"inherit"})
+			$('#on_top').css({"bottom":"10%"})
 			
 			if(top_margin > 200&&bool01==false) {
 				$('#on_top').show();
@@ -102,9 +102,28 @@ $(function() {
 			bool01=false;
 		});
 		
-		$('#on_top').animate({
-			top:"0px"
-		},500);
+		
+		// $('#on_top').css("transform","translateX(0)");
+		
+		var on_top=$('#on_top')[0];
+		
+		var tapVal=document.getElementById("on_top").style.bottom;
+		
+		tapVal=parseInt(tapVal.substring(0,(tapVal.length-1)))
+		
+
+		
+		var intval=setInterval(function(){
+			if(tapVal>=100){
+				clearInterval(intval)
+			}
+
+			on_top.style.bottom=tapVal+"%";
+			
+			tapVal+=1;
+		},1);
+		
+		
 	})
 
 //rgba(68, 56, 130, 0.62)

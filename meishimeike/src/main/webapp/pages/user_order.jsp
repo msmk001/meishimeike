@@ -412,9 +412,16 @@ width: 100%;
 .navbar-default .navbar-toggle {
 	border-color: #ddd;
 }
+
+
+
 </style>
 </head>
 <body>
+<!-- ----------------------隐藏层---------------------------->
+
+
+
 	<header>
 		<nav class="navbar mar navbar-default" role="navigation">
 			<div id="bodys" class="container-fluid">
@@ -516,7 +523,7 @@ width: 100%;
 						</c:if>
 					</div>
 					<div class="Xiang_Xi-div4">
-						<input type="button" value="详细信息" /> <input type="button"
+						<input type="button" class="info" value="详细信息" /> <input type="button"
 							value="再来一单" />
 					</div>
 				</div>
@@ -543,6 +550,10 @@ width: 100%;
 			$(this).siblings().css({
 				"background-color" : "rgba(0,0,0,0)"
 			});
+		});
+		
+		$('.info').on("click",function(){
+			alert(1)
 		})
 	})
 </script>

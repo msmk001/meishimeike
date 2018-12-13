@@ -8,7 +8,7 @@ $(function() {
 		var str = imgSrc.substring((imgSrc.length - 6), (imgSrc.length - 5))
 
 		if(str == 1) {
-			$('#img01')[0].src = "/meishimeike/pages/img/bg4.jpeg";
+			$('#img01')[0].src = "/meishimeike/pages/img/bg3.jpeg";
 		} else if(str == 2) {
 			$('#img01')[0].src = "/meishimeike/pages/img/bg3.jpeg";
 		} else if(str == 3) {
@@ -69,23 +69,67 @@ $(function() {
 	}
 
 	//---------------------滚动条事件---------------------------------
+	var bool01 =false;
 	$(window).on("scroll", function() {
-		var top_margin = $(this).scrollTop();
-		if(top_margin > 200) {
-			$('#on_top').slideDown();
-		} else {
-			$('#on_top').slideUp();
+		
+		
+		
+		var top_margin = $(this).scrollTop();		
+		if(bool01==true){
+			return;
+		}else{
+			$('#on_top').hide()
+			$('#on_top').css({"bottom":"10%"})
+			
+			if(top_margin > 200&&bool01==false) {
+				$('#on_top').show();
+			} else {
+				$('#on_top').hide()
+			}
 		}
+		
 	})
 	$('#on_top').on('click', function() {
+		
+		bool01=true;
+		
 		$('body,html').animate({
 			scrollTop: "0px"
-		}, 300);
+		}, 500,function(){
+			
+			$('#on_top').hide()
+			
+			bool01=false;
+		});
+		
+		
+		// $('#on_top').css("transform","translateX(0)");
+		
+		var on_top=$('#on_top')[0];
+		
+		var tapVal=document.getElementById("on_top").style.bottom;
+		
+		tapVal=parseInt(tapVal.substring(0,(tapVal.length-1)))
+		
+
+		
+		var intval=setInterval(function(){
+			if(tapVal>=100){
+				clearInterval(intval)
+			}
+
+			on_top.style.bottom=tapVal+"%";
+			
+			tapVal+=1;
+		},1);
+		
+		
 	})
 
-
+//rgba(68, 56, 130, 0.62)
 	
-
+	
+	
 	$('#section-input').on("keydown", function(evt) {
 
 		//$(this).blur();
@@ -132,7 +176,14 @@ $(function() {
 	/*$('.main_box').hide();
 	$('.loader--spinningDisc,#spBox').show();*/
 
-	$('#fen').on("click", function() {
+	$('#fen,#allBtn').on("click", function() {
+		
+		if(screen.width < 500) {
+			$('body,html').animate({
+				scrollTop: "140px"
+			}, 300);
+		}
+		
 		$('.main_box').hide()
 		$('.loader--spinningDisc,#spBox').show()
 		setTimeout(function() {
@@ -142,10 +193,11 @@ $(function() {
 
 	})
 
-	$('.nav2-a').on("click", function() {
+	$('.nav2-a:not(#allBtn)').on("click", function() {
+		
 		if(screen.width < 500) {
 			$('body,html').animate({
-				scrollTop: "170px"
+				scrollTop: "140px"
 			}, 300);
 		}
 

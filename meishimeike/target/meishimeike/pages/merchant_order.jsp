@@ -12,7 +12,7 @@
 
 <meta name="viewport"
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-<title></title>
+<title>我的订单</title>
 <script type="text/javascript"
 	src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
 <link rel="stylesheet" type="text/css"
@@ -34,12 +34,14 @@
 	background-color: #FFFFFF;
 	top: 0;
 	position: fixed;
+	min-width: 1300px;
 }
 
 body {
 	margin: 0px;
 	padding: 0px;
 	background-color: #F7F7F7;
+	min-width: 1300px;
 }
 
 * {
@@ -91,7 +93,7 @@ body {
 
 .Div {
 	width: 60%;
-	min-height: 500px;
+	min-height: 900px;
 	background-color: #FFF;
 	margin-top: 80px;
 	border: 1px solid #eee;
@@ -175,41 +177,65 @@ body {
 	min-height: 100px;
 	margin: 10px 0px;
 }
-
+.Xiang_Xi:after {
+content: "";
+display: block;
+clear: both;
+width: 100%;
+}
 .Xiang_Xi {
+	/* max-width:38%; */
+	
+	
+	margin:10px 0 !important;
+	
 	width: 100%;
 	min-height: 100px;
-	padding: 20px 0px;
+	
 	margin: 10px 0;
-	box-sizing: content-box;
-	box-shadow: 0 7px 10px -2px #c7ef67;
+	box-sizing: border-box;
+	box-shadow: 0 7px 10px -2px rgba(139, 132, 178, 0.26);
 }
 
 .Xiang_Xi>div {
-	margin: 0px 1.3%;
+	margin: 0px ;
 	float: left;
-	text-align: center;
-	height: 80px;
+	text-align: left;
+	
+	min-height: 80px;
 }
+.box01{
+	width: 170px;
+	    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	}
 
 .Xiang_Xi-div {
-	width: 38%;
+	/*  */
+	width: 45%;
+	
 }
 
 .Xiang_Xi-div2 {
-	width: 15%;
+	width: 17%;
 	font-size: 18px;
+	padding-left:10px;
 	line-height: 80px;
 }
 
 .Xiang_Xi-div3 {
-	width: 15%;
+	width: 17%;
 	font-size: 14px;
-	line-height: 80px;
+	position:relative;
+	top:25px;
+	padding-left:20px;
 	color: #ADADAD;
 }
 
 .Xiang_Xi-div4 {
+	position:relative;
+	right:0;
 	width: 18%;
 }
 
@@ -259,8 +285,16 @@ body {
 	color: #696969;
 } */
 @media screen and (max-width: 500px) {
+		.Xiang_Xi-div3 {
+	width: 20%;
+
+}
+
+	body{
+		min-width:200px; 
+	}
 	.box01 {
-		padding-top: 20px;
+		padding-top: 8px;
 	}
 	#bodys {
 		width: 100%;
@@ -293,13 +327,13 @@ body {
 		position: relative;
 		border-bottom: 1px solid #eee;
 		margin-top: 30px;
-		height: 80px;
+		min-height: 80px;
 		box-sizing: content-box;
 		box-shadow: 0 7px 10px -2px #c7ef6782;
 	}
 	.Xiang_Xi-div {
 		width: 80%;
-		position: absolute;
+		
 		left: 0px;
 		top: 0px;
 	}
@@ -307,14 +341,14 @@ body {
 		height: auto;
 		position: absolute;
 		right: 40%;
-		line-height: 115px;
+		top:-26px;
 		font-size: 14px;
 	}
 	.Xiang_Xi-div3 {
 		height: auto;
 		position: absolute;
-		right: 20%;
-		line-height: 115px;
+		right: 24%;
+		top:5px;
 	}
 	.Xiang_Xi-div4 {
 		position: absolute;
@@ -339,9 +373,7 @@ body {
 		width: 60px;
 		height: 60px;
 	}
-	.Xiang_Xi-div>div:nth-of-type(2)>p:nth-of-type(2) {
-		display: none;
-	}
+	
 	.Xiang_Xi-div>div:nth-of-type(2) {
 		min-width: 200px;
 	}
@@ -350,7 +382,7 @@ body {
 	}
 	.Xiang_Xi-div2, .Xiang_Xi-div3 {
 		position: absolute;
-		bottom: 8px;
+		
 	}
 	.navbar-toggle {
 		border-color: #fff !important;
@@ -452,12 +484,13 @@ body {
 							<c:forEach var="j" items="${i.commodity}">
 								<p>
 									<span>${j.name}</span> x <span>${j.num}</span>
-									${i.uSerInfo.ufSite}
+									
 
 								</p>
 							</c:forEach>
 
 							<p>手机号 : ${i.uSerInfo.ufPhone}</p>
+							<p>地址 : ${i.uSerInfo.ufSite}</p>
 							<p class="mynodep">
 								订单号：<span>${i.oTradeNo}</span>
 							</p>
@@ -468,10 +501,10 @@ body {
 						</div>
 					</div>
 					<div class="Xiang_Xi-div2">
-						<span>${i.oPrice}元</span>
+						<span><fmt:formatNumber type="number" value="${i.oPrice}" pattern="0.0" maxFractionDigits="1"/>元</span>
 					</div>
 					<div class="Xiang_Xi-div3">
-						<c:if test="${i.oCode==1}">
+						<c:if test="${i.oCode!=2}">
 							<span>未支付</span>
 						</c:if>
 						<c:if test="${i.oCode==2}">

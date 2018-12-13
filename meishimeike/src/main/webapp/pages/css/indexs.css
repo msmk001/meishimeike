@@ -352,7 +352,7 @@ input::-webkit-input-placeholder {
 	color: #fff;
 	display: none;
 	right: 5%;
-	bottom: 10%;
+	
 }
 
 #imgBox>img {
@@ -444,6 +444,7 @@ input::-webkit-input-placeholder {
 		box-shadow: none;
 		border-bottom: 1px solid Gainsboro;
 		border-top: 1px solid Gainsboro;
+		padding-left: 10px;
 	}
 	#logo4j {
 		width: 95%;

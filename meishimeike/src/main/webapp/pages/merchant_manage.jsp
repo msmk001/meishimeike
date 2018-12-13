@@ -159,7 +159,7 @@
 
 .mu_lu_box_c img {
 	width: 120px;
-	height: 90px;
+	height: 98px;
 }
 
 .float_left {
@@ -302,7 +302,7 @@ a:link {
 	box-sizing: border-box;
 }
 
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:500px) {
 	#box1 {
 		overflow: hidden;
 	}
@@ -526,7 +526,9 @@ input, input:focus, input:active {
 				</div>
 			</div>
 		</c:forEach>
-
+		
+		<div style="clear: both;"></div>
+		
 		<!-- ------------------隐藏层------------------------- -->
 		<div id="box1" class="box1_s">
 			<form id="form5" method="post"

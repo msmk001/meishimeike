@@ -228,7 +228,7 @@ body {
 
 .mu_lu_box_c img {
 	width: 120px;
-	height: 90px;
+	height: 98px;
 }
 
 .btnsty {
@@ -386,6 +386,7 @@ body {
 	margin-top: 9px;
 	background: #ffffff;
 	margin-right: 5px;
+	
 }
 
 #shangping {
@@ -394,6 +395,7 @@ body {
 	font-size: 14px;
 	text-align: center;
 	padding-top: 18px;
+	line-height: 2.4;
 }
 
 #ul1>li:nth-child(2) {
@@ -446,7 +448,7 @@ body {
 .navbar-toggle{
 		background-color: none;
 	}
-@media only screen and (max-width:400px) {
+@media only screen and (max-width:500px) {
 	
 	#float_r {
 		display: none;

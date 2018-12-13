@@ -154,7 +154,7 @@ body, p {
 	}
 	.food {
 		width: 100%;
-		min-height: 260px;
+		min-height: 60px;
 		background: #fff;
 		border-radius: 5px;
 		margin-top: 20px;

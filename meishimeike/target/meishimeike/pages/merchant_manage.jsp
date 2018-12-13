@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/meishimeike/pages/css/bootstrap.css" />
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title></title>
+<title>商家后台</title>
 <style type="text/css">
 #footer1 {
 	font-size: 16px;
@@ -526,7 +526,9 @@ input, input:focus, input:active {
 				</div>
 			</div>
 		</c:forEach>
-
+		
+		<div style="clear: both;"></div>
+		
 		<!-- ------------------隐藏层------------------------- -->
 		<div id="box1" class="box1_s">
 			<form id="form5" method="post"

@@ -18,6 +18,8 @@
 
 
 <style type="text/css">
+
+
 body{
 	min-width: 1300px;
 }
@@ -103,6 +105,9 @@ body{
   
   box-sizing: content-box;
 }
+
+
+
 @keyframes spinDisc {
   50% {
    /*  border-top-color: #3498db;
@@ -566,7 +571,7 @@ body{
 
 </body>
 </html>
-<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="/meishimeike/pages/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="/meishimeike/pages/js/tianlinxin_index.js"></script>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>

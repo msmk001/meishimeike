@@ -19,6 +19,10 @@
 
 <style type="text/css">
 
+
+body{
+	min-width: 1300px;
+}
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #fff;
 }
@@ -90,7 +94,7 @@
   border-left-color: transparent;
   padding: 0.5em;
   border-radius: 50%;
-  background: #9bd807;
+  background: #8b83b1;
   background-clip: content-box;
   animation: spinDisc 0.8s linear infinite;
   -moz-animation: spinDisc 0.8s linear infinite;
@@ -101,6 +105,9 @@
   
   box-sizing: content-box;
 }
+
+
+
 @keyframes spinDisc {
   50% {
    /*  border-top-color: #3498db;
@@ -162,6 +169,7 @@
     -o-transform: rotate(1turn);
   }
 }
+
 </style>
 
 </head>
@@ -216,7 +224,9 @@
 		<div id="bgBox"></div>
 	</header>
 
-	<div class="cursor h_red ui_hide" id="on_top" title="返回顶部">△</div>
+	<div class="cursor h_red ui_hide" id="on_top" title="返回顶部">
+		<img alt="" src="/meishimeike/pages/img/huojian.png"  width="120%" height="100%"/>
+	</div>
 
 	<section>
 		<nav>
@@ -224,7 +234,7 @@
 				<div id="section-div-1">当前位置 : <span id="siteText">红旗河沟</span></div>
 				<div id="section-div-2"></div>
 				<div id="section-div-3">
-					<input id="section-input"  type="text" placeholder="搜索商家" />
+					<input id="section-input" maxlength="10"  type="text" placeholder="搜索商家" />
 				</div>
 			</div>
 		</nav>
@@ -238,7 +248,7 @@
 
 		<nav id="nav02">
 			<div id="nav_2">
-				<span id="fen">全部分类 |</span> <a class="nav2-a">美食</a> <a
+				<span id="fen">全部分类 |</span><span id="allBtn"  class="nav2-a">全部</span> <a class="nav2-a">美食</a> <a
 					class="nav2-a">快餐</a> <a class="nav2-a">小吃</a> <a class="nav2-a">甜品</a>
 				<a class="nav2-a">早餐</a> <a class="nav2-a">午餐</a> <a class="nav2-a">下午茶</a>
 				<a class="nav2-a">晚餐</a>
@@ -561,7 +571,7 @@
 
 </body>
 </html>
-<script type="text/javascript" src="/meishimeike/pages/js/jquery-2.1.0.js"></script>
+<script type="text/javascript" src="/meishimeike/pages/js/jquery-1.11.0.js"></script>
 <script type="text/javascript" src="/meishimeike/pages/js/tianlinxin_index.js"></script>
 
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=h4HCnb8GEj76TRvKMTgyGjWhtsnRqm36"></script>
